@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
             }
             if (!localPlayer->isGrounded())
             {
-                printf("IN AIR");
+                printf("IN AIR \n");
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
