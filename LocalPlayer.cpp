@@ -95,6 +95,13 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result;
     }
+    int getForwardState()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_FORWARD + sizeof(int) + sizeof(int);
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
     float getPunchPitch()
     {
         long basePointer = getBasePointer();
