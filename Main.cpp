@@ -73,11 +73,11 @@ int main(int argc, char *argv[])
             {
                 printf("UPDATE[%d] OK. \n", counter);
             }
-            if (localPlayer->getForwardDown1()) != 0)
+            if (localPlayer->getForwardDown1() != 0)
             {
                 printf("FORWARD DOWN 1 IS [%d] \n", localPlayer->getForwardDown1());
             }
-            if (localPlayer->getForwardDown2()) != 0)
+            if (localPlayer->getForwardDown2() != 0)
             {
                 printf("FORWARD DOWN 2 IS [%d] \n", localPlayer->getForwardDown2());
             }
