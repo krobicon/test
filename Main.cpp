@@ -71,6 +71,8 @@ int main(int argc, char *argv[])
             // all ran fine
             if (counter % 1000 == 0)
                 printf("UPDATE[%d] OK. \n", counter);
+            if (counter % 1000 == 0)
+                printf("FORWARD1[%d] OK. \n", localPlayer->getForwardDown1());
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
         catch (...)
