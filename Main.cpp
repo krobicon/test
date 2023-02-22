@@ -73,17 +73,9 @@ int main(int argc, char *argv[])
             {
                 printf("UPDATE[%d] OK. \n", counter);
             }
-            if (localPlayer->getForwardDown1() != 0)
+            if (!localPlayer->isGrounded())
             {
-                printf("FORWARD DOWN 1 IS [%d] \n", localPlayer->getForwardDown1());
-            }
-            if (localPlayer->getForwardDown2() != 0)
-            {
-                printf("FORWARD DOWN 2 IS [%d] \n", localPlayer->getForwardDown2());
-            }
-            if (localPlayer->getForwardState() != 0)
-            {
-                printf("FORWARD STATE IS [%d] \n", localPlayer->getForwardState());
+                printf("IN AIR");
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
