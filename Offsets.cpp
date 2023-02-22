@@ -30,5 +30,5 @@ namespace offsets
     const long FLAGS = 0x0098;                      // [RecvTable.DT_Player]            -> m_fFlags
     const long ZOOMING = 0x1c51;                    // [RecvTable.DT_Player]            -> m_bZooming
     const long LAST_VISIBLE_TIME = 0x1A78;          // [Miscellaneous]                  -> CPlayer!lastVisibleTime
-    const long CURRENT_SHIELDS = 0x0170;             // m_shieldHealth
+    const long CURRENT_SHIELDS = 0x0170;            // [RecvTable.DT_BaseEntity         -> m_shieldHealth
 }
