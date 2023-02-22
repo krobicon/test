@@ -98,9 +98,15 @@ public:
     int getForwardState()
     {
         long basePointer = getBasePointer();
-        long ptrLong = offsets::REGION + offsets::IN_FORWARD + sizeof(int) + sizeof(int);
+        long ptrLong = offsets::REGION + offsets::IN_FORWARD + 0x8;
         int result = mem::ReadInt(ptrLong);
         return result;
+    }
+    void setForwardState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::IN_FORWARD + 0x8;
+        mem::WriteInt(ptrLong, state);
     }
     float getPunchPitch()
     {
