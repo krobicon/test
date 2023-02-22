@@ -146,4 +146,11 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isGrounded()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::FLAGS;
+        uint32_t result = mem::ReadUint32(ptrLong);
+        return (result & 0x1) != 0;
+    }
 };
