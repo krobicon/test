@@ -81,6 +81,20 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    int getForwardDown1()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_FORWARD;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    int getForwardDown2()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_FORWARD + sizeof(int);
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
     float getPunchPitch()
     {
         long basePointer = getBasePointer();
