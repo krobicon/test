@@ -75,11 +75,18 @@ int main(int argc, char *argv[])
             }
             if (!localPlayer->isGrounded())
             {
-                printf("IN AIR \n");
-            }
-            else
-            {
-                printf("GROUNDED \n");
+                if (localPlayer->getForwardDown1())
+                {
+                    printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
+                }
+                if (localPlayer->getForwardDown2())
+                {
+                    printf("Forward Down2:[%d] \n", localPlayer->getForwardDown2());
+                }
+                if (localPlayer->getForwardState())
+                {
+                    printf("Forward State:[%d] \n", localPlayer->getForwardState());
+                }
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
