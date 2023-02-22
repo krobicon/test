@@ -147,6 +147,15 @@ namespace mem
         if (!success)
             throw new std::invalid_argument("Failed to write long at address: " + address);
     }
+    long ReadUint32(long address)
+    {
+        int size = sizeof(uint32_t);
+        long buffer;
+        bool success = Read(address, &buffer, size);
+        if (!success)
+            throw new std::invalid_argument("Failed to read uint32_t at address: " + address);
+        return buffer;
+    }
     std::string convertPointerToHexString(long pointer)
     {
         std::stringstream stream;
