@@ -69,12 +69,17 @@ int main(int argc, char *argv[])
                 sense->update();
 
             // all ran fine
-            if (counter % 1000 == 0)
+            if (counter % 5000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
-                printf("FORWARD1[%d] OK. \n", localPlayer->getForwardDown1());
-                printf("FORWARD2[%d] OK. \n", localPlayer->getForwardDown2());
-                printf("FORWARDSTATE[%d] OK. \n", localPlayer->getForwardState());
+            }
+            if (localPlayer->getForwardDown1()) != 0)
+            {
+                printf("FORWARD DOWN 1 IS [%d] \n", localPlayer->getForwardDown1());
+            }
+            if (localPlayer->getForwardDown2()) != 0)
+            {
+                printf("FORWARD DOWN 2 IS [%d] \n", localPlayer->getForwardDown2());
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
