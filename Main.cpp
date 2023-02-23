@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
                 {
                     localPlayer->setForwardState(5);
                 }
-                else if (localPlayer->getForwardState() == 6 || localPlayer->getForwardState() == 5)
+                else
                 {
                     printf("Forward State:[%d] \n", localPlayer->getForwardState());
                     //localPlayer->setForwardState(0);
