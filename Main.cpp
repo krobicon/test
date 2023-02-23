@@ -79,12 +79,12 @@ int main(int argc, char *argv[])
                 {
                     printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
                 }
-                if (!localPlayer->getForwardState())
+                if (localPlayer->getForwardState() == 0
                 {
                     printf("Forward State:[%d] \n", localPlayer->getForwardState());
-                    localPlayer->setForwardState(6);
+                    localPlayer->setForwardState(5);
                 }
-                else if (localPlayer->getForwardState())
+                else if (localPlayer->getForwardState() == 6 || localPlayer->getForwardState() == 5)
                 {
                     printf("Forward State:[%d] \n", localPlayer->getForwardState());
                     localPlayer->setForwardState(0);
