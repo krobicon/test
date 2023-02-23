@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     // Main loop
     printf("MYAPEX STARTING MAIN LOOP\n");
     int counter = 0;
+    int strafeTick;
     while (1)
     {
         try
@@ -90,8 +91,17 @@ int main(int argc, char *argv[])
                     localPlayer->setForwardState(4);
                     printf("Forward State:[%d] \n", localPlayer->getForwardState());
                 }
-                //localPlayer->setForwardState(5);
-                //printf("Forward State:[%d] \n", localPlayer->getForwardState());
+            }
+            else
+            {
+                if (localPlayer->getForwardState() == 4 && localPlayer->getForwardDown1() != 0)
+                {
+                    localPlayer->setForwardState(5);
+                }
+                else if(localPlayer->getForwardState() == 5 && localPlayer->getForwardDown1() == 0)
+                {
+                    localPlayer->setForwardState(4);
+                }
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
