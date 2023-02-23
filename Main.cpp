@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                     jumpstart = true;
                     strafeTick = 0;
                 }
-                if (strafeTick > 50)
+                if (strafeTick > 20)
                 {
                     if (localPlayer->getForwardState() == 0)
                     {
