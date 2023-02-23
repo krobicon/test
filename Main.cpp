@@ -104,6 +104,10 @@ int main(int argc, char *argv[])
                 {
                     localPlayer->setForwardState(0);
                 }
+                else if (localPlayer->getForwardDown1() == 33)
+                {
+                    localPlayer->setForwardState(1);
+                }
                 printf("Forward Down:[%d] \n", localPlayer->getForwardDown1());
                 printf("Forward State:[%d] \n", localPlayer->getForwardState());
             }
