@@ -105,7 +105,7 @@ public:
     void setForwardState(int state)
     {
         long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::IN_FORWARD + 0x8;
+        long ptrLong = offsets::REGION + offsets::IN_FORWARD + 0x8;
         mem::WriteInt(ptrLong, state);
     }
     float getPunchPitch()
