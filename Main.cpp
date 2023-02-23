@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     // Main loop
     printf("MYAPEX STARTING MAIN LOOP\n");
     int counter = 0;
+    bool jumpstart = false;
     int strafeTick;
     while (1)
     {
@@ -76,23 +77,35 @@ int main(int argc, char *argv[])
             }
             if (!localPlayer->isGrounded())
             {
-                if (localPlayer->getForwardDown1())
+                if (jumpstart == false)
                 {
-                    printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
+                    jumpstart = true;
+                    strafeTick = 0;
                 }
-                
-                if (localPlayer->getForwardState() == 0)
+                if (strafeTick > 100)
                 {
-                    localPlayer->setForwardState(5);
-                    printf("Forward State:[%d] \n", localPlayer->getForwardState());
+                    if (localPlayer->getForwardState() == 0)
+                    {
+                        localPlayer->setForwardState(5);
+                        printf("Forward State:[%d] \n", localPlayer->getForwardState());
+                    }
+                    else
+                    {
+                        localPlayer->setForwardState(4);
+                        printf("Forward State:[%d] \n", localPlayer->getForwardState());
+                    }
                 }
-                else
-                {
-                    localPlayer->setForwardState(4);
-                    printf("Forward State:[%d] \n", localPlayer->getForwardState());
-                }
+                strafeTick++;
             }
             else
+            {
+                jumpstart = false;
+            }
+                 /*if (localPlayer->getForwardDown1())
+                {
+                    printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
+                }*/
+            /*else
             {
                 if (localPlayer->getForwardState() == 4 && localPlayer->getForwardDown1() != 0)
                 {
@@ -102,7 +115,7 @@ int main(int argc, char *argv[])
                 {
                     localPlayer->setForwardState(4);
                 }
-            }
+            }*/
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
         catch (...)
