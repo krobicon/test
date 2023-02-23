@@ -100,6 +100,10 @@ int main(int argc, char *argv[])
             else if (jumpstart == true && localPlayer->isGrounded())
             {
                 jumpstart = false;
+                if (localPlayer->getForwardDown1() == 0)
+                {
+                    localPlayer->setForwardState(0);
+                }
                 printf("Forward Down:[%d] \n", localPlayer->getForwardDown1());
                 printf("Forward State:[%d] \n", localPlayer->getForwardState());
             }
