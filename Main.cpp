@@ -79,8 +79,17 @@ int main(int argc, char *argv[])
                 {
                     printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
                 }
-                localPlayer->setForwardState(5);
-                printf("Forward State:[%d] \n", localPlayer->getForwardState());
+                
+                if (localPlayer->getForwardState() == 0)
+                {
+                    localplayer->setForwardState(6);
+                }
+                else
+                {
+                    localPlayer->setForwardState(0);
+                }
+                //localPlayer->setForwardState(5);
+                //printf("Forward State:[%d] \n", localPlayer->getForwardState());
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
