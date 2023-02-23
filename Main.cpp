@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                     jumpstart = true;
                     strafeTick = 0;
                 }
-                if (strafeTick > 20)
+                else if (strafeTick > 20)
                 {
                     if (localPlayer->getForwardState() == 0)
                     {
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
                 }
                 strafeTick++;
             }
-            else
+            else if (jumpstart == true && localPlayer->isGrounded())
             {
                 jumpstart = false;
             }
