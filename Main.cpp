@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
                 else if (localPlayer->getForwardState() == 6 || localPlayer->getForwardState() == 5)
                 {
                     printf("Forward State:[%d] \n", localPlayer->getForwardState());
-                    localPlayer->setForwardState(0);
+                    //localPlayer->setForwardState(0);
                 }
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
