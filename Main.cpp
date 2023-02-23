@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                 
                 if (localPlayer->getForwardState() == 0)
                 {
-                    localplayer->setForwardState(6);
+                    localPlayer->setForwardState(6);
                 }
                 else
                 {
