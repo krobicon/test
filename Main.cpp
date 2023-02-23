@@ -81,7 +81,6 @@ int main(int argc, char *argv[])
                 }
                 if (localPlayer->getForwardState() == 0)
                 {
-                    printf("Forward State:[%d] \n", localPlayer->getForwardState());
                     localPlayer->setForwardState(5);
                 }
                 else if (localPlayer->getForwardState() == 6 || localPlayer->getForwardState() == 5)
