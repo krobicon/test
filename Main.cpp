@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     {
         try
         {
-            if (counter % 200 == 0)
+            if (counter % 1000 == 0)
                 configLoader->reloadFile(); // will attempt to reload config if there have been any updates to it
 
             // resolve pointers
