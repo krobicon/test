@@ -23,6 +23,8 @@ private:
     int m_aimbotSmoothing = 999999;
     int m_aimbotActivationFOV = 0;
     int m_aimbotMaxRange = 0;
+    int m_aimbotPitchDeadzone = 100;
+    int m_aimbotYawDeadzone = 100;
 
     // norecoil
     double m_norecoilPitchStrength = 0;
@@ -83,6 +85,8 @@ private:
             m_aimbotSmoothing = (lineKey.compare("AIMBOT_SMOOTHING") != 0) ? m_aimbotSmoothing : stoi(lineValue);
             m_aimbotActivationFOV = (lineKey.compare("AIMBOT_ACTIVATION_FOV") != 0) ? m_aimbotActivationFOV : stoi(lineValue);
             m_aimbotMaxRange = (lineKey.compare("AIMBOT_MAX_RANGE") != 0) ? m_aimbotMaxRange : stoi(lineValue);
+            m_aimbotPitchDeadzone = (lineKey.compare("AIMBOT_PITCH_DEADZONE") != 0) ? m_aimbotPitchDeadzone : stoi(lineValue);
+            m_aimbotYawDeadzone = (lineKey.compare("AIMBOT_YAW_DEADZONE") != 0) ? m_aimbotYawDeadzone : stoi(lineValue);
             // norecoil
             m_norecoilPitchStrength = (lineKey.compare("NORECOIL_PITCH_STRENGTH") != 0) ? m_norecoilPitchStrength : stod(lineValue);
             m_norecoilYawStrength = (lineKey.compare("NORECOIL_YAW_STRENGTH") != 0) ? m_norecoilYawStrength : stod(lineValue);
@@ -101,6 +105,8 @@ private:
         printf("AIMBOT_SMOOTHING \t\t%d\n", m_aimbotSmoothing);
         printf("AIMBOT_ACTIVATION_FOV \t\t%d\n", m_aimbotActivationFOV);
         printf("AIMBOT_MAX_RANGE \t\t%d\n", m_aimbotMaxRange);
+        printf("AIMBOT_PITCH_DEADZONE \t\t%d\n", m_aimbotPitchDeadzone);
+        printf("AIMBOT_YAW_DEADZONE \t\t%d\n", m_aimbotYawDeadzone);
 
         printf("NORECOIL_PITCH_STRENGTH \t%.6f\n", m_norecoilPitchStrength);
         printf("NORECOIL_YAW_STRENGTH \t\t%.6f\n", m_norecoilYawStrength);
@@ -153,6 +159,14 @@ public:
     int getAimbotMaxRange()
     {
         return m_aimbotMaxRange;
+    }
+    int getAimbotPitchDeadzone()
+    {
+        return m_aimbotPitchDeadzone;
+    }
+    int getAimbotYawDeadzone()
+    {
+        return m_aimbotYawDeadzone;
     }
 
     // norecoil
