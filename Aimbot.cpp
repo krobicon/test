@@ -126,6 +126,28 @@ public:
             myAngle = (360 + myAngle);
         return myAngle;
     }
+    
+    double normalizeYaw(double angle)
+    {
+        double myAngle = angle;
+        if (myAngle > 180)
+            myAngle -= 360;
+        else if (myAngle < -180)
+            myAngle += 360;
+        return myAngle;
+    }
+    
+    double normalizePitch(double angle)
+    {
+        double myAngle = angle;
+        if (myAngle > 89)
+            myAngle -= 180;
+        else if (myAngle < -89)
+            myAngle += 180;
+        return myAngle;
+    }
+    
+    
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
     {
         double wayA = newAngle - oldAngle;
