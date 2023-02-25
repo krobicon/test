@@ -81,6 +81,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isDucking()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::DUCK_STATE;
+        short result = mem::ReadShort(ptrLong);
+        return result > 0;
+    }
     int getForwardDown1()
     {
         long basePointer = getBasePointer();
