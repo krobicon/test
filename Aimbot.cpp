@@ -107,6 +107,8 @@ public:
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
+        double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
+        m_localPlayer->setPitch(newPitch);
 
         // Setup Yaw
         const double yaw = m_localPlayer->getYaw();
@@ -114,7 +116,7 @@ public:
         const double angleDeltaAbs = abs(angleDelta);
         if (angleDeltaAbs > m_configLoader->getAimbotActivationFOV())
             return;
-        double newYaw = flipYawIfNeeded(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
+        double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
     }
     double flipYawIfNeeded(double angle)
