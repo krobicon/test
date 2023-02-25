@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                     jumpstart = true;
                     strafeTick = 0;
                 }
-                else if (strafeTick > 20 && localPlayer->getForwardDown1() != 33)
+                else if (localPlayer->isDucking() || (strafeTick > 20 && localPlayer->getForwardDown1() != 33))
                 {
                     if (localPlayer->getForwardState() == 0)
                     {
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
             std::this_thread::sleep_for(std::chrono::seconds(10));
         }
         counter++;
-        if (counter > 1000)
+        if (counter > 5000)
             counter = 0;
     }
 }
