@@ -98,12 +98,7 @@ public:
                                                       m_localPlayer->getLocationY(),
                                                       m_lockedOnPlayer->getLocationX(),
                                                       m_lockedOnPlayer->getLocationY());
-            desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer->getLocationX(),
-                                                          m_localPlayer->getLocationY(),
-                                                          m_localPlayer->getLocationZ(),
-                                                          m_lockedOnPlayer->getLocationX(),
-                                                          m_lockedOnPlayer->getLocationY(),
-                                                          m_lockedOnPlayer->getLocationZ());
+            desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
         }
 
         // Setup Pitch
@@ -158,16 +153,26 @@ public:
         const double yawInDegrees = yawInRadians * (180 / M_PI);
         return yawInDegrees;
     }
-    double calculateDesiredPitch(
-        double localPlayerLocationX,
-        double localPlayerLocationY,
-        double localPlayerLocationZ,
-        double enemyPlayerLocationX,
-        double enemyPlayerLocationY,
-        double enemyPlayerLocationZ)
+    double calculateDesiredPitch( LocalPlayer m_localPlayer, Player m_targetPlayer )
     {
+        if (m_localPlayer->isDucking())
+        {
+            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
+        }
+        else
+        {
+            double localPlayerLocationZ = m_localPlayer->getLocationZ();
+        }
+        if (m_targetPlayer->isDucking())
+        {
+            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ() - 18;
+        }
+        else
+        {
+            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ();
+        }
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
-        const double distanceBetweenPlayers = math::calculateDistance2D(enemyPlayerLocationX, enemyPlayerLocationY, localPlayerLocationX, localPlayerLocationY);
+        const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
