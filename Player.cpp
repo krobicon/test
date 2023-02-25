@@ -45,6 +45,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isDucking()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::DUCK_STATE;
+        short result = mem::ReadShort(ptrLong);
+        return result > 0;
+    }
     std::string getName()
     {
         long basePointer = getBasePointer();
