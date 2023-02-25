@@ -20,7 +20,7 @@ namespace offsets
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
     const long GLOW_THROUGH_WALL = (0x03c0 + 0x10); // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x10
-    const long GLOW_COLOR = 0x1d0;                  // [Miscellaneous]                  -> glow_color
+    const long GLOW_COLOR = 0x1d0;                  // [RecvTable.DT_HighlightSettings] -> m_highlightParams + 0x18
     const long TEAM_NUMBER = 0x044c;                // [RecvTable.DT_BaseEntity]        -> m_iTeamNum
     const long NAME = 0x0589;                       // [RecvTable.DT_BaseEntity]        -> m_iName
     const long LIFE_STATE = 0x0798;                 // [RecvTable.DT_Player]            -> m_lifeState
@@ -29,6 +29,7 @@ namespace offsets
     const long BLEEDOUT_STATE = 0x2740;             // [RecvTable.DT_Player]            -> m_bleedoutState
     const long FLAGS = 0x0098;                      // [RecvTable.DT_Player]            -> m_fFlags
     const long ZOOMING = 0x1c51;                    // [RecvTable.DT_Player]            -> m_bZooming
+    const long DUCKSTATE = 0x2a3c;                  // [RecvTable.DT_Player]            -> m_duckState
     const long LAST_VISIBLE_TIME = 0x1A78;          // [Miscellaneous]                  -> CPlayer!lastVisibleTime
     const long CURRENT_SHIELDS = 0x0170;            // [RecvTable.DT_BaseEntity         -> m_shieldHealth
 }
