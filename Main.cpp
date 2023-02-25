@@ -41,10 +41,11 @@ int main(int argc, char *argv[])
     Aimbot *aimbot = new Aimbot(configLoader, level, localPlayer, players, x11Utils);
 
     // Main loop
-    printf("MYAPEX STARTING MAIN LOOP\n");
     int counter = 0;
     bool jumpstart = false;
     int strafeTick;
+    printf("ksenz LOOPing\n");
+
     while (1)
     {
         try
