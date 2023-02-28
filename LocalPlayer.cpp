@@ -88,17 +88,10 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
-    int getForwardDown1()
+    int getForwardDown()
     {
         long basePointer = getBasePointer();
         long ptrLong = offsets::REGION + offsets::IN_FORWARD;
-        int result = mem::ReadInt(ptrLong);
-        return result;
-    }
-    int getForwardDown2()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = offsets::REGION + offsets::IN_FORWARD + sizeof(int);
         int result = mem::ReadInt(ptrLong);
         return result;
     }
@@ -113,6 +106,26 @@ public:
     {
         long basePointer = getBasePointer();
         long ptrLong = offsets::REGION + offsets::IN_FORWARD + 0x8;
+        mem::WriteInt(ptrLong, state);
+    }
+	int getJumpDown()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_JUMP;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+	int getJumpState()
+	{
+		long basePointer = getBasePointer();
+		long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
+		int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+	void setJumpState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
         mem::WriteInt(ptrLong, state);
     }
     float getPunchPitch()
