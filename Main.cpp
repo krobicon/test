@@ -39,18 +39,18 @@ int main(int argc, char *argv[])
     Sense *sense = new Sense(configLoader, level, localPlayer, players, x11Utils);
     NoRecoil *noRecoil = new NoRecoil(configLoader, level, localPlayer, players, x11Utils);
     Aimbot *aimbot = new Aimbot(configLoader, level, localPlayer, players, x11Utils);
+	Movement *movement = new Movement(level, localPlayer, x11Utils);
 
     // Main loop
+    printf("Ksenz STARTING MAIN LOOP\n");
     int counter = 0;
     bool jumpstart = false;
     int strafeTick;
-    printf("ksenz LOOPing\n");
-
     while (1)
     {
         try
         {
-            if (counter % 1000 == 0)
+            if (counter % 300 == 0)
                 configLoader->reloadFile(); // will attempt to reload config if there have been any updates to it
 
             // resolve pointers
@@ -70,63 +70,14 @@ int main(int argc, char *argv[])
 
             if (configLoader->isSenseOn())
                 sense->update();
+			
+			movement->update();
 
             // all ran fine
             if (counter % 5000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
             }
-            if (!localPlayer->isGrounded())
-            {
-                if (jumpstart == false)
-                {
-                    jumpstart = true;
-                    strafeTick = 0;
-                }
-                else if (localPlayer->isDucking() || (strafeTick > 20 && localPlayer->getForwardDown1() != 33))
-                {
-                    if (localPlayer->getForwardState() == 0)
-                    {
-                        //printf("Forward State:[%d] \n", localPlayer->getForwardState());
-                        localPlayer->setForwardState(5);
-                        //printf("Forward State set:[%d] \n", localPlayer->getForwardState());
-                    }
-                    else
-                    {
-                        localPlayer->setForwardState(4);
-                    }
-                }
-                strafeTick++;
-            }
-            else if (jumpstart == true && localPlayer->isGrounded())
-            {
-                jumpstart = false;
-                if (localPlayer->getForwardDown1() == 0)
-                {
-                    localPlayer->setForwardState(0);
-                }
-                else if (localPlayer->getForwardDown1() == 33)
-                {
-                    localPlayer->setForwardState(1);
-                }
-                printf("Forward Down:[%d] \n", localPlayer->getForwardDown1());
-                printf("Forward State:[%d] \n", localPlayer->getForwardState());
-            }
-                 /*if (localPlayer->getForwardDown1())
-                {
-                    printf("Forward Down1:[%d] \n", localPlayer->getForwardDown1());
-                }*/
-            /*else
-            {
-                if (localPlayer->getForwardState() == 4 && localPlayer->getForwardDown1() != 0)
-                {
-                    localPlayer->setForwardState(5);
-                }
-                else if(localPlayer->getForwardState() == 5 && localPlayer->getForwardDown1() == 0)
-                {
-                    localPlayer->setForwardState(4);
-                }
-            }*/
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
         catch (...)
