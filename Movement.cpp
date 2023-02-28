@@ -59,8 +59,6 @@ public:
 			if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->getJumpState() == 0)
 			{
 				m_localPlayer->setJumpState(5);
-				jumpstart = true;
-				strafeTick = 0;
 			}
 			else
 			{
