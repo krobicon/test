@@ -148,6 +148,22 @@ public:
             myAngle += 180;
         return myAngle;
     }
+	
+	double pitchDeadzone(double desiredAngle, float x)
+	{
+		double MinX = normalizePitch(desiredAngle - x);
+		double MaxX = normalizePitch(desiredAngle + x);
+		double xa = normalizePitch(MinX - pitch);
+		double xb = normalizePitch(MaxX - pitch);
+	}
+	
+	double yawDeadzone(double desiredAngle, float y)
+	{
+		double MinY = normalizeYaw(desiredAngle - y);
+		double MaxY = normalizeYaw(desiredAngle + y);
+		double ya = normalizeYaw(MinX - yaw);
+		double yb = normalizeYaw(MaxX - yaw);
+	}
     
     
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
@@ -179,23 +195,23 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-        double localPlayerLocationZ;
+		double localPlayerLocationZ;
         double enemyPlayerLocationZ;
         if (m_localPlayer->isDucking())
         {
-            localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
+            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
         }
         else
         {
-            localPlayerLocationZ = m_localPlayer->getLocationZ();
+            double localPlayerLocationZ = m_localPlayer->getLocationZ();
         }
         if (m_targetPlayer->isDucking())
         {
-            enemyPlayerLocationZ = m_targetPlayer->getLocationZ() - 18;
+            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ() - 18;
         }
         else
         {
-            enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
+            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ();
         }
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
@@ -222,19 +238,20 @@ public:
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
                                                              player->getLocationY());
-            double angleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
+            double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);'
+			double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
+			double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
-                closestPlayerAngleSoFar = abs(angleDelta);
+                closestPlayerAngleSoFar = abs(angleDelta)+abs(pitchangleDelta);
             }
             else
             {
-
-                if (abs(angleDelta) < closestPlayerAngleSoFar)
+                if ( (abs(angleDelta)+abs(pitchangleDelta)) < closestPlayerAngleSoFar)
                 {
                     closestPlayerSoFar = player;
-                    closestPlayerAngleSoFar = abs(angleDelta);
+                    closestPlayerAngleSoFar = abs(angleDelta)+abs(pitchangleDelta);
                 }
             }
         }
