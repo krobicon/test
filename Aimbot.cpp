@@ -179,21 +179,23 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
+        double localPlayerLocationZ;
+        double enemyPlayerLocationZ;
         if (m_localPlayer->isDucking())
         {
-            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
+            localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
         }
         else
         {
-            double localPlayerLocationZ = m_localPlayer->getLocationZ();
+            localPlayerLocationZ = m_localPlayer->getLocationZ();
         }
         if (m_targetPlayer->isDucking())
         {
-            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ() - 18;
+            enemyPlayerLocationZ = m_targetPlayer->getLocationZ() - 18;
         }
         else
         {
-            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ();
+            enemyPlayerLocationZ = m_targetPlayer->getLozationZ();
         }
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
