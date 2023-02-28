@@ -177,7 +177,7 @@ public:
         const double yawInDegrees = yawInRadians * (180 / M_PI);
         return yawInDegrees;
     }
-    double calculateDesiredPitch( LocalPlayer m_localPlayer, Player m_targetPlayer )
+    double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
         if (m_localPlayer->isDucking())
         {
