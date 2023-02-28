@@ -75,7 +75,10 @@ public:
 				m_localPlayer->setForwardState(1);
 			}
 		}
-		printf("Jump Down:[%d] \n", m_localPlayer->getJumpDown());
-		printf("Jump State:[%d] \n", m_localPlayer->getJumpState());
+		if (m_localplayer->getJumpState != 5 || m_localplayer->getJumpState != 4)
+		{
+			printf("Jump Down:[%d] \n", m_localPlayer->getJumpDown());
+			printf("Jump State:[%d] \n", m_localPlayer->getJumpState());
+		}
     }
 };
