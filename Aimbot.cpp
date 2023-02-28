@@ -35,14 +35,6 @@ public:
     void update()
     {
         // validations
-        if (m_configLoader->getAimbotTrigger() != 0x0000)
-        { // our trigger is a button
-            if (!m_x11Utils->keyDown(m_configLoader->getAimbotTrigger()))
-            {
-                m_lockedOnPlayer = nullptr;
-                return;
-            }
-        }
         if (!m_level->isPlayable())
         {
             m_lockedOnPlayer = nullptr;
@@ -58,13 +50,12 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-        if (m_configLoader->getAimbotTrigger() == 0x0000) // our trigger is localplayer attacking
-            if (!m_localPlayer->isInAttack())
-            {
-                m_lockedOnPlayer = nullptr;
-                return;
-            }
-
+	if (!m_localPlayer->isInAttack())
+    	{
+	    m_lockedOnPlayer = nullptr;
+	    return;
+    	}
+	    
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
