@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
             if (configLoader->isSenseOn())
                 sense->update();
 			
-			movement->update();
+	    movement->update();
 
             // all ran fine
             if (counter % 5000 == 0)
