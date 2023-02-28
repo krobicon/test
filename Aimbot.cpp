@@ -229,9 +229,9 @@ public:
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
                                                              player->getLocationY());
-            double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);'
-			double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
-			double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+            double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
+	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
+	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
