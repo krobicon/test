@@ -56,14 +56,12 @@ public:
 		}
 		else if (jumpstart == false && m_localPlayer->isGrounded()) // TEST THIS CODE FOR BUNNY HOP
 		{
-			if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->getJumpState() == 5)
+			/*if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->getJumpState() == 5)
 			{
 				m_localPlayer->setJumpState(4);
 				jumpstart = true;
 				strafeTick = 0;
-			}
-			printf("Jump Down:[%d] \n", m_localPlayer->getJumpDown());
-			printf("Jump State:[%d] \n", m_localPlayer->getJumpState());
+			}*/
 		}
 		else if (jumpstart == true && m_localPlayer->isGrounded())
 		{
@@ -77,5 +75,7 @@ public:
 				m_localPlayer->setForwardState(1);
 			}
 		}
+		printf("Jump Down:[%d] \n", m_localPlayer->getJumpDown());
+		printf("Jump State:[%d] \n", m_localPlayer->getJumpState());
     }
 };
