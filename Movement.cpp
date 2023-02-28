@@ -77,3 +77,4 @@ public:
 			printf("Forward State:[%d] \n", m_localPlayer->getForwardState());
 		}
     }
+};
