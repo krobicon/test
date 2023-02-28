@@ -12,6 +12,7 @@
 #include "Sense.cpp"
 #include "NoRecoil.cpp"
 #include "Aimbot.cpp"
+#include "Movement.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
 
