@@ -140,21 +140,21 @@ public:
         return myAngle;
     }
 	
-	double pitchDeadzone(double desiredAngle, float x)
-	{
-		double MinX = normalizePitch(desiredAngle - x);
-		double MaxX = normalizePitch(desiredAngle + x);
-		double xa = normalizePitch(MinX - pitch);
-		double xb = normalizePitch(MaxX - pitch);
-	}
-	
-	double yawDeadzone(double desiredAngle, float y)
-	{
-		double MinY = normalizeYaw(desiredAngle - y);
-		double MaxY = normalizeYaw(desiredAngle + y);
-		double ya = normalizeYaw(MinX - yaw);
-		double yb = normalizeYaw(MaxX - yaw);
-	}
+    double pitchDeadzone(double desiredAngle, float x)
+    {
+	double MinX = normalizePitch(desiredAngle - x);
+	double MaxX = normalizePitch(desiredAngle + x);
+	double xa = normalizePitch(MinX - pitch);
+	double xb = normalizePitch(MaxX - pitch);
+    }
+
+    double yawDeadzone(double desiredAngle, float y)
+    {
+	double MinY = normalizeYaw(desiredAngle - y);
+	double MaxY = normalizeYaw(desiredAngle + y);
+	double ya = normalizeYaw(MinX - yaw);
+	double yb = normalizeYaw(MaxX - yaw);
+    }
     
     
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
