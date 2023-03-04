@@ -74,6 +74,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isWalking()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::IN_WALK;
+        short result = mem::ReadShort(ptrLong);
+        return result > 0;
+    }
     bool isDead()
     {
         long basePointer = getBasePointer();
