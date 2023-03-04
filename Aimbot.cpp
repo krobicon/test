@@ -237,7 +237,7 @@ public:
                 if ( (abs(yawangleDelta)+abs(pitchangleDelta)) < closestPlayerAngleSoFar)
                 {
                     closestPlayerSoFar = player;
-                    closestPlayerAngleSoFar = abs(angleDelta)+abs(pitchangleDelta);
+                    closestPlayerAngleSoFar = abs(yawangleDelta)+abs(pitchangleDelta);
                 }
             }
         }
