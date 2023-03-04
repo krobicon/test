@@ -60,6 +60,13 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result > 0;
     }
+    bool isWalking()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_WALK;
+        int result = mem::ReadInt(ptrLong);
+        return result > 0;
+    }
     std::string getName()
     {
         long basePointer = getBasePointer();
@@ -71,13 +78,6 @@ public:
     {
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::BLEEDOUT_STATE;
-        short result = mem::ReadShort(ptrLong);
-        return result > 0;
-    }
-    bool isWalking()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::IN_WALK;
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
