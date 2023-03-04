@@ -193,11 +193,11 @@ public:
         }
         if (m_targetPlayer->isDucking())
         {
-            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ() - 18;
+            double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() - 18;
         }
         else
         {
-            double enemyPlayerLocationZ = m_targetPlayer->getLozationZ();
+            double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
         }
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
@@ -230,11 +230,11 @@ public:
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
-                closestPlayerAngleSoFar = abs(angleDelta)+abs(pitchangleDelta);
+                closestPlayerAngleSoFar = abs(yawangleDelta)+abs(pitchangleDelta);
             }
             else
             {
-                if ( (abs(angleDelta)+abs(pitchangleDelta)) < closestPlayerAngleSoFar)
+                if ( (abs(yawangleDelta)+abs(pitchangleDelta)) < closestPlayerAngleSoFar)
                 {
                     closestPlayerSoFar = player;
                     closestPlayerAngleSoFar = abs(angleDelta)+abs(pitchangleDelta);
