@@ -33,7 +33,7 @@ public:
             return;
 		
 		// auto tap trafe
-		if (!m_localPlayer->isGrounded())
+		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
 		{
 			if (jumpstart == false)
 			{
