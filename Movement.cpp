@@ -53,7 +53,7 @@ public:
 				}
 			}
 			strafeTick++;
-			printf("Strafe Tick:[%d] \n", strafeTick)
+			printf("Strafe Tick:[%d] \n", strafeTick);
 		}
 		else if (jumpstart == true && m_localPlayer->isGrounded())
 		{
