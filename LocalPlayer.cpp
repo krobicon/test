@@ -88,6 +88,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isSkydiving()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::SKYDIVE_STATE;
+        short result = mem::ReadShort(ptrLong);
+        return result > 0;
+    }
     bool isDucking()
     {
         long basePointer = getBasePointer();
