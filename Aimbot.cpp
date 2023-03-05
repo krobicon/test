@@ -135,7 +135,7 @@ public:
         return myAngle;
     }
 	
-    /*double pitchDeadzone(double desiredAngle, float x)
+    double pitchDeadzone(double desiredAngle, float x)
     {
 	double MinX = normalizePitch(desiredAngle - x);
 	double MaxX = normalizePitch(desiredAngle + x);
@@ -155,15 +155,19 @@ public:
 	return y;
     }
     
-    public static Vector GetSmoothAngle(double currentPitch, double currentYaw, double deadzonePitch, double deadzoneYaw, float p)
+    public static Vector GetSmoothPitch(double currentPitch, double deadzonePitch)
     {
         double dx = normalizePitch(currentPitch - deadzonePitch);
+        double sx = normalizePitch(currentPitch - dx / m_configLoader->getAimbotSmoothing());
+        return sx;
+    }
+	
+    public static Vector GetSmoothYaw(double currentYaw, double deadzoneYaw)
+    {
 	double dy = normalizeYaw(currentYaw - deadzoneYaw);
-	double sx = currentPitch - dx
-        var sx = a.X - dx * p * config.PitchSpeed;
-        var sy = a.Y - dy * p * config.YawSpeed;
-        return new Vector(Normalize.X(sx), Normalize.Y(sy), 0);
-    }*/
+        double sy = normalizeYaw(currentYaw - dy / m_configLoader->getAimbotSmoothing());
+        return sy;
+    }
     
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
     {
