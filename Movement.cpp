@@ -33,14 +33,14 @@ public:
             return;
 		
 		// auto tap trafe
-		if (!m_localPlayer->isGrounded())
+		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
 		{
 			if (jumpstart == false)
 			{
 				jumpstart = true;
 				strafeTick = 0;
 			}
-			else if (m_localPlayer->isDucking() || (strafeTick > 25 && m_localPlayer->getForwardDown() == 33) && !m_localPlayer->isSkydiving())
+			else if (m_localPlayer->isDucking() || (strafeTick > 25 && m_localPlayer->getForwardDown() == 33))
 			{
 				if (m_localPlayer->getForwardState() == 0)
 				{
@@ -53,6 +53,7 @@ public:
 				}
 			}
 			strafeTick++;
+			printf("Strafe Tick:[%d] \n", strafeTick)
 		}
 		else if (jumpstart == true && m_localPlayer->isGrounded())
 		{
@@ -66,6 +67,5 @@ public:
 				m_localPlayer->setForwardState(1);
 			}
 		}
-		printf("SKYDIVE STATE:[%d] \n", m_localPlayer->isSkydiving());
     }
 };
