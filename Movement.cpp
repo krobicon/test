@@ -33,14 +33,14 @@ public:
             return;
 		
 		// auto tap trafe
-		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+		if (!m_localPlayer->isGrounded())
 		{
 			if (jumpstart == false)
 			{
 				jumpstart = true;
 				strafeTick = 0;
 			}
-			else if (m_localPlayer->isDucking() || (strafeTick > 25 && m_localPlayer->getForwardDown() == 33))
+			else if (m_localPlayer->isDucking() || (strafeTick > 25 && m_localPlayer->getForwardDown() == 33) && !m_localPlayer->isSkydiving())
 			{
 				if (m_localPlayer->getForwardState() == 0)
 				{
