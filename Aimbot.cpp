@@ -141,6 +141,8 @@ public:
 	double MaxX = normalizePitch(desiredAngle + x);
 	double xa = normalizePitch(MinX - pitch);
 	double xb = normalizePitch(MaxX - pitch);
+	double x = xa * xb < 0 && abs(xa - xb) < 89 ? desiredAngle : abs(xa) < abs(xb) ? MinX : MaxX;
+	return x;
     }
 
     double yawDeadzone(double desiredAngle, float y)
@@ -149,8 +151,19 @@ public:
 	double MaxY = normalizeYaw(desiredAngle + y);
 	double ya = normalizeYaw(MinX - yaw);
 	double yb = normalizeYaw(MaxX - yaw);
-    }*/
+	double y = ya * yb < 0 && abs(ya - yb) < 180 ? desiredAngle : abs(ya) < abs(yb) ? MinY : MaxY;
+	return y;
+    }
     
+    public static Vector GetSmoothAngle(double currentPitch, double currentYaw, double deadzonePitch, double deadzoneYaw, float p)
+    {
+        double dx = normalizePitch(currentPitch - deadzonePitch);
+	double dy = normalizeYaw(currentYaw - deadzoneYaw);
+	double sx = currentPitch - dx
+        var sx = a.X - dx * p * config.PitchSpeed;
+        var sy = a.Y - dy * p * config.YawSpeed;
+        return new Vector(Normalize.X(sx), Normalize.Y(sy), 0);
+    }*/
     
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
     {
