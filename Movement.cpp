@@ -40,7 +40,7 @@ public:
 				jumpstart = true;
 				strafeTick = 0;
 			}
-			else if (m_localPlayer->isDucking() || (strafeTick > 25 && m_localPlayer->getForwardDown() == 33))
+			else if (m_localPlayer->isDucking() || (strafeTick > 25 && strafeTick < 400 && m_localPlayer->getForwardDown() == 33))
 			{
 				if (m_localPlayer->getForwardState() == 0)
 				{
@@ -53,7 +53,6 @@ public:
 				}
 			}
 			strafeTick++;
-			printf("Strafe Tick:[%d] \n", strafeTick);
 		}
 		else if (jumpstart == true && m_localPlayer->isGrounded())
 		{
