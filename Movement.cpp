@@ -66,5 +66,6 @@ public:
 				m_localPlayer->setForwardState(1);
 			}
 		}
+		printf("SKYDIVE STATE:[%d] \n", m_localPlayer->isSkydiving());
     }
 };
