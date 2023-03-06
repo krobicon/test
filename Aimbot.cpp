@@ -134,40 +134,40 @@ public:
             myAngle += 180;
         return myAngle;
     }
-	
-    double pitchDeadzone(double desiredAngle, float x)
+/*
+    double pitchDeadzone(double desiredAngle, float xfov)
     {
-	double MinX = normalizePitch(desiredAngle - x);
-	double MaxX = normalizePitch(desiredAngle + x);
+	double MinX = normalizePitch(desiredAngle - xfov);
+	double MaxX = normalizePitch(desiredAngle + xfov);
 	double xa = normalizePitch(MinX - pitch);
 	double xb = normalizePitch(MaxX - pitch);
 	double x = xa * xb < 0 && abs(xa - xb) < 89 ? desiredAngle : abs(xa) < abs(xb) ? MinX : MaxX;
 	return x;
     }
 
-    double yawDeadzone(double desiredAngle, float y)
+    double yawDeadzone(double desiredAngle, float yfov)
     {
-	double MinY = normalizeYaw(desiredAngle - y);
-	double MaxY = normalizeYaw(desiredAngle + y);
+	double MinY = normalizeYaw(desiredAngle - yfov);
+	double MaxY = normalizeYaw(desiredAngle + yfov);
 	double ya = normalizeYaw(MinX - yaw);
 	double yb = normalizeYaw(MaxX - yaw);
 	double y = ya * yb < 0 && abs(ya - yb) < 180 ? desiredAngle : abs(ya) < abs(yb) ? MinY : MaxY;
 	return y;
     }
     
-    public static Vector GetSmoothPitch(double currentPitch, double deadzonePitch)
+    double GetSmoothPitch(double currentPitch, double deadzonePitch)
     {
         double dx = normalizePitch(currentPitch - deadzonePitch);
         double sx = normalizePitch(currentPitch - dx / m_configLoader->getAimbotSmoothing());
         return sx;
     }
 	
-    public static Vector GetSmoothYaw(double currentYaw, double deadzoneYaw)
+    double Vector GetSmoothYaw(double currentYaw, double deadzoneYaw)
     {
 	double dy = normalizeYaw(currentYaw - deadzoneYaw);
         double sy = normalizeYaw(currentYaw - dy / m_configLoader->getAimbotSmoothing());
         return sy;
-    }
+    }*/
     
     double calculatePitchAngleDelta(double oldAngle, double newAngle)
     {
