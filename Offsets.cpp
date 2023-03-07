@@ -13,7 +13,7 @@ namespace offsets
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
     const long LEVEL = 0x1462450;                 // [Miscellaneous] -> LevelName
-    const long LOCAL_PLAYER = (0x01ee8cb0 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
+    const long LOCAL_PLAYER = (0x01ee8d50 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
     const long ENTITY_LIST = 0x1b37a78;           // [Miscellaneous] -> cl_entitylist
     // entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
