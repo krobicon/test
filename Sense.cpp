@@ -43,15 +43,15 @@ public:
 
             if (player->isVisible())
             {
-                player->setGlowEnable(1);
+                player->setGlowEnable(5);
                 player->setGlowThroughWall(1);
-                player->setGlowColorRed(0);
-                player->setGlowColorGreen(3);
-                player->setGlowColorBlue(0);
+                //player->setGlowColorRed(0);
+                //player->setGlowColorGreen(3);
+                //player->setGlowColorBlue(0);
             }
             else
             {
-                const int enemyShields = player->getShieldsValue();
+                /*const int enemyShields = player->getShieldsValue();
                 int r, g, b;
                 if (enemyShields >= 120)
                 {
@@ -76,13 +76,13 @@ public:
                     r = 1;
                     g = 1;
                     b = 1;
-                }
+                }*/
 
-                player->setGlowEnable(1);
-                player->setGlowThroughWall(1);
-                player->setGlowColorRed(r);
-                player->setGlowColorGreen(g);
-                player->setGlowColorBlue(b);
+                player->setGlowEnable(7);
+                player->setGlowThroughWall(2);
+                //player->setGlowColorRed(r);
+                //player->setGlowColorGreen(g);
+                //player->setGlowColorBlue(b);
             }
         }
     }
