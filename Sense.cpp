@@ -40,49 +40,63 @@ public:
                 continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
-
-            if (player->isVisible())
+            
+            double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+                                                          m_localPlayer->getLocationY(),
+                                                          m_localPlayer->getLocationZ(),
+                                                          player->getLocationX(),
+                                                          player->getLocationY(),
+                                                          player->getLocationZ());
+            
+            if (distanceToTarget < 200)
             {
-                player->setGlowEnable(5);
-                player->setGlowThroughWall(1);
-                //player->setGlowColorRed(0);
-                //player->setGlowColorGreen(3);
-                //player->setGlowColorBlue(0);
-            }
-            else
-            {
-                /*const int enemyShields = player->getShieldsValue();
-                int r, g, b;
-                if (enemyShields >= 120)
+                if (player->isVisible())
                 {
-                    r = 3;
-                    g = 0;
-                    b = 0;
-                }
-                else if (enemyShields >= 100)
-                {
-                    r = 1.5;
-                    g = 0;
-                    b = 1.5;
-                }
-                else if (enemyShields >= 75)
-                {
-                    r = 0;
-                    g = 1;
-                    b = 2;
+                    player->setGlowEnable(5);
+                    player->setGlowThroughWall(1);
+                    //player->setGlowColorRed(0);
+                    //player->setGlowColorGreen(3);
+                    //player->setGlowColorBlue(0);
                 }
                 else
                 {
-                    r = 1;
-                    g = 1;
-                    b = 1;
-                }*/
-
-                player->setGlowEnable(7);
-                player->setGlowThroughWall(2);
-                //player->setGlowColorRed(r);
-                //player->setGlowColorGreen(g);
-                //player->setGlowColorBlue(b);
+                    /*const int enemyShields = player->getShieldsValue();
+                    int r, g, b;
+                    if (enemyShields >= 120)
+                    {
+                        r = 3;
+                        g = 0;
+                        b = 0;
+                    }
+                    else if (enemyShields >= 100)
+                    {
+                        r = 1.5;
+                        g = 0;
+                        b = 1.5;
+                    }
+                    else if (enemyShields >= 75)
+                    {
+                        r = 0;
+                        g = 1;
+                        b = 2;
+                    }
+                    else
+                    {
+                        r = 1;
+                        g = 1;
+                        b = 1;
+                    }*/
+                    player->setGlowEnable(7);
+                    player->setGlowThroughWall(2);
+                    //player->setGlowColorRed(r);
+                    //player->setGlowColorGreen(g);
+                    //player->setGlowColorBlue(b);
+                }
+            }
+            else if (player->getGlowEnable() == 5 || player->getGlowEnable() == 7)
+            {
+                player->setGlowEnable(2);
+                player->setGlowThroughWall(5);
             }
         }
     }
