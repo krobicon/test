@@ -31,8 +31,6 @@ public:
     }
     void update()
     {
-        if (!m_level->isPlayable())
-            return;
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
