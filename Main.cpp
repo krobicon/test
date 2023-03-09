@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 		    sense->update();
 
 		movement->update();
-		std::cout << "\n String: " << level->getName();
+		std::cout << "\n String: " << level->getGamemode();
 	    }
 
             // all ran fine
