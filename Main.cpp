@@ -61,18 +61,21 @@ int main(int argc, char *argv[])
                 Player *player = players->at(i);
                 player->markForPointerResolution();
             }
-
+	    
+	    if (level->isPlayable())
+	    {
             // run features
-            if (configLoader->isAimbotOn())
-                aimbot->update();
+		if (configLoader->isAimbotOn())
+		    aimbot->update();
 
-            if (configLoader->isNorecoilOn() && level->isPlayable())
-                noRecoil->update();
+		if (configLoader->isNorecoilOn())
+		    noRecoil->update();
 
-            if (configLoader->isSenseOn())
-                sense->update();
-			
-	    movement->update();
+		if (configLoader->isSenseOn())
+		    sense->update();
+
+		movement->update();
+	    }
 
             // all ran fine
             if (counter % 5000 == 0)
