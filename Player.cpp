@@ -183,7 +183,7 @@ public:
     bool isVisible()
     {
         const float lastVisibleTime = getLastVisibleTime();
-        const bool isVisible = lastVisibleTime > m_lastVisibleTime;
+        const bool isVisible = lastVisibleTime != m_lastVisibleTime;
         m_lastVisibleTime = lastVisibleTime;
         return isVisible;
     }
