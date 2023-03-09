@@ -22,10 +22,10 @@ public:
         long gamemodePointer = offsets::REGION + offsets::GAMEMODE;
         return gamemodePointer;
     }
-    std::string getGamemode()
+    int getGamemode()
     {
         long gamemodePointer = getGamemodePointer();
-        std::string result = mem::ReadString(gamemodePointer);
+        int result = mem::ReadInt(gamemodePointer);
         return result;
     }
     bool isPlayable()
