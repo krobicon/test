@@ -17,6 +17,12 @@ public:
         std::string result = mem::ReadString(basePointer);
         return result;
     }
+    std::string getGamemode()
+    {
+        long basePointer = offsets::REGION + offsets:GAMEMODE;
+        std::string result = mem::ReadString(basePointer);
+        return result
+    }
     bool isPlayable()
     {
         if (getName().empty())
