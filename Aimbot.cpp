@@ -35,11 +35,6 @@ public:
     void update()
     {
         // validations
-        if (!m_level->isPlayable())
-        {
-            m_lockedOnPlayer = nullptr;
-            return;
-        }
         if (m_localPlayer->isKnocked() || m_localPlayer->isDead() || m_localPlayer->isWalking())
         {
             m_lockedOnPlayer = nullptr;
