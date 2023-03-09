@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
             if (configLoader->isAimbotOn())
                 aimbot->update();
 
-            if (configLoader->isNorecoilOn())
+            if (configLoader->isNorecoilOn() && level->isPlayable())
                 noRecoil->update();
 
             if (configLoader->isSenseOn())
