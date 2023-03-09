@@ -22,7 +22,7 @@ public:
         long gamemodePointer = mem::ReadLong(offsets::REGION + offsets::GAMEMODE);
         return gamemodePointer;
     }
-    int getGamemode()
+    std::string getGamemode()
     {
         long gamemodePointer = getGamemodePointer();
         std::string result = mem::ReadString(gamemodePointer + 0x58);
