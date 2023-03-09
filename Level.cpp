@@ -19,13 +19,13 @@ public:
     }
     long getGamemodePointer()
     {
-        long gamemodePointer = offsets::REGION + offsets::GAMEMODE;
+        long gamemodePointer = mem::ReadLong(offsets::REGION + offsets::GAMEMODE);
         return gamemodePointer;
     }
     int getGamemode()
     {
         long gamemodePointer = getGamemodePointer();
-        int result = mem::ReadInt(gamemodePointer);
+        int result = mem::ReadInt(gamemodePointer + 0x58);
         return result;
     }
     bool isPlayable()
