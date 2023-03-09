@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
 		    sense->update();
 
 		movement->update();
+		printf(level->getGamemode());
 	    }
 
             // all ran fine
