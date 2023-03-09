@@ -1,4 +1,4 @@
-// Updated: 2023-02-06
+// https://pastebin.com/raw/mkJxaGuW (good on march 9 2023)
 
 #pragma once
 namespace offsets
@@ -15,6 +15,7 @@ namespace offsets
     const long LEVEL = 0x1462450;                 // [Miscellaneous] -> LevelName
     const long LOCAL_PLAYER = (0x01ee8d50 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
     const long ENTITY_LIST = 0x1b37b18;           // [Miscellaneous] -> cl_entitylist
+    const long GAMEMODE = 0x01f21c50;             // [ConVars]       -> mp_gamemode
     // entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long LOCAL_ORIGIN = 0x0158; // [DataMap.CBaseViewModel]    -> m_localOrigin
