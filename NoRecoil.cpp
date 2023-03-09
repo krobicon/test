@@ -35,8 +35,8 @@ public:
     void update()
     {
         // validations
-        if (!m_level->isPlayable())
-            return;
+        //if (!m_level->isPlayable())
+            //return;
         if (m_localPlayer->isDead())
             return;
         if (m_localPlayer->isKnocked())
