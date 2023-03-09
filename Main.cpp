@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 		    sense->update();
 
 		movement->update();
-		printf(level->getGamemode());
+		std::cout << "Follow this command: " << level->getGamemode;
 	    }
 
             // all ran fine
