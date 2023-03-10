@@ -93,7 +93,7 @@ public:
                     //player->setGlowColorBlue(b);
                 }
                 if (i == 6)
-                printf("VISIBLE?: [%d] \n", player->isVisible())
+                printf("VISIBLE?: [%d] \n", player->isVisible());
             }
             else if (player->getGlowEnable() == 5 || player->getGlowEnable() == 7)
             {
