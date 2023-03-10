@@ -38,11 +38,11 @@ public:
 	long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + (wepHandle << 5);
 	return mem::ReadLong(unresolvedBasePointer);
     }
-    bool getReload()
+    int getAmmo()
     {
 	long basePointer = getWeaponEntity();
-	long ptrLong = basePointer + offsets::RELOAD;
-	bool result = mem::ReadShort(ptrLong);
+	long ptrLong = basePointer + offsets::AMMO;
+	int result = mem::ReadInt(ptrLong);
 	return result;
     }
     float getLocationX()
