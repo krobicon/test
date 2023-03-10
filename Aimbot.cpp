@@ -5,6 +5,7 @@
 #include "Math.cpp"
 #include "Level.cpp"
 #include "math.h"
+#include "Weapon.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
 
@@ -34,6 +35,7 @@ public:
     }
     void update()
     {
+	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
         // validations
         if (m_localPlayer->isWalking())
         {
@@ -49,13 +51,14 @@ public:
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
+	double distanceToTarget;
         if (m_level->isTrainingArea())
         {
             printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
             const float dummyX = 31408.732422;
             const float dummyY = -6711.955566;
             const float dummyZ = -29234.839844;
-            double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
+            distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
             desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), dummyX, dummyY);
@@ -67,12 +70,12 @@ public:
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
                 return;
-            double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
-                                                                      m_localPlayer->getLocationY(),
-                                                                      m_localPlayer->getLocationZ(),
-                                                                      m_lockedOnPlayer->getLocationX(),
-                                                                      m_lockedOnPlayer->getLocationY(),
-                                                                      m_lockedOnPlayer->getLocationZ());
+            distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+                                                               m_localPlayer->getLocationY(),
+                                                               m_localPlayer->getLocationZ(),
+                                                               m_lockedOnPlayer->getLocationX(),
+                                                               m_lockedOnPlayer->getLocationY(),
+                                                               m_lockedOnPlayer->getLocationZ());
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
             desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
@@ -99,6 +102,15 @@ public:
             return;
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
+	//TESTING TRIGGERBOT
+	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime == 0 && localWeapon->isSemiAuto())
+	{
+		if (distanceToTarget < 10 & m_lockedOnPlayer->isCrosshair())
+		{
+			x11Utils->mouseClick(1);
+			std::this_thread::sleep_for(std::chrono::milliseconds(50))
+		}
+	}
     }
     double flipYawIfNeeded(double angle)
     {
