@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			if (localWeapon->getAmmo() == 1)
+			if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
