@@ -270,7 +270,10 @@ public:
                 }
             }
         }
-	std::cout << closestPlayerSoFar->getName();
+	if (closestPlayerSoFar != nullptr)
+	{
+		std::cout << closestPlayerSoFar->getName();
+	}
         return closestPlayerSoFar;
     }
 };
