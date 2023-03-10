@@ -239,9 +239,7 @@ public:
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
-            if (!player->isValid())
-                continue;
-            if (player->isKnocked())
+            if (!player->isValid() || player->isKnocked())
                 continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
