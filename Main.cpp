@@ -79,13 +79,12 @@ int main(int argc, char *argv[])
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
-				std::this_thread::sleep_for(std::chrono::seconds(2));
 			}
 			else if (localPlayer->getReloadState() == 5)
 			{
 				localPlayer->setReloadState(4);
 			}
-			printf("ATTACK STATE: [%d] OK. \n", localPlayer->getAttackState());
+			//printf("ATTACK STATE: [%d] OK. \n", localPlayer->getAttackState());
 		}
 	    }
 
