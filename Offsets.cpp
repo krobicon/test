@@ -43,5 +43,4 @@ namespace offsets
     #define OFFSET_READY_TIME			0x1648//m_nextReadyTime
     #define OFFSET_AMMO                 0x1670 //m_ammoInClip
     #define OFFSET_SEMIAUTO             0x1bdc // m_isSemiAuto
-    #define OFFSET_BUTTON_INATTACK     0x076780e8 //in_attack
 }
