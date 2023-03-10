@@ -105,7 +105,7 @@ public:
 	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
-		printf("READY TIME: [%f] \n", localWeapon->getAmmo());
+		printf("READY TIME: [%d] \n", localWeapon->getAmmo());
 		if (distanceToTarget < 10 & m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
