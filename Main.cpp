@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			if (localPlayer->getAmmo() == 2)
+			if (localPlayer->getAmmo() == 1)
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
