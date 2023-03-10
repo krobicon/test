@@ -37,7 +37,7 @@ public:
     {
 	long wepHandle = getWeaponHandle();
 	long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + (wepHandle << 5);
-	return unresolvedBasePointer
+	return unresolvedBasePointer;
     }
     int getAmmo()
     {
