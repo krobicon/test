@@ -102,12 +102,12 @@ public:
             return;
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
-
-	//TESTING TRIGGERBOT
+	
 	if (m_lockedOnPlayer != nullptr)
 	{
-		printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
+		std::cout << m_lockedOnPlayer->getName();
 	}
+	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 		if (distanceToTarget < 10 & m_lockedOnPlayer->isCrosshair())
@@ -270,10 +270,6 @@ public:
                 }
             }
         }
-	if (closestPlayerSoFar != nullptr)
-	{
-		std::cout << closestPlayerSoFar->getName();
-	}
         return closestPlayerSoFar;
     }
 };
