@@ -35,13 +35,14 @@ namespace offsets
     const long ZOOMING = 0x1c51;                    // [RecvTable.DT_Player]            -> m_bZooming
     const long DUCK_STATE = 0x2a3c;                 // [RecvTable.DT_Player]            -> m_duckState
     const long LAST_VISIBLE_TIME = 0x1A78;          // [Miscellaneous]                  -> CPlayer!lastVisibleTime
+    const long CROSSHAIR_LAST = 0x1A80;             // [Miscellaneous]                  -> CPlayer!lastCrosshairTargetTime
     const long CURRENT_SHIELDS = 0x0170;            // [RecvTable.DT_BaseEntity]        -> m_shieldHealth
     const long SKYDIVE_STATE = 0x468c;              // [RecvTable.DT_Player]            -> m_skydiveState
     // weapon stuff
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long WEAPON = 0x1a1c;                   // [RecvTable.DT_BaseCombatCharacter]       -> m_latestPrimaryWeapons
-    //const long CROSSHAIR_LAST = 0x1A80;           // [Miscellaneous]                          -> CPlayer!lastCrosshairTargetTime
-    const long READY_TIME = 0x1648;                 // [RecvTable.DT_WeaponX_LocalWeaponData]   -> m_nextReadyTime
+    const long WEAPON = 0x1a1c;                     // [RecvTable.DT_BaseCombatCharacter]     -> m_latestPrimaryWeapons
+    const long CROSSHAIR_LAST = 0x1A80;             // [Miscellaneous]                        -> CPlayer!lastCrosshairTargetTime
+    const long READY_TIME = 0x1648;                 // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_nextReadyTime
     const long AMMO = 0x1670;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
     const long SEMI_AUTO = 0x1bdc;                  // [Miscellaneous]                        ->CWeaponX!m_isSemiAuto
 }
