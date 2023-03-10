@@ -37,10 +37,10 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result;
     }
-    bool isKnocked()
+    bool isSemiAuto()
     {
         long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::BLEEDOUT_STATE;
+        long ptrLong = basePointer + offsets::SEMI_AUTO;
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
