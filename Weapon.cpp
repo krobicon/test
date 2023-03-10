@@ -44,6 +44,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    float getReadyTime()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::READY_TIME;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     std::string getName()
     {
         long basePointer = getBasePointer();
@@ -58,28 +65,6 @@ public:
         else
             return "Weapon is valid";
     }
-    float getLocationX()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::LOCAL_ORIGIN;
-        float result = mem::ReadFloat(ptrLong);
-        return result;
-    }
-    float getLocationY()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::LOCAL_ORIGIN + sizeof(float);
-        float result = mem::ReadFloat(ptrLong);
-        return result;
-    }
-    float getLocationZ()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::LOCAL_ORIGIN + sizeof(float) + sizeof(float);
-        float result = mem::ReadFloat(ptrLong);
-        return result;
-    }
-
     int getGlowEnable()
     {
         long basePointer = getBasePointer();
