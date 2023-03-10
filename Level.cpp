@@ -28,6 +28,12 @@ public:
         std::string result = mem::ReadString(gamemodePointer);
         return result;
     }
+    bool isSpecialMode()
+    {
+        if (getGamemode().compare("control") == 0)
+            return true;
+        return false;
+    }
     bool isPlayable()
     {
         if (getName().empty())
