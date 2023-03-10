@@ -25,11 +25,6 @@ public:
 	void update()
     {
         // validations
-        if (m_localPlayer->isDead())
-            return;
-        if (m_localPlayer->isKnocked())
-            return;
-		
 		// auto tap trafe
 		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
 		{
