@@ -36,6 +36,7 @@ public:
             Player *player = m_players->at(i);
             if (!player->isValid())
                 continue;
+            if (level->getGamemode()
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
             
