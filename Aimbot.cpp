@@ -270,7 +270,7 @@ public:
                 }
             }
         }
-	printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
+	cout << closestPlayerSoFar->getName();
         return closestPlayerSoFar;
     }
 };
