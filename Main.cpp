@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 			{
 				localPlayer->setReloadState(4);
 			}
-			printf("SEMI AUTO: [%d] \n", localWeapon->isSemiAuto());
+			printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 		}
 	    }
 
