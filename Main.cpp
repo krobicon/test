@@ -75,10 +75,10 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			if (localPlayer->getAmmo() == 1)
+			if (localPlayer->getAmmo() == 2)
 			{
-				localPlayer->setReloadState(5);
 				localPlayer->setAttackState(4);
+				localPlayer->setReloadState(5);
 				std::this_thread::sleep_for(std::chrono::seconds(2));
 			}
 			else if (localPlayer->getReloadState() == 5)
