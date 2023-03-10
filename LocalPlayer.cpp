@@ -33,6 +33,19 @@ public:
 	wepHandle &= 0xffff;
 	return wepHandle;
     }
+    long getWeaponEntity()
+    {
+	long wepHandle = getWeaponHandle();
+	long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + (wepHandle << 5);
+	return unresolvedBasePointer
+    }
+    int getAmmo()
+    {
+	long basePointer = getWeaponEntity();
+	long ptrLong = basePointer + offsets::AMMO;
+	int result = mem::readShort(ptrLong);
+	return result;
+    }
     float getLocationX()
     {
         long basePointer = getBasePointer();
