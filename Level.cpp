@@ -24,8 +24,8 @@ public:
     }
     std::string getGamemode()
     {
-        long gamemodePointer = getGamemodePointer();
-        std::string result = mem::ReadString(gamemodePointer + 0x58);
+        long gamemodePointer = mem::ReadLong(getGamemodePointer()+0x58);
+        std::string result = mem::ReadString(gamemodePointer);
         return result;
     }
     bool isPlayable()
