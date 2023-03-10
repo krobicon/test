@@ -76,9 +76,10 @@ public:
                                                                m_lockedOnPlayer->getLocationX(),
                                                                m_lockedOnPlayer->getLocationY(),
                                                                m_lockedOnPlayer->getLocationZ());
-	    printf("DISTANCE TO THE TARGET: [%f] \n", distanceToTarget);
+	    printf("DISTANCE CHECK 1: [%f] \n", distanceToTarget);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
+	    printf("DISTANCE CHECK 2: [%f] \n", distanceToTarget);
             desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                       m_localPlayer->getLocationY(),
                                                       m_lockedOnPlayer->getLocationX(),
