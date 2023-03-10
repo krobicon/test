@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
 			if (localPlayer->getAmmo() == 1)
 			{
 				localPlayer->setReloadState(5);
+				localPlayer->setAttackState(4);
 				std::this_thread::sleep_for(std::chrono::seconds(2));
 			}
 			else if (localPlayer->getReloadState() == 5)
