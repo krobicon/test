@@ -63,16 +63,19 @@ int main(int argc, char *argv[])
 	    if (level->isPlayable())
 	    {
             // run features
-		if (configLoader->isAimbotOn())
-		    aimbot->update();
-
-		if (configLoader->isNorecoilOn())
-		    noRecoil->update();
-
 		if (configLoader->isSenseOn())
 		    sense->update();
+		    
+		if (!localPlayer->isDead() && !localPlayer->isKnocked())
+		{
+			if (configLoader->isAimbotOn())
+			    aimbot->update();
 
-		movement->update();
+			if (configLoader->isNorecoilOn())
+			    noRecoil->update();
+			
+			movement->update();
+		}
 	    }
 
             // all ran fine
