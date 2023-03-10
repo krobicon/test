@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
 			{
 				localPlayer->setReloadState(4);
 			}
-			//printf("WEAPON AMMO: [%d] OK. \n", localPlayer->getReloadState());
+			printf("ATTACK STATE: [%d] OK. \n", localPlayer->getAttackState());
 		}
 	    }
 
