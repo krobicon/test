@@ -34,11 +34,6 @@ public:
     }
     void update()
     {
-        // validations
-        if (m_localPlayer->isDead())
-            return;
-        if (m_localPlayer->isKnocked())
-            return;
 
         // adjust pitch
         const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength();
