@@ -144,21 +144,4 @@ public:
         ;
         mem::WriteFloat(ptrLong, color);
     }
-    void print()
-    {
-        std::cout << "Player[" + std::to_string(m_entityListIndex) + "]:\n";
-        std::cout << "\tUnresolvedBasePointer:\t\t\t" + mem::convertPointerToHexString(getUnresolvedBasePointer()) + "\n";
-        std::cout << "\tBasePointer:\t\t\t\t" + mem::convertPointerToHexString(getBasePointer()) + "\n";
-        std::cout << "\tIsValid:\t\t\t\t" + std::to_string(isValid()) + "\n";
-        std::cout << "\tInvalidReason:\t\t\t\t" + getInvalidReason() + "\n";
-        if (!isValid())
-        {
-            std::cout << "\tLocationOriginX:\t\t\t" + utils::convertNumberToString(getLocationX()) + "\n";
-            std::cout << "\tLocationOriginY:\t\t\t" + utils::convertNumberToString(getLocationY()) + "\n";
-            std::cout << "\tLocationOriginZ:\t\t\t" + utils::convertNumberToString(getLocationZ()) + "\n";
-            std::cout << "\tTeamNumber:\t\t\t\t" + utils::convertNumberToString(getTeamNumber()) + "\n";
-            std::cout << "\tGlowEnable:\t\t\t\t" + utils::convertNumberToString(getGlowEnable()) + "\n";
-            std::cout << "\tGlowThroughWall:\t\t\t" + utils::convertNumberToString(getGlowThroughWall()) + "\n";
-        }
-    }
 };
