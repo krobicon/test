@@ -30,7 +30,7 @@ public:
 	long basePointer = getBasePointer();
 	long ptrLong = basePointer + offsets::WEAPON;
 	long wepHandle = mem::ReadLong(ptrLong);
-	wepHandle &= 0xffff;
+	//wepHandle &= 0xffff;
 	return wepHandle;
     }
     long getWeaponEntity()
