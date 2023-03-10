@@ -41,7 +41,7 @@ namespace offsets
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long WEAPON = 0x1a1c;                   // [RecvTable.DT_BaseCombatCharacter]       -> m_latestPrimaryWeapons
     //const long CROSSHAIR_LAST = 0x1A80;           // [Miscellaneous]                          -> CPlayer!lastCrosshairTargetTime
-    //const long READY_TIME	= 0x1648;               // [RecvTable.DT_WeaponX_LocalWeaponData]   -> m_nextReadyTime
+    const long READY_TIME = 0x1648;                 // [RecvTable.DT_WeaponX_LocalWeaponData]   -> m_nextReadyTime
     const long AMMO = 0x1670;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
     const long SEMI_AUTO = 0x1bdc;                  // [Miscellaneous]                        ->CWeaponX!m_isSemiAuto
 }
