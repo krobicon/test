@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			printf("WEAPON AMMO: [%ld] OK. \n", localPlayer->getWeaponHandle());
+			printf("WEAPON AMMO: [%lu] OK. \n", localPlayer->getWeaponHandle());
 		}
 	    }
 
