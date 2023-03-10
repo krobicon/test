@@ -43,7 +43,7 @@ public:
     {
 	long basePointer = getWeaponEntity();
 	long ptrLong = basePointer + offsets::AMMO;
-	int result = mem::readShort(ptrLong);
+	int result = mem::ReadShort(ptrLong);
 	return result;
     }
     float getLocationX()
