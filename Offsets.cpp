@@ -38,9 +38,9 @@ namespace offsets
     const long SKYDIVE_STATE = 0x468c;              // [RecvTable.DT_Player]            -> m_skydiveState
     // weapon stuff
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //const long CROSSHAIR_LAST = 0x1A80;             // [Miscellaneous]                  -> CPlayer!lastCrosshairTargetTime
-    //const long WEAPON = 0x1a1c;                     // [RecvTable.DT_BaseCombatCharacter] -> m_latestPrimaryWeapons
-    #define OFFSET_READY_TIME			0x1648//m_nextReadyTime
+    const long WEAPON = 0x1a1c;                   // [RecvTable.DT_BaseCombatCharacter]       -> m_latestPrimaryWeapons
+    //const long CROSSHAIR_LAST = 0x1A80;           // [Miscellaneous]                          -> CPlayer!lastCrosshairTargetTime
+    //const long READY_TIME	= 0x1648;               // [RecvTable.DT_WeaponX_LocalWeaponData]   -> m_nextReadyTime
     #define OFFSET_AMMO                 0x1670 //m_ammoInClip
     #define OFFSET_SEMIAUTO             0x1bdc // m_isSemiAuto
 }
