@@ -9,6 +9,7 @@ class Player
 private:
     int m_entityListIndex;
     float m_lastVisibleTime;
+    float m_lastCrosshairTime;
     long m_basePointer = 0;
     long getUnresolvedBasePointer()
     {
@@ -195,9 +196,23 @@ public:
     bool isVisible()
     {
         const float lastVisibleTime = getLastVisibleTime();
-        const bool isVisible = lastVisibleTime != m_lastVisibleTime;
+        const bool isVisible = lastVisibleTime > m_lastVisibleTime;
         m_lastVisibleTime = lastVisibleTime;
         return isVisible;
+    }
+    float getLastCrosshairTime()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::LAST_CROSSHAIR_TIME;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
+    bool isCrosshair()
+    {
+        const float lastCrosshairTime = getLastCrosshairTime();
+        const bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
+        m_lastCrosshairTime = lastCrosshairTime;
+        return isCrosshair;
     }
     void print()
     {
