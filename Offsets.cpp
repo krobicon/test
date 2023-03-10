@@ -35,7 +35,7 @@ namespace offsets
     const long ZOOMING = 0x1c51;                    // [RecvTable.DT_Player]            -> m_bZooming
     const long DUCK_STATE = 0x2a3c;                 // [RecvTable.DT_Player]            -> m_duckState
     const long LAST_VISIBLE_TIME = 0x1A78;          // [Miscellaneous]                  -> CPlayer!lastVisibleTime
-    const long CROSSHAIR_LAST = 0x1A80;             // [Miscellaneous]                  -> CPlayer!lastCrosshairTargetTime
+    const long LAST_CROSSHAIR_TIME = 0x1A80;        // [Miscellaneous]                  -> CPlayer!lastCrosshairTargetTime
     const long CURRENT_SHIELDS = 0x0170;            // [RecvTable.DT_BaseEntity]        -> m_shieldHealth
     const long SKYDIVE_STATE = 0x468c;              // [RecvTable.DT_Player]            -> m_skydiveState
     // weapon stuff
