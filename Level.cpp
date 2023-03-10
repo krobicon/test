@@ -30,7 +30,7 @@ public:
     }
     bool isSpecialMode()
     {
-        if (getGamemode().compare("control") == 0)
+        if (getGamemode().compare("control") == 0 || getGamemode().compare("freedm") == 0)
             return true;
         return false;
     }
