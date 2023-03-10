@@ -75,6 +75,10 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
+			if (localPlayer->getAmmo() == 3)
+			{
+				localPlayer->setReloadState(5);
+			}
 			printf("WEAPON AMMO: [%d] OK. \n", localPlayer->getReloadState());
 		}
 	    }
