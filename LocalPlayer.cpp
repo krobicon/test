@@ -25,7 +25,7 @@ public:
     {
         m_basePointer = 0;
     }
-    ulong getWeaponHandle()
+    int getWeaponHandle()
     {
 	long basePointer = getBasePointer();
 	long ptrLong = basePointer + offsets::WEAPON;
