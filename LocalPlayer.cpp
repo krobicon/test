@@ -92,6 +92,19 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result > 0;
     }
+    int getAttackState()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_ATTACK + 0x8;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    void setAttackState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_ATTACK + 0x8;
+        mem::WriteInt(ptrLong, state);
+    }
     bool isWalking()
     {
         long basePointer = getBasePointer();
