@@ -102,10 +102,13 @@ public:
             return;
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
+	if (m_lockedOnPlayer != nullptr)
+	{
+		printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ())
+	}
 	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
-		printf("READY TIME: [%d] \n", localWeapon->getAmmo());
 		if (distanceToTarget < 10 & m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
