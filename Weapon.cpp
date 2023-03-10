@@ -11,7 +11,7 @@ private:
     long m_basePointer = 0;
     long getUnresolvedBasePointer()
     {
-        long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + ((m_entityListIndex) << 5);
+        long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + (m_entityListIndex << 5);
         return unresolvedBasePointer;
     }
     long getBasePointer()
@@ -22,7 +22,7 @@ private:
     }
 
 public:
-    Player(int entityListIndex)
+    Weapon(int entityListIndex)
     {
         m_entityListIndex = entityListIndex;
     }
@@ -30,24 +30,17 @@ public:
     {
         m_basePointer = 0;
     }
-    bool isDead()
+    int getAmmo()
     {
         long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::LIFE_STATE;
-        short result = mem::ReadShort(ptrLong);
-        return result > 0;
+        long ptrLong = basePointer + offsets::AMMO;
+        int result = mem::ReadInt(ptrLong);
+        return result;
     }
     bool isKnocked()
     {
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::BLEEDOUT_STATE;
-        short result = mem::ReadShort(ptrLong);
-        return result > 0;
-    }
-    bool isDucking()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::DUCK_STATE;
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
@@ -58,20 +51,12 @@ public:
         std::string result = mem::ReadString(ptrLong);
         return result;
     }
-    bool isValid()
-    {
-        return getBasePointer() > 0 && !isDead();
-    }
     std::string getInvalidReason()
     {
         if (getBasePointer() == 0)
             return "Unresolved base pointer";
-        else if (isDead())
-            return "Player is dead";
-        else if (getName().empty())
-            return "Name is empty";
         else
-            return "Player is valid";
+            return "Weapon is valid";
     }
     float getLocationX()
     {
@@ -94,32 +79,7 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    int getTeamNumber()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::TEAM_NUMBER;
-        int result = mem::ReadInt(ptrLong);
-        return result;
-    }
-    int getTeamSpecial()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::TEAM_NUMBER;
-        int result = mem::ReadInt(ptrLong);
-        if (result % 2){
-            return 1;
-        }
-        else {
-            return 2;
-        }
-    }
-    int getShieldsValue()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::CURRENT_SHIELDS;
-        int result = mem::ReadInt(ptrLong);        
-        return result;
-    }
+
     int getGlowEnable()
     {
         long basePointer = getBasePointer();
@@ -183,20 +143,6 @@ public:
         long ptrLong = basePointer + offsets::GLOW_COLOR + sizeof(float) + sizeof(float);
         ;
         mem::WriteFloat(ptrLong, color);
-    }
-    float getLastVisibleTime()
-    {
-        long basePointer = getBasePointer();
-        long ptrLong = basePointer + offsets::LAST_VISIBLE_TIME;
-        float result = mem::ReadFloat(ptrLong);
-        return result;
-    }
-    bool isVisible()
-    {
-        const float lastVisibleTime = getLastVisibleTime();
-        const bool isVisible = lastVisibleTime != m_lastVisibleTime;
-        m_lastVisibleTime = lastVisibleTime;
-        return isVisible;
     }
     void print()
     {
