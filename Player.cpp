@@ -102,6 +102,18 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result;
     }
+    int getTeamSpecial()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::TEAM_NUMBER;
+        int result = mem::ReadInt(ptrLong);
+        if (result % 2){
+            return 1;
+        }
+        else {
+            return 2;
+        }
+    }
     int getShieldsValue()
     {
         long basePointer = getBasePointer();
