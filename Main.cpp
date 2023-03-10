@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			printf("WEAPON AMMO: [%d] OK. \n", localPlayer->getReloadDown());
+			printf("WEAPON AMMO: [%d] OK. \n", localPlayer->getReloadState());
 		}
 	    }
 
