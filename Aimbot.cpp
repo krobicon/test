@@ -104,10 +104,6 @@ public:
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
 	
-	if (m_lockedOnPlayer != nullptr)
-	{
-		std::cout << m_lockedOnPlayer->getName();
-	}
 	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
