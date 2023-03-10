@@ -154,24 +154,44 @@ public:
         long ptrLong = offsets::REGION + offsets::IN_FORWARD + 0x8;
         mem::WriteInt(ptrLong, state);
     }
-	int getJumpDown()
+    int getJumpDown()
     {
         long basePointer = getBasePointer();
         long ptrLong = offsets::REGION + offsets::IN_JUMP;
         int result = mem::ReadInt(ptrLong);
         return result;
     }
-	int getJumpState()
+    int getJumpState()
 	{
-		long basePointer = getBasePointer();
-		long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
-		int result = mem::ReadInt(ptrLong);
+	long basePointer = getBasePointer();
+	long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
+	int result = mem::ReadInt(ptrLong);
         return result;
     }
-	void setJumpState(int state)
+    void setJumpState(int state)
     {
         long basePointer = getBasePointer();
         long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
+        mem::WriteInt(ptrLong, state);
+    }
+    int getReloadDown()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_RELOAD;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    int getReloadState()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_RELOAD + 0x8;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    void setReloadState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_RELOAD + 0x8;
         mem::WriteInt(ptrLong, state);
     }
     float getPunchPitch()
