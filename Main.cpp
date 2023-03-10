@@ -86,11 +86,11 @@ int main(int argc, char *argv[])
 			{
 				localPlayer->setReloadState(4);
 			}
-			else if (localWeapon->getAmmo() == 3 && localWeapon->isSemiAuto())
+			/*else if (localWeapon->getAmmo() == 3 && localWeapon->isSemiAuto())
 			{
 				x11Utils->mouseClick(1);
 			}
-			printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
+			printf("READY TIME: [%f] \n", localWeapon->getReadyTime());*/
 		}
 	    }
 
