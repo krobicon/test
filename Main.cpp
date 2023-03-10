@@ -45,8 +45,6 @@ int main(int argc, char *argv[])
     // Main loop
     printf("Ksenz STARTING MAIN LOOP\n");
     int counter = 0;
-    bool jumpstart = false;
-    int strafeTick;
     while (1)
     {
         try
