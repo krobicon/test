@@ -41,6 +41,6 @@ namespace offsets
     const long WEAPON = 0x1a1c;                   // [RecvTable.DT_BaseCombatCharacter]       -> m_latestPrimaryWeapons
     //const long CROSSHAIR_LAST = 0x1A80;           // [Miscellaneous]                          -> CPlayer!lastCrosshairTargetTime
     //const long READY_TIME	= 0x1648;               // [RecvTable.DT_WeaponX_LocalWeaponData]   -> m_nextReadyTime
-    #define OFFSET_AMMO                 0x1670 //m_ammoInClip
+    const long AMMO = 0x1670;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
     #define OFFSET_SEMIAUTO             0x1bdc // m_isSemiAuto
 }
