@@ -210,7 +210,7 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-		double localPlayerLocationZ;
+	double localPlayerLocationZ;
         double enemyPlayerLocationZ;
         if (m_localPlayer->isDucking())
         {
@@ -270,6 +270,7 @@ public:
                 }
             }
         }
+	printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
         return closestPlayerSoFar;
     }
 };
