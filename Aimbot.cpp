@@ -270,7 +270,7 @@ public:
                 }
             }
         }
-	cout << closestPlayerSoFar->getName();
+	std::cout << closestPlayerSoFar->getName();
         return closestPlayerSoFar;
     }
 };
