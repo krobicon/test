@@ -13,6 +13,7 @@
 #include "NoRecoil.cpp"
 #include "Aimbot.cpp"
 #include "Movement.cpp"
+#include "Weapon.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
 
@@ -68,6 +69,7 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
+			Weapon *localWeapon = new Weapon();
 			if (configLoader->isAimbotOn())
 			    aimbot->update();
 
@@ -75,7 +77,7 @@ int main(int argc, char *argv[])
 			    noRecoil->update();
 			
 			movement->update();
-			if (localPlayer->getAmmo() == 1)
+			if (localWeapon->getAmmo() == 1)
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
