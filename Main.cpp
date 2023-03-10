@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
 			if (localPlayer->getAmmo() == 1)
 			{
 				localPlayer->setReloadState(5);
+				localPlayer->setAttackState(4);
 			}
 			else if (localPlayer->getReloadState() == 5)
 			{
