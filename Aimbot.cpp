@@ -97,6 +97,7 @@ public:
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
+	printf("NEW PITCH: [%f] \n", newPitch);
         m_localPlayer->setPitch(newPitch);
 
         // Setup Yaw
