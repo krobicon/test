@@ -95,8 +95,8 @@ public:
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
 	    
 	const double yaw = m_localPlayer->getYaw();
-        const double yawangleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
-        const double yawangleDeltaAbs = abs(angleDelta);
+        const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
+        const double yawAngleDeltaAbs = abs(angleDelta);
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
 	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
@@ -105,12 +105,12 @@ public:
 	printf("YAW ABS DELTA: [%f] \n", yawAngleDeltaAbs);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
-	if (yawangleDeltaAbs > m_configLoader->getAimbotActivationFOV())
+	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
             return;
 	    
 	// Write angles
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
-	double newYaw = normalizeYaw(yaw + (yawangleDelta / m_configLoader->getAimbotSmoothing()));
+	double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
 	printf("NEW PITCH: [%f] \n", newPitch);
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
