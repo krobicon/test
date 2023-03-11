@@ -241,8 +241,10 @@ public:
             double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
         }
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
+	printf("dz: [%f] \n", locationDeltaZ);
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
+	printf("pitch in radians: [%f] \n", pitchInRadians);
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
