@@ -108,7 +108,7 @@ public:
 	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 	    smooth = 128/4;
-	    bool trigger = true;
+	    trigger = true;
 	}
 	printf("TRIGGER: [%d] \n", trigger);
 	    
