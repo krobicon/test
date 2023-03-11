@@ -50,7 +50,7 @@ public:
             
             if (distanceToTarget < 250)
             {
-                if (player->isVisible())
+                if (player->isVisible(true))
                 {
                     player->setGlowEnable(5);
                     player->setGlowThroughWall(1);
