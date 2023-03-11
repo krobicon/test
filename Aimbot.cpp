@@ -101,7 +101,7 @@ public:
             return;
 	
 	int smooth = 128; //AIMBOT SMOOTHING
-	bool trigger = false
+	bool trigger = false;
 	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 	    smooth = 128/4;
