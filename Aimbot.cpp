@@ -226,11 +226,11 @@ public:
 	printf("ENEMY Z (ASSIGNED VAR): [%f] \n", enemyPlayerLocationZ);
         if (m_localPlayer->isDucking())
         {
-            double localPlayerLocationZ -= 1;
+            localPlayerLocationZ -= 1;
         }
         if (m_targetPlayer->isDucking())
         {
-            double enemyPlayerLocationZ -= 18;
+            enemyPlayerLocationZ -= 18;
         }
 	printf("MY UPDATED Z COORD: [%f] \n", localPlayerLocationZ);
 	printf("ENEMY UPDATED Z COORD: [%f] \n", enemyPlayerLocationZ);
