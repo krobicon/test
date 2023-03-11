@@ -113,7 +113,7 @@ public:
 	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
 	
 	//TESTING TRIGGERBOT
-	if (localWeapon->getAmmo() == 5 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 		if (distanceToTarget < 10)
 		{
