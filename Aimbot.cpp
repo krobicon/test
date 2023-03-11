@@ -248,7 +248,6 @@ public:
             Player *player = m_players->at(i);
             if (!player->isValid() || player->isKnocked())
 	    {
-		printf("i: [%d] \n", i);
                 continue;
 	    }
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
@@ -265,6 +264,7 @@ public:
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
+		printf("i: [%d] \n", i);
                 closestPlayerAngleSoFar = abs(yawangleDelta)+abs(pitchangleDelta);
             }
             else
