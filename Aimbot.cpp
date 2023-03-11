@@ -120,8 +120,11 @@ public:
 	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
 	
 	//TESTING TRIGGERBOT
-	printf("AMMO: [%d] \n", localWeapon->getAmmo());
-	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
+	if (trigger == true)
+	{
+		printf("AMMO: [%d] \n", localWeapon->getAmmo());
+		printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
+	}
 	//if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
