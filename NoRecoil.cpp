@@ -34,7 +34,7 @@ public:
     }
     void update()
     {
-        float weirdorandom = RandomFloat(0.35,0.60);
+        float weirdorandom = math::RandomFloat(0.35,0.60);
         printf("my weirdo random float: [%f] \n", weirdorandom);
         // adjust pitch
         const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength();
