@@ -87,7 +87,6 @@ public:
             desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
 	    printf("MY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
 	    printf("ENEMY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_lockedOnPlayer->getLocationX(), m_lockedOnPlayer->getLocationY(), m_lockedOnPlayer->getLocationZ());
-	    printf("DESIRED YAW: [%f] \n", desiredViewAngleYaw);
 	    printf("DESIRED PITCH: [%f] \n", desiredViewAnglePitch);
         }
 
@@ -102,9 +101,6 @@ public:
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
 	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
-	printf("MY YAW: [%f] \n", yaw);
-	printf("YAW DELTA: [%f] \n", yawAngleDelta);
-	printf("YAW ABS DELTA: [%f] \n", yawAngleDeltaAbs);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
 	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
@@ -240,6 +236,8 @@ public:
         {
             double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
         }
+	printf("MY Z COORD: [%f] \n", localPlayerLocationZ);
+	printf("ENEMY Z COORD: [%f] \n", enemyPlayerLocationZ);
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
 	printf("dz: [%f] \n", locationDeltaZ);
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
