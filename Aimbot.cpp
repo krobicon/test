@@ -127,7 +127,7 @@ public:
 	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
 	
 	//if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && distanceToTarget < 13)
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
 		if (yawAngleDeltaAbs < 1)
