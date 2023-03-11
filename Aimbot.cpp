@@ -85,6 +85,8 @@ public:
                                                       m_lockedOnPlayer->getLocationX(),
                                                       m_lockedOnPlayer->getLocationY());
             desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
+	    printf("MY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
+	    printf("ENEMY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_lockedOnPlayer->getLocationX(), m_lockedOnPlayer->getLocationY(), m_lockedOnPlayer->getLocationZ());
 	    printf("DESIRED YAW: [%f] \n", desiredViewAngleYaw);
 	    printf("DESIRED PITCH: [%f] \n", desiredViewAnglePitch);
         }
