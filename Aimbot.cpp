@@ -218,26 +218,22 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-	double localPlayerLocationZ;
-        double enemyPlayerLocationZ;
+	printf("MY Z (METHOD OUTPUT): [%f] \n", m_localPlayer->getLocationZ());
+	printf("ENEMY Z (METHOD OUTPUT): [%f] \n", m_targetPlayer->getLocationZ());
+	double localPlayerLocationZ = m_localPlayer->getLocationZ();
+        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
+	printf("MY Z (ASSIGNED VAR): [%f] \n", localPlayerLocationZ);
+	printf("ENEMY Z (ASSIGNED VAR): [%f] \n", enemyPlayerLocationZ);
         if (m_localPlayer->isDucking())
         {
-            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 1;
-        }
-        else
-        {
-            double localPlayerLocationZ = m_localPlayer->getLocationZ();
+            double localPlayerLocationZ -= 1;
         }
         if (m_targetPlayer->isDucking())
         {
-            double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() - 18;
+            double enemyPlayerLocationZ -= 18;
         }
-        else
-        {
-            double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
-        }
-	printf("MY Z COORD: [%f] \n", localPlayerLocationZ);
-	printf("ENEMY Z COORD: [%f] \n", enemyPlayerLocationZ);
+	printf("MY UPDATED Z COORD: [%f] \n", localPlayerLocationZ);
+	printf("ENEMY UPDATED Z COORD: [%f] \n", enemyPlayerLocationZ);
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
 	printf("dz: [%f] \n", locationDeltaZ);
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
