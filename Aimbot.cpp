@@ -76,18 +76,14 @@ public:
                                                                m_lockedOnPlayer->getLocationX(),
                                                                m_lockedOnPlayer->getLocationY(),
                                                                m_lockedOnPlayer->getLocationZ());
-	    printf("DISTANCE CHECK 1: [%f] \n", distanceToTarget);
+	    //printf("DISTANCE CHECK 1: [%f] \n", distanceToTarget);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
-	    printf("DISTANCE CHECK 2: [%f] \n", distanceToTarget);
             desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                       m_localPlayer->getLocationY(),
                                                       m_lockedOnPlayer->getLocationX(),
                                                       m_lockedOnPlayer->getLocationY());
             desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
-	    printf("MY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
-	    printf("ENEMY LOCATION -> X:%.6f \t Y: %.6f \t Z:%.6f \n", m_lockedOnPlayer->getLocationX(), m_lockedOnPlayer->getLocationY(), m_lockedOnPlayer->getLocationZ());
-	    printf("DESIRED PITCH: [%f] \n", desiredViewAnglePitch);
         }
 
         // Setup Angles
@@ -98,9 +94,7 @@ public:
 	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
-	printf("MY PITCH: [%f] \n", pitch);
-	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
-	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
+
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
 	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
@@ -218,27 +212,19 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-	printf("MY Z (METHOD OUTPUT): [%f] \n", m_localPlayer->getLocationZ());
-	printf("ENEMY Z (METHOD OUTPUT): [%f] \n", m_targetPlayer->getLocationZ());
 	double localPlayerLocationZ = m_localPlayer->getLocationZ();
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
-	printf("MY Z (ASSIGNED VAR): [%f] \n", localPlayerLocationZ);
-	printf("ENEMY Z (ASSIGNED VAR): [%f] \n", enemyPlayerLocationZ);
         if (m_localPlayer->isDucking())
         {
-            localPlayerLocationZ -= 1;
+            localPlayerLocationZ -= 10;
         }
         if (m_targetPlayer->isDucking())
         {
             enemyPlayerLocationZ -= 18;
         }
-	printf("MY UPDATED Z COORD: [%f] \n", localPlayerLocationZ);
-	printf("ENEMY UPDATED Z COORD: [%f] \n", enemyPlayerLocationZ);
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
-	printf("dz: [%f] \n", locationDeltaZ);
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
-	printf("pitch in radians: [%f] \n", pitchInRadians);
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
