@@ -112,7 +112,7 @@ public:
 	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
-		if (distanceToTarget < 10 && m_lockedOnPlayer->isCrosshair())
+		if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
 			//std::this_thread::sleep_for(std::chrono::milliseconds(50));
