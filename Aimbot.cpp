@@ -66,7 +66,7 @@ public:
         }
         else
         {
-            if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible())
+            if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
                 return;
@@ -243,7 +243,7 @@ public:
                 continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
-            if (!player->isVisible())
+            if (!player->isVisible(false))
                 continue;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
