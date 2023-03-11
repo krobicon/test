@@ -193,11 +193,14 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    bool isVisible()
+    bool isVisible(bool update)
     {
         const float lastVisibleTime = getLastVisibleTime();
         const bool isVisible = lastVisibleTime > m_lastVisibleTime;
-        m_lastVisibleTime = lastVisibleTime;
+        if (update == true)
+        {
+            m_lastVisibleTime = lastVisibleTime;
+        }
         return isVisible;
     }
     float getLastCrosshairTime()
