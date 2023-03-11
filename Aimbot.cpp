@@ -100,6 +100,9 @@ public:
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
 	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
+	printf("MY YAW: [%f] \n", yaw);
+	printf("YAW DELTA: [%f] \n", yawAngleDelta);
+	printf("YAW ABS DELTA: [%f] \n", yawAngleDeltaAbs);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
 	if (angleDeltaAbs > m_configLoader->getAimbotActivationFOV())
