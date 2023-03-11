@@ -85,6 +85,8 @@ public:
                                                       m_lockedOnPlayer->getLocationX(),
                                                       m_lockedOnPlayer->getLocationY());
             desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
+	    printf("DESIRED YAW: [%f] \n", desiredViewAngleYaw);
+	    printf("DESIRED PITCH: [%f] \n", desiredViewAnglePitch);
         }
 
         // Setup Angles
