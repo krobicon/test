@@ -100,17 +100,19 @@ public:
 	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
             return;
 	
-	int smooth = 130; //AIMBOT SMOOTHING
+	int smooth = 128; //AIMBOT SMOOTHING
 	bool trigger = false
 	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
-	    smooth = 130/2;
+	    smooth = 128/4;
 	    bool trigger = true;
 	}
 	    
 	// Write angles
-        double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
-	double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
+        //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
+	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
+        double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
+	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
 	printf("NEW PITCH: [%f] \n", newPitch);
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
@@ -121,10 +123,10 @@ public:
 	printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 	//if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
-	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
 		//if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
-		if (distanceToTarget < 12)
+		if (distanceToTarget < 13)
 		{
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
