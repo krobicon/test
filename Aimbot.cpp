@@ -123,10 +123,10 @@ public:
 	printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 	//if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
-	if (trigger == true && m_lockedOnPlayer != nullptr)
+	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		//if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
-		if (distanceToTarget < 13)
+		if (m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
