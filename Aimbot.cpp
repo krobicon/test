@@ -105,6 +105,8 @@ public:
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
 	
+	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
+	
 	//TESTING TRIGGERBOT
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
