@@ -102,11 +102,15 @@ public:
 	
 	int smooth = 128; //AIMBOT SMOOTHING
 	bool trigger = false;
+	printf("AMMO: [%d] \n", localWeapon->getAmmo());
+	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
+	printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
 	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 	    smooth = 128/4;
 	    bool trigger = true;
 	}
+	printf("TRIGGER: [%d] \n", trigger);
 	    
 	// Write angles
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
