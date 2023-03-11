@@ -110,11 +110,14 @@ public:
 	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
 	
 	//TESTING TRIGGERBOT
+	printf("AMMO: [%d] \n", localWeapon->getAmmo());
+	printf("READY TIME: [%d] \n", localWeapon->getReadyTime());
 	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
 		if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
+			printf("TRIGGER SENT \n");
 			//std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		}
 	}
