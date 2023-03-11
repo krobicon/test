@@ -112,9 +112,11 @@ public:
 	//TESTING TRIGGERBOT
 	printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
-	if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	//if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	{
-		if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
+		//if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
+		if (distanceToTarget < 12)
 		{
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
