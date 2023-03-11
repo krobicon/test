@@ -92,8 +92,8 @@ public:
         const double pitchAngleDelta = calculatePitchAngleDelta(pitch, desiredViewAnglePitch);
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
 	printf("MY PITCH: [%f] \n", pitch);
-	printf("PITCH DELTA: [%f] \n", pitchAngleDeltaAbs);
-	printf("WHAT IS THIS: [%d] \n", m_configLoader->getAimbotActivationFOV() / 2);
+	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
+	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
