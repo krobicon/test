@@ -245,7 +245,10 @@ public:
         {
             Player *player = m_players->at(i);
             if (!player->isValid() || player->isKnocked())
+	    {
+		printf("i: [%d] \n", i);
                 continue;
+	    }
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
             if (!player->isVisible(false))
