@@ -217,7 +217,7 @@ public:
         double enemyPlayerLocationZ;
         if (m_localPlayer->isDucking())
         {
-            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 27;
+            double localPlayerLocationZ = m_localPlayer->getLocationZ() - 20;
         }
         else
         {
