@@ -87,25 +87,26 @@ public:
             desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
         }
 
-        // Setup Pitch
+        // Setup Angles
         const double pitch = m_localPlayer->getPitch();
         const double pitchAngleDelta = calculatePitchAngleDelta(pitch, desiredViewAnglePitch);
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
+	    
+	const double yaw = m_localPlayer->getYaw();
+        const double angleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
+        const double angleDeltaAbs = abs(angleDelta);
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
 	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
+	if (angleDeltaAbs > m_configLoader->getAimbotActivationFOV())
+            return;
+	    
+	// Write angles
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
 	printf("NEW PITCH: [%f] \n", newPitch);
         m_localPlayer->setPitch(newPitch);
-
-        // Setup Yaw
-        const double yaw = m_localPlayer->getYaw();
-        const double angleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
-        const double angleDeltaAbs = abs(angleDelta);
-        if (angleDeltaAbs > m_configLoader->getAimbotActivationFOV())
-            return;
         double newYaw = normalizeYaw(yaw + (angleDelta / m_configLoader->getAimbotSmoothing()));
         m_localPlayer->setYaw(newYaw);
 	
