@@ -96,7 +96,7 @@ public:
 	    
 	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
-        const double yawAngleDeltaAbs = abs(angleDelta);
+        const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDelta);
 	printf("PITCH ABS DELTA: [%f] \n", pitchAngleDeltaAbs);
