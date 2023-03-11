@@ -36,13 +36,19 @@ public:
     void update()
     {
 	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
+	bool trigger = false;
+	int smooth = m_configLoader->getAimbotSmoothing();
         // validations
         if (m_localPlayer->isWalking())
         {
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
+	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	{
+	    trigger = true;
+	}
+	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
     	{
 	    m_lockedOnPlayer = nullptr;
 	    return;
@@ -100,44 +106,31 @@ public:
 	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
             return;
 	
-	int smooth = 128; //AIMBOT SMOOTHING
-	bool trigger = false;
 	printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 	printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
-	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
-	{
-	    smooth = 128/4;
-	    trigger = true;
-	}
 	printf("TRIGGER: [%d] \n", trigger);
 	    
 	// Write angles
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
 	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
+	if (trigger == true && distanceToTarget < 13)
+	{
+		smooth = smooth/3;
+	}
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
-	printf("NEW PITCH: [%f] \n", newPitch);
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
 	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
 	
-	//TESTING TRIGGERBOT
-	if (trigger == true)
-	{
-		printf("AMMO: [%d] \n", localWeapon->getAmmo());
-		printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
-	}
-	//if (m_lockedOnPlayer != nullptr && localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
-		//if (distanceToTarget < 12 && m_lockedOnPlayer->isCrosshair())
 		if (m_lockedOnPlayer->isCrosshair())
 		{
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
-			//std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		}
 	}
     }
