@@ -93,6 +93,7 @@ public:
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
 	printf("MY PITCH: [%f] \n", pitch);
 	printf("PITCH DELTA: [%f] \n", pitchAngleDeltaAbs);
+	printf("BOOL RETURN?: [%d] \n", pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2);
         if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
             return;
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
