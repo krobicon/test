@@ -272,6 +272,7 @@ public:
                 if ( (abs(yawangleDelta)+abs(pitchangleDelta)) < closestPlayerAngleSoFar)
                 {
                     closestPlayerSoFar = player;
+		    printf("i: [%d] \n", i);
                     closestPlayerAngleSoFar = abs(yawangleDelta)+abs(pitchangleDelta);
                 }
             }
