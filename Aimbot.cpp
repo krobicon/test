@@ -99,6 +99,14 @@ public:
             return;
 	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
             return;
+	
+	int smooth = 130; //AIMBOT SMOOTHING
+	bool trigger = false
+	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	{
+	    smooth = 130/2;
+	    bool trigger = true;
+	}
 	    
 	// Write angles
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
