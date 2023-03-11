@@ -26,10 +26,7 @@ namespace math
     {
         float dx = (x1 - x2);
         float dy = (y1 - y2);
-        printf("dx: [%f] \n", dx);
-        printf("dy: [%f] \n", dy);
         float distance = sqrt(pow(dx, 2) + pow(dy, 2));
-        printf("2d distance: [%f] \n", distance);
         return distance;
     }
 
