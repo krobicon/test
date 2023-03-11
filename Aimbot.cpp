@@ -118,6 +118,7 @@ public:
 	{
 		smooth = smooth/3;
 	}
+	printf("SMOOTH: [%d] \n", smooth);
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         m_localPlayer->setPitch(newPitch);
