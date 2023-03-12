@@ -124,7 +124,7 @@ public:
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
-	//if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		if (m_lockedOnPlayer->isCrosshair())
 		//if (yawAngleDeltaAbs < 1)
