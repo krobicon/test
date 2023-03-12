@@ -124,11 +124,13 @@ public:
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
-	if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && localWeapon->getReadyTime() == 0 && distanceToTarget < 13)
 	{
-		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
+		//if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
+		if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
-			//m_localPlayer->setAttackState(5);
+			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
 		}
