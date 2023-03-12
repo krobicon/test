@@ -133,8 +133,8 @@ public:
 		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 3))
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
-			m_localPlayer->setAttackState(5);
-			//m_x11Utils->mouseClick(1);
+			//m_localPlayer->setAttackState(5);
+			m_x11Utils->mouseClick(1);
 			//printf("TRIGGER SENT \n");
 		}
 	}
