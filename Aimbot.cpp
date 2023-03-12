@@ -126,7 +126,7 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
-		if (m_lockedOnPlayer->isCrosshair())
+		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 1 && pitchAngleDeltaAbs < 1))
 		//if (yawAngleDeltaAbs < 1)
 		{
 			m_x11Utils->mouseClick(1);
