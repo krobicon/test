@@ -124,13 +124,10 @@ public:
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
-	printf("DISTANCE CHECK 3: [%f] \n", distanceToTarget);
-	
 	//if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	if (trigger == true && distanceToTarget < 13)
 	{
-		//if (m_lockedOnPlayer->isCrosshair())
-		if (yawAngleDeltaAbs < 1)
+		if (m_lockedOnPlayer->isCrosshair())
+		//if (yawAngleDeltaAbs < 1)
 		{
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
