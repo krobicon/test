@@ -214,12 +214,12 @@ public:
     bool isCrosshair()
     {
         const float lastCrosshairTime = getLastCrosshairTime();
-        if (m_lastCrosshairTime == -1.f)
+        /*if (m_lastCrosshairTime == -1.f)
         {
             m_lastCrosshairTime = lastCrosshairTime;
             printf("CHECK 1 LAST CROSSHAIR TIME: [%f] \n", m_lastCrosshairTime );
             return false;
-        }
+        }*/
         bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
         m_lastCrosshairTime = lastCrosshairTime;
         printf("CHECK 2 LAST CROSSHAIR TIME: [%f] \n", m_lastCrosshairTime );
