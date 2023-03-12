@@ -128,7 +128,8 @@ public:
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
-	if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
