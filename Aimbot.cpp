@@ -44,7 +44,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (localWeapon->getAmmo() > 0 && localWeapon->getReadyTime() == 0 && localWeapon->isSemiAuto())
+	if (localWeapon->getAmmo() > 0 && localWeapon->isSemiAuto())
 	{
 	    trigger = true;
 	}
@@ -124,7 +124,7 @@ public:
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
 	
-	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 1 && pitchAngleDeltaAbs < 1))
 		//if (yawAngleDeltaAbs < 1)
