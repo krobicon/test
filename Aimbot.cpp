@@ -38,6 +38,7 @@ public:
 	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing();
+	int fov = m_configLoader->getAimbotActivationFOV();
         // validations
         if (m_localPlayer->isWalking())
         {
@@ -100,24 +101,27 @@ public:
 	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
-
-        if (pitchAngleDeltaAbs > m_configLoader->getAimbotActivationFOV() / 2)
+	
+	if (trigger == true && distanceToTarget < 13)
+	{
+		smooth = smooth/3;
+		fov = fov*2;
+	}
+	    
+        if (pitchAngleDeltaAbs > fov / 2)
             return;
-	if (yawAngleDeltaAbs > m_configLoader->getAimbotActivationFOV())
+	if (yawAngleDeltaAbs > fov)
             return;
 	
-	printf("AMMO: [%d] \n", localWeapon->getAmmo());
-	printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
-	printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
-	printf("TRIGGER: [%d] \n", trigger);
+	//printf("AMMO: [%d] \n", localWeapon->getAmmo());
+	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
+	//printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
+	//printf("TRIGGER: [%d] \n", trigger);
 	    
 	// Write angles
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
 	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
-	if (trigger == true && distanceToTarget < 13)
-	{
-		smooth = smooth/3;
-	}
+
 	printf("SMOOTH: [%d] \n", smooth);
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
@@ -127,8 +131,7 @@ public:
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	if (trigger == true && localWeapon->getReadyTime() == 0 && distanceToTarget < 13)
 	{
-		//if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
-		if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
+		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
