@@ -117,8 +117,8 @@ public:
 	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 	//printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
 	//printf("TRIGGER: [%d] \n", trigger);
-	printf("SMOOTH: [%d] \n", smooth);
-	printf("FOV: [%d] \n", fov);
+	//printf("SMOOTH: [%d] \n", smooth);
+	//printf("FOV: [%d] \n", fov);
 	    
 	// Write angles
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
@@ -134,8 +134,8 @@ public:
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
 			m_localPlayer->setAttackState(5);
-			m_x11Utils->mouseClick(1);
-			printf("TRIGGER SENT \n");
+			//m_x11Utils->mouseClick(1);
+			//printf("TRIGGER SENT \n");
 		}
 	}
     }
