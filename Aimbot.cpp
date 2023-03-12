@@ -134,15 +134,6 @@ public:
 		}
 	}
     }
-    double flipYawIfNeeded(double angle)
-    {
-        double myAngle = angle;
-        if (myAngle > 180)
-            myAngle = (360 - myAngle) * -1;
-        else if (myAngle < -180)
-            myAngle = (360 + myAngle);
-        return myAngle;
-    }
     
     double normalizeYaw(double angle)
     {
