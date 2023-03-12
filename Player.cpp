@@ -214,10 +214,22 @@ public:
     bool isCrosshair()
     {
         const float lastCrosshairTime = getLastCrosshairTime();
-        const bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
+        if (m_lastCrosshairTime == -1.f)
+        {
+            m_lastCrosshairTime = lastCrosshairTime;
+            return false;
+        }
+        bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
         m_lastCrosshairTime = lastCrosshairTime;
         return isCrosshair;
     }
+    /*bool isCrosshair()
+    {
+        const float lastCrosshairTime = getLastCrosshairTime();
+        const bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
+        m_lastCrosshairTime = lastCrosshairTime;
+        return isCrosshair;
+    }*/
     void print()
     {
         std::cout << "Player[" + std::to_string(m_entityListIndex) + "]:\n";
