@@ -117,12 +117,12 @@ public:
 	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
 	//printf("SEMI?: [%d] \n", localWeapon->isSemiAuto());
 	//printf("TRIGGER: [%d] \n", trigger);
+	printf("SMOOTH: [%d] \n", smooth);
+	printf("FOV: [%d] \n", fov);
 	    
 	// Write angles
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
 	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
-
-	printf("SMOOTH: [%d] \n", smooth);
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         m_localPlayer->setPitch(newPitch);
