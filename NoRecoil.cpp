@@ -39,7 +39,7 @@ public:
         const double punchPitch = m_localPlayer->getPunchPitch();
         if (punchPitch != 0)
         {
-            const double norecoilPitchStrength = math::RandomFloat(0.35,0.60); // RANDOM PITCH STRENGTH
+            const double norecoilPitchStrength = math::RandomFloat(0.37,0.60); // RANDOM PITCH STRENGTH
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch) * norecoilPitchStrength;
             m_localPlayer->setPitch(pitch - punchPitchDelta);
@@ -52,7 +52,7 @@ public:
         const double punchYaw = m_localPlayer->getPunchYaw();
         if (punchYaw != 0)
         {
-            const double norecoilYawStrength = math::RandomFloat(0.35,0.60); // RANDOM
+            const double norecoilYawStrength = math::RandomFloat(0.37,0.60); // RANDOM
             const double yaw = m_localPlayer->getYaw();
             const double punchYawDelta = (punchYaw - m_previousPunchYaw) * norecoilYawStrength;
             m_localPlayer->setYaw(yaw - punchYawDelta);
