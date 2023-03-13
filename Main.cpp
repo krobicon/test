@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 		{
 			//Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			if (configLoader->isAimbotOn())
-			    aimbot->update();
+			    aimbot->update(counter);
 
 			if (configLoader->isNorecoilOn())
 			    noRecoil->update();
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
             std::this_thread::sleep_for(std::chrono::seconds(10));
         }
         counter++;
-        if (counter > 5000)
+        if (counter > 10000)
             counter = 0;
     }
 }
