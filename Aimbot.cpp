@@ -131,10 +131,10 @@ public:
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
+		printf("AIM COUNTER: [%d] \n", counter);
 		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
-			printf("AIM COUNTER: [%d] \n", counter);
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
