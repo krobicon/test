@@ -33,7 +33,7 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update()
+    void update(int counter)
     {
 	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
@@ -134,6 +134,7 @@ public:
 		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
+			printf("AIM COUNTER: [%d] \n", counter);
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
