@@ -106,7 +106,7 @@ public:
 	{
 		smooth = smooth/3;
 		fov = fov*2;
-		if (m_lockedOnPlayer->isCrosshair())
+		if (m_lockedOnPlayer->isCrosshair() && localWeapon->getReadyTime() == 0)
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
