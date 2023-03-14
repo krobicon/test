@@ -222,7 +222,7 @@ public:
         }*/
         bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
         m_lastCrosshairTime = lastCrosshairTime;
-        printf("CHECK 2 LAST CROSSHAIR TIME: [%f] \n", m_lastCrosshairTime );
+        //printf("CHECK 2 LAST CROSSHAIR TIME: [%f] \n", m_lastCrosshairTime );
         return isCrosshair;
     }
     /*bool isCrosshair()
