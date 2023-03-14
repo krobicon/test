@@ -104,7 +104,7 @@ public:
 	
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
-		smooth = smooth/3;
+		smooth = smooth/2;
 		fov = fov*2;
 		if (m_lockedOnPlayer->isCrosshair())
 		{
