@@ -110,7 +110,7 @@ public:
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
-			printf("TRIGGER SENT \n");
+			//printf("TRIGGER SENT \n");
 		}	
 	}
 	    
