@@ -103,12 +103,14 @@ public:
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	
-	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
+	//if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
+	if (trigger == true && distanceToTarget < 13)
 	{
 		bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		if (m_lockedOnPlayer->isCrosshair() && localWeapon->getReadyTime() == 0)
+		//if (m_lockedOnPlayer->isCrosshair() && localWeapon->getReadyTime() == 0)
+		if (localWeapon->getReadyTime() == 0)
 		{
 			m_localPlayer->setAttackState(5);
 			triggerSent = true;
