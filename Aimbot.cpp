@@ -19,6 +19,7 @@ private:
     X11Utils *m_x11Utils;
 
     Player *m_lockedOnPlayer = nullptr;
+    bool triggerCache = false;
 
 public:
     Aimbot(ConfigLoader *configLoader,
@@ -104,14 +105,21 @@ public:
 	
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
+		bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
 		if (m_lockedOnPlayer->isCrosshair())
 		{
 			m_localPlayer->setAttackState(5);
-			m_x11Utils->mouseClick(1);
+			triggerSent = true;
+			//m_x11Utils->mouseClick(1);
 			//printf("TRIGGER SENT \n");
-		}	
+		}
+		if (triggerCache == true && triggerSent == false)
+		{
+			m_localPlayer->setAttackState(4);
+		}
+		triggerCache = triggerSent;
 	}
 	    
         if (pitchAngleDeltaAbs > fov / 2)
