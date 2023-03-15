@@ -103,8 +103,7 @@ public:
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	
-	//if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
-	if (trigger == true && distanceToTarget < 13)
+	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
 		bool triggerSent = false;
 		smooth = smooth/2;
@@ -113,14 +112,14 @@ public:
 		{
 			m_localPlayer->setAttackState(5);
 			triggerSent = true;
-			//m_x11Utils->mouseClick(1);
+			m_x11Utils->mouseClick(1);
 			//printf("TRIGGER SENT \n");
 		}
-		if (triggerCache == true && triggerSent == false)
+		/*if (triggerCache == true && triggerSent == false)
 		{
 			m_localPlayer->setAttackState(4);
 		}
-		triggerCache = triggerSent;
+		triggerCache = triggerSent;*/
 	}
 	    
         if (pitchAngleDeltaAbs > fov / 2)
