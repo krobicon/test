@@ -73,8 +73,7 @@ int main(int argc, char *argv[])
 			if (configLoader->isAimbotOn())
 			    aimbot->update(counter);
 
-			if (configLoader->isNorecoilOn())
-			    noRecoil->update();
+			noRecoil->update();
 			
 			movement->update();
 			/*if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
@@ -95,7 +94,7 @@ int main(int argc, char *argv[])
 	    }
 
             // all ran fine
-            if (counter % 5000 == 0)
+            if (counter % 10000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
             }
@@ -108,6 +107,6 @@ int main(int argc, char *argv[])
         }
         counter++;
         if (counter > 10000)
-            counter = 0;
+            counter = 1;
     }
 }
