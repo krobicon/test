@@ -123,10 +123,11 @@ public:
 		triggerCache = triggerSent;*/
 	}
 	    
-        if (pitchAngleDeltaAbs > fov / 2)
-            return;
-	if (yawAngleDeltaAbs > fov)
-            return;
+        if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
+	{
+	    m_lockedOnPlayer = nullptr;
+	    return;
+	}
 	
 	//printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
