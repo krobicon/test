@@ -108,7 +108,7 @@ public:
 		bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		if (m_lockedOnPlayer->isCrosshair() && localWeapon->getReadyTime() == 0)
+		if (m_lockedOnPlayer->isCrosshair())
 		{
 			m_localPlayer->setAttackState(5);
 			triggerSent = true;
