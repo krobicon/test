@@ -103,7 +103,7 @@ public:
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	
-	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr && m_localWeapon->getReadyTime==0)
+	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr && localWeapon->getReadyTime==0)
 	{
 		bool triggerSent = false;
 		smooth = smooth/2;
