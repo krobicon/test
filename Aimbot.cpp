@@ -115,7 +115,7 @@ public:
 			m_x11Utils->mouseClick(1);
 			printf("SENT \n");
 		}
-		printf("TIME: %d \n", localWeapon->getReadyTime());
+		printf("TIME: %f \n", localWeapon->getReadyTime());
 		/*if (triggerCache == true && triggerSent == false)
 		{
 			m_localPlayer->setAttackState(4);
