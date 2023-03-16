@@ -34,7 +34,7 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update(int counter, Weapon m_localWeapon)
+    void update(int counter, Weapon *m_localWeapon)
     {
 	//Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
