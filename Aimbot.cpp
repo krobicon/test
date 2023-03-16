@@ -107,10 +107,10 @@ public:
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	//if (trigger == true && distanceToTarget < 13)
 	{
-		bool triggerSent = false;
+		//bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		if (counter % 10 == 0 && m_lockedOnPlayer->isCrosshair())
+		/*if (counter % 10 == 0 && m_lockedOnPlayer->isCrosshair())
 		//if (localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		{
 			m_localPlayer->setAttackState(5);
@@ -147,18 +147,19 @@ public:
         m_localPlayer->setYaw(newYaw);
 	printf("SET YAW: [%f] \n", newYaw); 
 	
+	
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	/*if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		printf("AIM COUNTER: [%d] \n", counter);
-		if (m_lockedOnPlayer->isCrosshair() || (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
+		if (counter % 10 == 0 && m_lockedOnPlayer->isCrosshair())
 		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
 			printf("TRIGGER SENT \n");
 		}
-	}*/
+	}
     }
     
     double normalizeYaw(double angle)
