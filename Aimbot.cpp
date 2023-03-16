@@ -37,15 +37,6 @@ public:
     void update(int counter)
     {
 	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
-	if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
-			{
-				m_localPlayer->setAttackState(4);
-				m_localPlayer->setReloadState(5);
-			}
-			else if (m_localPlayer->getReloadState() == 5)
-			{
-				m_localPlayer->setReloadState(4);
-			}
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 11;
 	int fov = m_configLoader->getAimbotActivationFOV();
