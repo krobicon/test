@@ -144,6 +144,7 @@ public:
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
+	printf("SET YAW: [%f] \n", newYaw); 
 	
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	/*if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
