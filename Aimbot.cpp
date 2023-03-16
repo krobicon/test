@@ -34,9 +34,9 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update(int counter)
+    void update(int counter, Weapon m_localWeapon)
     {
-	Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
+	//Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 11;
 	int fov = m_configLoader->getAimbotActivationFOV();
@@ -46,7 +46,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (localWeapon->getAmmo() > 0 && localWeapon->isSemiAuto())
+	if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
 	{
 	    trigger = true;
 	}
@@ -109,7 +109,7 @@ public:
 		bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		if (m_lockedOnPlayer->isCrosshair() || yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4)
+		if (counter % 10 == 0 && (m_lockedOnPlayer->isCrosshair() || yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		//if (localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		{
 			m_localPlayer->setAttackState(5);
