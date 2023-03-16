@@ -60,7 +60,7 @@ public:
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
 	double distanceToTarget;
-        if (m_level->isTrainingArea())
+        if (m_level->isTrainingArea() &&  30 > 20)
         {
             //printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
             const float dummyX = 31408.732422;
@@ -272,8 +272,8 @@ public:
 	    }
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 continue;
-            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                continue;
+            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                //continue;
             if (!player->isVisible(false))
                 continue;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
