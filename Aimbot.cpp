@@ -74,7 +74,7 @@ public:
         }
         else
         {
-	    printf('debugging \n");
+	    printf("debugging \n");
             if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
