@@ -152,8 +152,8 @@ public:
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		printf("AIM COUNTER: [%d] \n", counter);
-		if (m_lockedOnPlayer->isCrosshair())
-		//if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
+		//if (m_lockedOnPlayer->isCrosshair())
+		if ((yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 2))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
