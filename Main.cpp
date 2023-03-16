@@ -71,13 +71,12 @@ int main(int argc, char *argv[])
 		{
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			if (configLoader->isAimbotOn())
-			    aimbot->update(counter);
+			    aimbot->update(counter, localWeapon);
 
 			noRecoil->update();
 			
 			movement->update();
-			//if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
-			if (localWeapon->getAmmo() == 1)
+			if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
@@ -98,7 +97,7 @@ int main(int argc, char *argv[])
             if (counter % 10000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
-		counter = 1;
+		counter = 0;
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
