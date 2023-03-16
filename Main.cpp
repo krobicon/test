@@ -71,7 +71,10 @@ int main(int argc, char *argv[])
 		{
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			if (configLoader->isAimbotOn())
+			{
 			    aimbot->update(counter, localWeapon);
+			    printf("aim counter: [%d] /n", counter);
+			}
 
 			noRecoil->update();
 			
