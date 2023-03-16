@@ -40,6 +40,7 @@ public:
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 11;
 	int fov = m_configLoader->getAimbotActivationFOV();
+	printf("TIME: %f \n", localWeapon->getReadyTime()); // TESTING
         // validations
         if (m_localPlayer->isWalking())
         {
@@ -117,7 +118,6 @@ public:
 			m_x11Utils->mouseClick(1);
 			printf("SENT \n");
 		}
-		printf("TIME: %f \n", localWeapon->getReadyTime());
 		/*if (triggerCache == true && triggerSent == false)
 		{
 			m_localPlayer->setAttackState(4);
