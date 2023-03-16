@@ -110,7 +110,7 @@ public:
 		bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		if (counter % 10 == 0 && (m_lockedOnPlayer->isCrosshair() || yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
+		if (counter % 10 == 0 && (m_lockedOnPlayer->isCrosshair())
 		//if (localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
 		{
 			m_localPlayer->setAttackState(5);
