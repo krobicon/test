@@ -69,14 +69,14 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
-			//Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
+			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			if (configLoader->isAimbotOn())
 			    aimbot->update(counter);
 
 			noRecoil->update();
 			
 			movement->update();
-			/*if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
+			if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
