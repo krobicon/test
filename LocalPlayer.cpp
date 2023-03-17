@@ -8,6 +8,7 @@ class LocalPlayer
 {
 private:
     long m_basePointer = 0;
+    long m_bonePointer = 0;
     long getUnresolvedBasePointer()
     {
         long unresolvedBasePointer = offsets::REGION + offsets::LOCAL_PLAYER;
@@ -18,6 +19,15 @@ private:
         if (m_basePointer == 0)
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
         return m_basePointer;
+    }
+    long getBonePointer()
+    {
+        if (m_bonePointer == 0)
+        {
+            long basePointer = getBasePointer();
+            m_bonePointer = mem::ReadLong(basePointer + offsets::BONES);
+        }
+        return m_bonePointer;
     }
 
 public:
@@ -64,6 +74,13 @@ public:
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::LOCAL_ORIGIN + (sizeof(float) * 2);
         float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
+    float getBoneZ(int id)
+    {
+        long bonePointer = getBonePointer();
+        uint32_t boneLoc = (id * 0x30);
+        float result = mem::ReadFloat(bonePointer + boneLoc + 0xCC + 0x4 + 0xC + 0x4 + 0xC);
         return result;
     }
     int getTeamNumber()
