@@ -222,13 +222,15 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-	double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
+	//double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
+	double localPlayerLocationZ = m_localPlayer->getCameraZ();
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
-        if (m_localPlayer->isDucking())
+	printf("camera z pos: [%f]", localPlayerLocationZ);
+        /*if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 16;
         }
-        /*if (m_targetPlayer->isDucking())
+        if (m_targetPlayer->isDucking())
         {
             enemyPlayerLocationZ -= 18;
         }*/
@@ -251,8 +253,8 @@ public:
 	    }
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 continue;
-            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                continue;
+            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                //continue;
             if (!player->isVisible(false))
                 continue;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
