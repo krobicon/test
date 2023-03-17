@@ -105,9 +105,10 @@ public:
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
 		smooth = smooth/2;
-		fov = fov*2;
+		//fov = fov*2;
+		fov = 24 - distanceToTarget * 1.1;
 	}
-	else if (distanceToTarget > 14)
+	else if (distanceToTarget > 13)
 	{
 		fov = fov * 10 / distanceToTarget;
 	}
