@@ -152,7 +152,7 @@ public:
 	{
 		printf("AIM COUNTER: [%d] \n", counter);
 		//if (m_lockedOnPlayer->isCrosshair())
-		if (m_localWeapon->getReadyTime == 0 && (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 4))
+		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 4))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
