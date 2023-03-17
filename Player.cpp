@@ -22,6 +22,12 @@ private:
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
         return m_basePointer;
     }
+    long getBonePointer()
+    {
+        long basePointer = getBasePointer();
+        long boneArray = basepointer + offsets::BONES;
+        uint32_t boneLoc = (id * 0x30);
+        long result = 
 
 public:
     Player(int entityListIndex)
