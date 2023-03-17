@@ -11,6 +11,7 @@ private:
     float m_lastVisibleTime;
     float m_lastCrosshairTime;
     long m_basePointer = 0;
+    long m_bonePointer = 0;
     long getUnresolvedBasePointer()
     {
         long unresolvedBasePointer = offsets::REGION + offsets::ENTITY_LIST + ((m_entityListIndex + 1) << 5);
@@ -19,8 +20,19 @@ private:
     long getBasePointer()
     {
         if (m_basePointer == 0)
+        {
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
+        }
         return m_basePointer;
+    }
+    long getBonePointer()
+    {
+        if (m_bonePointer == 0)
+        {
+            long basePointer = getBasePointer();
+            m_bonePointer = mem::ReadLong(basePointer + offsets::OFFSET_BONES);
+        }
+        return m_bonePointer;
     }
 
 public:
@@ -98,10 +110,9 @@ public:
     }
     float getBoneZ(int id)
     {
-        long basePointer = getBasePointer();
-        long bonePtr = mem::ReadLong(basePointer + offsets::OFFSET_BONES);
+        long bonePointer = getBonePointer();
         uint32_t boneLoc = (id * 0x30);
-        float result = mem::ReadFloat(bonePtr + boneLoc + 0xCC + 4 + 0xC + 4 + 0xC);
+        float result = mem::ReadFloat(bonePointer + boneLoc + 0xCC + 4 + 0xC + 4 + 0xC);
         return result;
     }
     int getTeamNumber()
