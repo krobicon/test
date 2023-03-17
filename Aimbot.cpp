@@ -79,7 +79,7 @@ public:
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
                 return;
-	    float bonez = m_lockedOnPlayer->getBoneZ(0);
+	    float bonez = m_lockedOnPlayer->getBoneZ(8);
             float realz = m_lockedOnPlayer->getLocationZ();
 	    printf("bone z: [%f] \n", bonez);
    	    printf("real z: [%f] \n", realz);
@@ -251,7 +251,7 @@ public:
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
 	double localPlayerLocationZ = m_localPlayer->getLocationZ() + m_localPlayer->getBoneZ(8);
-        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(0);
+        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(8);
         /*if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 10;
