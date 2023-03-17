@@ -250,13 +250,13 @@ public:
     }
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
-	double localPlayerLocationZ = m_localPlayer->getLocationZ() + m_localPlayer->getBoneZ(0);
+	double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(8);
-        /*if (m_localPlayer->isDucking())
+        if (m_localPlayer->isDucking())
         {
-            localPlayerLocationZ -= 10;
+            localPlayerLocationZ -= 17;
         }
-        if (m_targetPlayer->isDucking())
+        /*if (m_targetPlayer->isDucking())
         {
             enemyPlayerLocationZ -= 18;
         }*/
