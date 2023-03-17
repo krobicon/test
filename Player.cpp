@@ -30,7 +30,7 @@ private:
         if (m_bonePointer == 0)
         {
             long basePointer = getBasePointer();
-            m_bonePointer = mem::ReadLong(basePointer + offsets::OFFSET_BONES);
+            m_bonePointer = mem::ReadLong(basePointer + offsets::BONES);
         }
         return m_bonePointer;
     }
