@@ -19,7 +19,8 @@ namespace offsets
     const long GAMEMODE = 0x01f21c50;             // [ConVars]       -> mp_gamemode+0x58
     // entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long LOCAL_ORIGIN = 0x0158; // [DataMap.CBaseViewModel]    -> m_localOrigin
+    const long LOCAL_ORIGIN = 0x0158;               // [DataMap.CBaseViewModel]     -> m_localOrigin
+    const long CAMERA_POS = 0x1f48;                 // [Miscellaneous]              -> CPlayer!camera_origin
     // player
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
