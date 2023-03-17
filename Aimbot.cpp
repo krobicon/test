@@ -254,13 +254,12 @@ public:
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(8);
         if (m_localPlayer->isDucking())
         {
-            localPlayerLocationZ -= 17;
+            localPlayerLocationZ -= 16;
         }
         /*if (m_targetPlayer->isDucking())
         {
             enemyPlayerLocationZ -= 18;
         }*/
-	printf ("my location z: %f \n", localPlayerLocationZ);
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
