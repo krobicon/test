@@ -103,24 +103,9 @@ public:
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
-	//if (trigger == true && distanceToTarget < 13)
 	{
-		//bool triggerSent = false;
 		smooth = smooth/2;
 		fov = fov*2;
-		/*if (counter % 10 == 0 && m_lockedOnPlayer->isCrosshair())
-		//if (localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
-		{
-			m_localPlayer->setAttackState(5);
-			triggerSent = true;
-			m_x11Utils->mouseClick(1);
-			printf("SENT \n");
-		}
-		/*if (triggerCache == true && triggerSent == false)
-		{
-			m_localPlayer->setAttackState(4);
-		}
-		triggerCache = triggerSent;*/
 	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
@@ -136,9 +121,6 @@ public:
 	//printf("SMOOTH: [%d] \n", smooth);
 	//printf("FOV: [%d] \n", fov);
 	    
-	// Write angles
-        //double newPitch = normalizePitch(pitch + (pitchAngleDelta / m_configLoader->getAimbotSmoothing()));
-	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / m_configLoader->getAimbotSmoothing()));
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         m_localPlayer->setPitch(newPitch);
@@ -150,7 +132,6 @@ public:
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
-		printf("AIM COUNTER: [%d] \n", counter);
 		//if (m_lockedOnPlayer->isCrosshair())
 		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 2 && pitchAngleDeltaAbs < 4))
 		{
