@@ -80,7 +80,9 @@ public:
             if (m_lockedOnPlayer == nullptr)
                 return;
 	    float bonez = m_lockedOnPlayer->getBoneZ(0);
+            float realz = m_lockedOnPlayer->getLocationZ();
 	    printf("bone z: [%f] \n", bonez);
+   	    printf("real z: [%f] \n", realz);
             distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                                m_localPlayer->getLocationY(),
                                                                m_localPlayer->getLocationZ(),
