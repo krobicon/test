@@ -39,7 +39,7 @@ public:
 	//Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 22;
-	int fov = m_configLoader->getAimbotActivationFOV();
+	float fov = m_configLoader->getAimbotActivationFOV();
         // validations
         if (m_localPlayer->isWalking())
         {
