@@ -21,7 +21,7 @@ private:
     // aimbot
     int m_aimbotTrigger = 0x0000;
     int m_aimbotSmoothing = 999999;
-    int m_aimbotActivationFOV = 0;
+    float m_aimbotActivationFOV = 0;
     int m_aimbotMaxRange = 0;
     int m_aimbotPitchDeadzone = 100;
     int m_aimbotYawDeadzone = 100;
@@ -83,7 +83,7 @@ private:
             // aimbot
             m_aimbotTrigger = (lineKey.compare("AIMBOT_TRIGGER") != 0) ? m_aimbotTrigger : stoi(lineValue, 0, 16);
             m_aimbotSmoothing = (lineKey.compare("AIMBOT_SMOOTHING") != 0) ? m_aimbotSmoothing : stoi(lineValue);
-            m_aimbotActivationFOV = (lineKey.compare("AIMBOT_ACTIVATION_FOV") != 0) ? m_aimbotActivationFOV : stoi(lineValue);
+            m_aimbotActivationFOV = (lineKey.compare("AIMBOT_ACTIVATION_FOV") != 0) ? m_aimbotActivationFOV : stof(lineValue);
             m_aimbotMaxRange = (lineKey.compare("AIMBOT_MAX_RANGE") != 0) ? m_aimbotMaxRange : stoi(lineValue);
             m_aimbotPitchDeadzone = (lineKey.compare("AIMBOT_PITCH_DEADZONE") != 0) ? m_aimbotPitchDeadzone : stoi(lineValue);
             m_aimbotYawDeadzone = (lineKey.compare("AIMBOT_YAW_DEADZONE") != 0) ? m_aimbotYawDeadzone : stoi(lineValue);
@@ -152,7 +152,7 @@ public:
     {
         return m_aimbotSmoothing;
     }
-    int getAimbotActivationFOV()
+    float getAimbotActivationFOV()
     {
         return m_aimbotActivationFOV;
     }
