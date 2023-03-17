@@ -112,7 +112,7 @@ public:
     {
         long bonePointer = getBonePointer();
         uint32_t boneLoc = (id * 0x30);
-        float result = mem::ReadFloat(bonePointer + boneLoc + 0xCC + 4 + 0xC + 4 + 0xC);
+        float result = mem::ReadFloat(bonePointer + boneLoc + 0xCC + 0x4 + 0xC + 0x4 + 0xC);
         return result;
     }
     int getTeamNumber()
