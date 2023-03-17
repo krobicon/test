@@ -251,15 +251,15 @@ public:
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
 	double localPlayerLocationZ = m_localPlayer->getLocationZ();
-        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ();
+        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(0);
         if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 10;
         }
-        if (m_targetPlayer->isDucking())
+        /*if (m_targetPlayer->isDucking())
         {
             enemyPlayerLocationZ -= 18;
-        }
+        }*/
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
