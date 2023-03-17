@@ -261,7 +261,6 @@ public:
             enemyPlayerLocationZ -= 18;
         }*/
 	printf ("my location z: %f \n", localPlayerLocationZ);
-	printf ("my bone z: %f \n", m_localPlayer->getBoneZ(0));
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
         const double distanceBetweenPlayers = math::calculateDistance2D(m_targetPlayer->getLocationX(), m_targetPlayer->getLocationY(), m_localPlayer->getLocationX(), m_localPlayer->getLocationY());
         const double pitchInRadians = atan2(-locationDeltaZ, distanceBetweenPlayers);
