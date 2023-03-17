@@ -79,6 +79,8 @@ public:
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
                 return;
+	    float bonez = m_lockedOnPlayer->getBoneZ(0);
+	    printf("bone z: [%f] \n", bonez);
             distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                                m_localPlayer->getLocationY(),
                                                                m_localPlayer->getLocationZ(),
