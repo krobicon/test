@@ -74,22 +74,16 @@ public:
         }
         else
         {
-	    printf("debugging \n");
             if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
                 m_lockedOnPlayer = findClosestEnemy();
             if (m_lockedOnPlayer == nullptr)
                 return;
-	    float bonez = m_lockedOnPlayer->getBoneZ(8);
-            float realz = m_lockedOnPlayer->getLocationZ();
-	    printf("bone z: [%f] \n", bonez);
-   	    printf("real z: [%f] \n", realz);
             distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                                m_localPlayer->getLocationY(),
                                                                m_localPlayer->getLocationZ(),
                                                                m_lockedOnPlayer->getLocationX(),
                                                                m_lockedOnPlayer->getLocationY(),
                                                                m_lockedOnPlayer->getLocationZ());
-	    //printf("DISTANCE CHECK 1: [%f] \n", distanceToTarget);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
             desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
@@ -251,7 +245,7 @@ public:
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
 	double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
-        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(8);
+        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
         if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 16;
