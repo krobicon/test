@@ -107,6 +107,10 @@ public:
 		smooth = smooth/2;
 		fov = fov*2;
 	}
+	else if (distanceToTarget > 14)
+	{
+		fov = fov * 10 / distanceToTarget;
+	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
 	{
