@@ -22,12 +22,6 @@ private:
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
         return m_basePointer;
     }
-    long getBonePointer()
-    {
-        long basePointer = getBasePointer();
-        long boneArray = basepointer + offsets::BONES;
-        uint32_t boneLoc = (id * 0x30);
-        long result = 
 
 public:
     Player(int entityListIndex)
@@ -100,6 +94,14 @@ public:
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::LOCAL_ORIGIN + sizeof(float) + sizeof(float);
         float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
+    float getBoneZ(int id)
+    {
+        long basePointer = getBasePointer();
+        long bonePtr = mem::ReadLong(basePointer + offsets::OFFSET_BONES);
+        uint32_t boneLoc = (id * 0x30);
+        float result = mem::ReadFloat(bonePtr + boneLoc + 0xCC + 4 + 0xC + 4 + 0xC);
         return result;
     }
     int getTeamNumber()
