@@ -20,15 +20,6 @@ private:
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
         return m_basePointer;
     }
-    long getBonePointer()
-    {
-        if (m_bonePointer == 0)
-        {
-            long basePointer = getBasePointer();
-            m_bonePointer = mem::ReadLong(basePointer + offsets::BONES);
-        }
-        return m_bonePointer;
-    }
 
 public:
     void markForPointerResolution()
@@ -76,11 +67,11 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    float getBoneZ(int id)
+    float getCameraZ()
     {
-        long bonePointer = getBonePointer();
-        uint32_t boneLoc = (id * 0x30);
-        float result = mem::ReadFloat(bonePointer + boneLoc + 0xCC + 0x4 + 0xC + 0x4 + 0xC);
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::CAMERA_POS + (sizeof(float) * 2);
+	float result = mem::ReadFloat(ptrLong)
         return result;
     }
     int getTeamNumber()
