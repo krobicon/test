@@ -135,7 +135,7 @@ public:
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
-		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 3 && pitchAngleDeltaAbs < 4))
+		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < 4 && pitchAngleDeltaAbs < 4))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
@@ -230,7 +230,6 @@ public:
 	//double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
 	double localPlayerLocationZ = m_localPlayer->getCameraZ();
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
-	printf("camera z pos: [%f]", localPlayerLocationZ);
         /*if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 16;
