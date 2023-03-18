@@ -116,6 +116,8 @@ public:
 	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
+	    
+	printf("distance: %ld \n", distanceToTarget);
 	
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
