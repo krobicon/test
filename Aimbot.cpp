@@ -315,15 +315,15 @@ public:
 	    printf("test 1");
             long ptrLong = mem::ReadLong(ent_base + offsets::SIGNIFIER_NAME);
 	    std::string result = mem::ReadString(ptrLong);
-	    printf("test 2");
+	    
 	    if (result.empty()) {
                 continue;
             }
-	    std::cout << result;
 	    if (!(result.compare("npc_dummie") == 0))
 	    {
 		    continue;
 	    }
+	    printf("test 2");
             /*long ptrLong = ent_base + offsets::NAME;
             std::string result = mem::ReadString(ptrLong);
             if (result.empty()) {
