@@ -312,7 +312,15 @@ public:
             if (ent_base == 0) {
                 continue;
             }
-            
+            long ptrLong = basePointer + offsets::SIGNIFIER_NAME;
+	    std::string result = mem::ReadString(ptrLong);
+	    if (result.empty()) {
+                continue;
+            }
+	    if (!(result.compare("npc_dummie") == 0))
+	    {
+		    continue;
+	    }
             /*long ptrLong = ent_base + offsets::NAME;
             std::string result = mem::ReadString(ptrLong);
             if (result.empty()) {
@@ -320,9 +328,9 @@ public:
             }*/
             //std::string class_name = mem::get_client_class_name(ent_base);
             //printf("[%d]class_name = %s\n", i, class_name.c_str());
-            if (!ent_base->isDummy()) {
+            /*if (!ent_base->isDummy()) {
                 continue;
-            }
+            }*/
 
             /*mem::WriteInt(ent_base + offsets::GLOW_ENABLE, 1);
             mem::WriteInt(ent_base + offsets::GLOW_THROUGH_WALL, 2);
