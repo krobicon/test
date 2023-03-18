@@ -307,8 +307,9 @@ public:
         //std::vector<Player> npc;
 	std::vector<Player *> *npcs = new std::vector<Player *>;
 
-        for (size_t i = 0; i < 20000; i++) {
+        for (int i = 0; i < 20000; i++) {
             long ent_base = mem::ReadLong(offsets::REGION + offsets::ENTITY_LIST + ((i + 1) << 5));
+	    printf("test 0");
             if (ent_base == 0) {
                 continue;
             }
