@@ -280,6 +280,14 @@ public:
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
+	    if (!player->isValid())
+	    {
+		    if (player->isDead())
+		    {
+			    printf("This player (%d) is dead! \n", i);
+			    continue;
+		    }
+	    }
             if (!player->isValid() || player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
