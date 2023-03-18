@@ -317,6 +317,7 @@ public:
 	    if (result.empty()) {
                 continue;
             }
+	    printf(result);
 	    if (!(result.compare("npc_dummie") == 0))
 	    {
 		    continue;
