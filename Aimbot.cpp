@@ -60,7 +60,7 @@ public:
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
 	double distanceToTarget;
-        if (m_level->isTrainingArea() &&  1 > 20)
+        if (m_level->isTrainingArea())
         {
             if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
                 m_lockedOnPlayer = findClosestEnemyTraining();
