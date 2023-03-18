@@ -302,7 +302,7 @@ public:
         return closestPlayerSoFar;
     }
     
-    int findClosestEnemyTraining()
+    Player *findClosestEnemyTraining()
     {
         //std::vector<Player> npc;
 	std::vector<Player *> *npcs = new std::vector<Player *>;
@@ -357,7 +357,7 @@ public:
                 //continue;
             //if (c_npc->getTeamNumber() == c_npc->getTeamNumber())
                 //continue;
-            if (!player->isVisible())
+            if (!player->isVisible(false))
                 continue;
 
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
