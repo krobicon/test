@@ -307,7 +307,7 @@ public:
         //std::vector<Player> npc;
 	std::vector<Player *> *npcs = new std::vector<Player *>;
 
-        for (int i = 10000; i < 20000; i++) {
+        for (int i = 9000; i < 20000; i++) {
             long ent_base = mem::ReadLong(offsets::REGION + offsets::ENTITY_LIST + ((i + 1) << 5));
             if (ent_base == 0) {
                 continue;
@@ -316,9 +316,6 @@ public:
             long ptrLong = mem::ReadLong(ent_base + offsets::SIGNIFIER_NAME);
 	    std::string result = mem::ReadString(ptrLong);
 	    
-	    if (result.empty()) {
-                continue;
-            }
 	    if ((result.compare("npc_dummie") == 0))
 	    {
 		    printf("dummy");
