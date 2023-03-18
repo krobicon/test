@@ -60,7 +60,7 @@ public:
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
 	double distanceToTarget;
-        if (m_level->isTrainingArea())
+        /*if (m_level->isTrainingArea())
         {
             if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
                 m_lockedOnPlayer = findClosestEnemyTraining();
@@ -86,29 +86,27 @@ public:
             distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
-            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), dummyX, dummyY);*/
+            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), dummyX, dummyY);
             //desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
-        }
-        else
-        {
-            if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
-                m_lockedOnPlayer = findClosestEnemy();
-            if (m_lockedOnPlayer == nullptr)
-                return;
-            distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
-                                                               m_localPlayer->getLocationY(),
-                                                               m_localPlayer->getLocationZ(),
-                                                               m_lockedOnPlayer->getLocationX(),
-                                                               m_lockedOnPlayer->getLocationY(),
-                                                               m_lockedOnPlayer->getLocationZ());
-            if (distanceToTarget > m_configLoader->getAimbotMaxRange())
-                return;
-            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
-                                                      m_localPlayer->getLocationY(),
-                                                      m_lockedOnPlayer->getLocationX(),
-                                                      m_lockedOnPlayer->getLocationY());
-            desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
-        }
+        }*/
+
+	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
+		m_lockedOnPlayer = findClosestEnemy();
+	    if (m_lockedOnPlayer == nullptr)
+		return;
+	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+							       m_localPlayer->getLocationY(),
+							       m_localPlayer->getLocationZ(),
+							       m_lockedOnPlayer->getLocationX(),
+							       m_lockedOnPlayer->getLocationY(),
+							       m_lockedOnPlayer->getLocationZ());
+	    if (distanceToTarget > m_configLoader->getAimbotMaxRange())
+		return;
+	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
+						      m_localPlayer->getLocationY(),
+						      m_lockedOnPlayer->getLocationX(),
+						      m_lockedOnPlayer->getLocationY());
+	    desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
 
         // Setup Angles
         const double pitch = m_localPlayer->getPitch();
@@ -302,7 +300,7 @@ public:
         return closestPlayerSoFar;
     }
     
-    Player *findClosestEnemyTraining()
+    /*Player *findClosestEnemyTraining()
     {
         //std::vector<Player> npc;
 	std::vector<Player *> *npcs = new std::vector<Player *>;
@@ -322,7 +320,7 @@ public:
 		    continue;
 	    }
 	    
-            /*long ptrLong = ent_base + offsets::NAME;
+            long ptrLong = ent_base + offsets::NAME;
             std::string result = mem::ReadString(ptrLong);
             if (result.empty()) {
                 continue;
@@ -331,7 +329,7 @@ public:
             //printf("[%d]class_name = %s\n", i, class_name.c_str());
             /*if (!ent_base->isDummy()) {
                 continue;
-            }*/
+            }
 
             /*mem::WriteInt(ent_base + offsets::GLOW_ENABLE, 1);
             mem::WriteInt(ent_base + offsets::GLOW_THROUGH_WALL, 2);
@@ -339,7 +337,7 @@ public:
             mem::writebytearray(ent_base + offsets::OFFSET_GLOW_MODE, w_buf, 4);
             mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR, FLT_MAX);
             mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR + 4, FLT_MAX);
-            mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR + 8, FLT_MAX);*/
+            mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR + 8, FLT_MAX);
 
             npcs->push_back(new Player(i));
         }
@@ -383,5 +381,5 @@ public:
             }
         }
         return closestPlayerSoFar;
-    }
+    }*/
 };
