@@ -251,7 +251,7 @@ public:
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
-            if (!player->isValid() || player->isKnocked())
+            if (!player->isValid() || player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
 	    }
@@ -259,8 +259,8 @@ public:
                 continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
-            if (!player->isVisible(false))
-                continue;
+            //if (!player->isVisible(false))
+                //continue;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
