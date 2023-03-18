@@ -273,4 +273,11 @@ public:
         uint32_t result = mem::ReadUint32(ptrLong);
         return (result & 0x1) != 0;
     }
+    float getSpecYaw()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::SPEC_YAW;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
 };
