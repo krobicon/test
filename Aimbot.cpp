@@ -340,7 +340,7 @@ public:
             mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR + 4, FLT_MAX);
             mem::WriteFloat(ent_base + offsets::OFFSET_GLOW_COLOR + 8, FLT_MAX);*/
 
-            npcs->push_back(Player(i));
+            npcs->push_back(new Player(i));
         }
 
         Player *closestPlayerSoFar = nullptr;
