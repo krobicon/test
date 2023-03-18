@@ -103,7 +103,7 @@ private:
 
         printf("AIMBOT_TRIGGER \t\t\t%d\n", m_aimbotTrigger);
         printf("AIMBOT_SMOOTHING \t\t%d\n", m_aimbotSmoothing);
-        printf("AIMBOT_ACTIVATION_FOV \t\t%d\n", m_aimbotActivationFOV);
+        printf("AIMBOT_ACTIVATION_FOV \t\t%f\n", m_aimbotActivationFOV);
         printf("AIMBOT_MAX_RANGE \t\t%d\n", m_aimbotMaxRange);
         printf("AIMBOT_PITCH_DEADZONE \t\t%d\n", m_aimbotPitchDeadzone);
         printf("AIMBOT_YAW_DEADZONE \t\t%d\n", m_aimbotYawDeadzone);
