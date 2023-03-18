@@ -118,11 +118,19 @@ public:
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	    
 	
-	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
+	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		smooth = smooth/2;
-		//fov = fov*2;
-		fov = 24 - distanceToTarget * 1.1;
+		if (distanceToTarget < 13 || m_localPlayer->isZooming())
+		{
+			smooth = smooth/2;
+			//fov = fov*2;
+			fov = 24 - distanceToTarget * 1.1;
+		}
+		else
+		{
+			m_lockedOnPlayer = nullptr;
+	    		return;
+		}
 	}
 	else if (distanceToTarget > 13)
 	{
