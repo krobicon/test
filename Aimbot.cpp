@@ -286,9 +286,13 @@ public:
                 continue;
 	    }
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+	    {
                 continue;
-            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                //continue;
+	    }
+            else if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+	    {
+                continue;
+	    }
             //if (!player->isVisible(false))
                 //continue;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
