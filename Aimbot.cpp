@@ -139,6 +139,7 @@ public:
 	printf("fov: %f \n", fov);
 	printf("pitch delta: %f \n", pitchAngleDeltaAbs);
 	printf("yaw delta: %f \n", yawAngleDeltaAbs);
+	printf("----------------------------------------------------------------------------------- \n");
 	
 	//printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
