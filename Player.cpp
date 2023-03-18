@@ -257,13 +257,13 @@ public:
         //printf("CHECK 2 LAST CROSSHAIR TIME: [%f] \n", m_lastCrosshairTime );
         return isCrosshair;
     }
-    /*bool isCrosshair()
+    float getSpecYaw()
     {
-        const float lastCrosshairTime = getLastCrosshairTime();
-        const bool isCrosshair = lastCrosshairTime > m_lastCrosshairTime;
-        m_lastCrosshairTime = lastCrosshairTime;
-        return isCrosshair;
-    }*/
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::SPEC_YAW;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     void print()
     {
         std::cout << "Player[" + std::to_string(m_entityListIndex) + "]:\n";
