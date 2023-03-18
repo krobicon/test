@@ -345,10 +345,10 @@ public:
 
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
-        for (int i = 0; i < npcs.size(); i++)
+        for (int i = 0; i < npcs->size(); i++)
         {
             //printf("i = %d\n", i);
-            Player* player = &(npcs.at(i));
+            Player* player = &(npcs->at(i));
             //if (!c_npc->isValid())
                 //continue;
             //if (c_npc->isDead())
