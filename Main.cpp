@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 	    }
 
             // all ran fine
-            if (counter % 10000 == 0)
+            if (counter % 5000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
 		counter = 0;
