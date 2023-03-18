@@ -157,7 +157,7 @@ public:
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
-		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4 && pitchAngleDeltaAbs < fov/4))
+		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/4))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
