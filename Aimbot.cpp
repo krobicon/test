@@ -313,7 +313,7 @@ public:
                 continue;
             }
 	    printf("test 1");
-            long ptrLong = ent_base + offsets::SIGNIFIER_NAME;
+            long ptrLong = mem::ReadLong(ent_base + offsets::SIGNIFIER_NAME);
 	    std::string result = mem::ReadString(ptrLong);
 	    printf("test 2");
 	    if (result.empty()) {
