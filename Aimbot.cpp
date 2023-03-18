@@ -117,7 +117,6 @@ public:
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	    
-	printf("distance: %f \n", distanceToTarget);
 	
 	if (trigger == true && distanceToTarget < 13 && m_lockedOnPlayer != nullptr)
 	{
@@ -135,6 +134,11 @@ public:
 	    m_lockedOnPlayer = nullptr;
 	    return;
 	}
+	    
+	printf("distance: %f \n", distanceToTarget);
+	printf("fov: %f \n", fov);
+	printf("pitch delta: %f \n", pitchAngleDeltaAbs);
+	printf("yaw delta: %f \n", yawAngleDeltaAbs);
 	
 	//printf("AMMO: [%d] \n", localWeapon->getAmmo());
 	//printf("READY TIME: [%f] \n", localWeapon->getReadyTime());
