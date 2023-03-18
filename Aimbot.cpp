@@ -284,7 +284,7 @@ public:
 	    {
                 continue;
 	    }
-            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+            if (m_level->isSpecialMode() && (player->getTeamSpecial() == m_localPlayer->getTeamSpecial()))
 	    {
                 continue;
 	    }
