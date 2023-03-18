@@ -134,7 +134,7 @@ public:
 	}
 	else if (distanceToTarget > 13)
 	{
-		fov = fov * 10 / distanceToTarget;
+		fov = fov * 11 / distanceToTarget;
 	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
