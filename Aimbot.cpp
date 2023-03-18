@@ -317,7 +317,7 @@ public:
 	    if (result.empty()) {
                 continue;
             }
-	    cout << result;
+	    std::cout << result;
 	    if (!(result.compare("npc_dummie") == 0))
 	    {
 		    continue;
