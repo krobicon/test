@@ -62,14 +62,31 @@ public:
 	double distanceToTarget;
         if (m_level->isTrainingArea() &&  1 > 20)
         {
+            if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
+                m_lockedOnPlayer = findClosestEnemyTraining();
+            if (m_lockedOnPlayer == nullptr)
+                return;
+            distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+                                                               m_localPlayer->getLocationY(),
+                                                               m_localPlayer->getLocationZ(),
+                                                               m_lockedOnPlayer->getLocationX(),
+                                                               m_lockedOnPlayer->getLocationY(),
+                                                               m_lockedOnPlayer->getLocationZ());
+            if (distanceToTarget > m_configLoader->getAimbotMaxRange())
+                return;
+            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
+                                                      m_localPlayer->getLocationY(),
+                                                      m_lockedOnPlayer->getLocationX(),
+                                                      m_lockedOnPlayer->getLocationY());
+            desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
             //printf("X:%.6f \t Y: %.6f \t Z:%.6f \n", m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ());
-            const float dummyX = 31408.732422;
+            /*const float dummyX = 31408.732422;
             const float dummyY = -6711.955566;
             const float dummyZ = -29234.839844;
             distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
             if (distanceToTarget > m_configLoader->getAimbotMaxRange())
                 return;
-            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), dummyX, dummyY);
+            desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), dummyX, dummyY);*/
             //desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer->getLocationX(), m_localPlayer->getLocationY(), m_localPlayer->getLocationZ(), dummyX, dummyY, dummyZ);
         }
         else
