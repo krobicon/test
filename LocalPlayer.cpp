@@ -71,7 +71,7 @@ public:
     {
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::CAMERA_POS + (sizeof(float) * 2);
-	float result = mem::ReadFloat(ptrLong)
+	float result = mem::ReadFloat(ptrLong);
         return result;
     }
     int getTeamNumber()
