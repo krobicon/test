@@ -72,6 +72,19 @@ public:
         std::string result = mem::ReadString(ptrLong);
         return result;
     }
+    std::string getSignifierName()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::SIGNIFIER_NAME;
+        std::string result = mem::ReadString(ptrLong);
+        return result;
+    }
+   bool isDummy()
+    {
+        if (getSignifierName().compare("npc_dummie") == 0)
+            return true;
+        return false;
+    }
     bool isValid()
     {
         return getBasePointer() > 0 && !isDead();
