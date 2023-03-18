@@ -36,7 +36,6 @@ public:
     }
     void update(int counter, Weapon *m_localWeapon)
     {
-	//Weapon *localWeapon = new Weapon(m_localPlayer->getWeaponHandle()); //TESTING THIS SHIT
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 22;
 	float fov = m_configLoader->getAimbotActivationFOV();
