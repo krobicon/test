@@ -49,8 +49,6 @@ public:
 	if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
 	{
 	    trigger = true;
-	    printf("camera z: %f \n", m_localPlayer->getCameraZ());
-	    printf("my z: %f \n", m_localPlayer->getLocationZ());  
 	}
 	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
     	{
