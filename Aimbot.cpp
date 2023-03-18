@@ -312,7 +312,7 @@ public:
             if (ent_base == 0) {
                 continue;
             }
-            long ptrLong = basePointer + offsets::SIGNIFIER_NAME;
+            long ptrLong = ent_base + offsets::SIGNIFIER_NAME;
 	    std::string result = mem::ReadString(ptrLong);
 	    if (result.empty()) {
                 continue;
