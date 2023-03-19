@@ -34,7 +34,7 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update(int counter, Weapon *m_localWeapon)
+    void update(Weapon *m_localWeapon)
     {
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 22;
@@ -90,7 +90,7 @@ public:
         }*/
 
 	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
-		m_lockedOnPlayer = findClosestEnemy(counter);
+		m_lockedOnPlayer = findClosestEnemy();
 	    if (m_lockedOnPlayer == nullptr)
 		return;
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
@@ -273,7 +273,7 @@ public:
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
-    Player *findClosestEnemy(int counter)
+    Player *findClosestEnemy()
     {
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
