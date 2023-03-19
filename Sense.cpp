@@ -34,7 +34,7 @@ public:
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
-            if (!player->isValid())
+            if (!player->isValid() || player->isDead())
                 continue;
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 continue;
