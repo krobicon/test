@@ -2,7 +2,6 @@
 #include <vector>
 #include "LocalPlayer.cpp"
 #include "Math.cpp"
-#include "Level.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
 
