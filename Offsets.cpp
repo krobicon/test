@@ -41,7 +41,7 @@ namespace offsets
     const long SKYDIVE_STATE = 0x468c;              // [RecvTable.DT_Player]            -> m_skydiveState
     const long BONES = (0x0e98 + 0x48);             // [RecvTable.DT_BaseAnimating]     -> m_nForceBone + 0x48
     const long SIGNIFIER_NAME = 0x0580;             // [RecvTable.DT_BaseEntity]        -> m_iSignifierName
-    const long SPEC_YAW =  (0x22b4 - 0x8)         // [DataMap.C_Player]               -> m_currentFramePlayer.m_ammoPoolCount - 0x8
+    const long SPEC_YAW =  (0x22b4 - 0x8);          // [DataMap.C_Player]               -> m_currentFramePlayer.m_ammoPoolCount - 0x8
     // weapon stuff
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long WEAPON = 0x1a1c;                     // [RecvTable.DT_BaseCombatCharacter]     -> m_latestPrimaryWeapons
