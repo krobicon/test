@@ -90,7 +90,7 @@ public:
         }*/
 
 	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
-		m_lockedOnPlayer = findClosestEnemy();
+		m_lockedOnPlayer = findClosestEnemy(counter);
 	    if (m_lockedOnPlayer == nullptr)
 		return;
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
@@ -273,7 +273,7 @@ public:
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
-    Player *findClosestEnemy()
+    Player *findClosestEnemy(int counter)
     {
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
