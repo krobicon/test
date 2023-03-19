@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			if (configLoader->isAimbotOn())
 			{
-			    aimbot->update(counter, localWeapon);
+			    aimbot->update(localWeapon);
 			}
 
 			noRecoil->update();
