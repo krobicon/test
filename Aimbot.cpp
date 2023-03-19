@@ -34,7 +34,7 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update(Weapon *m_localWeapon)
+    void update(int counter, Weapon *m_localWeapon)
     {
 	bool trigger = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 22;
@@ -164,7 +164,8 @@ public:
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
-		if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/2.5))
+		//if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/2.5))
+		if (counter % 50 == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/2.5))
 		{
 			m_localPlayer->setAttackState(5);
 			m_x11Utils->mouseClick(1);
