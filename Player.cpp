@@ -89,6 +89,10 @@ public:
     {
         return getBasePointer() > 0 && !isDead();
     }
+    bool isSpectator()
+    {
+        return getBasePointer() > 0 && isDead();
+    }
     std::string getInvalidReason()
     {
         if (getBasePointer() == 0)
