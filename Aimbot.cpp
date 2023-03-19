@@ -279,12 +279,16 @@ public:
         double closestPlayerAngleSoFar;
         for (int i = 0; i < m_players->size(); i++)
         {
+	    if (counter % 1000 == 0)
+	    {
+		    printf("%d \n", i);
+	    }
             Player *player = m_players->at(i);
 	    if (!player->isValid())
 	    {
 		    continue;
 	    }
-	    if (counter % 1000 == 0)
+	    /*if (counter % 1000 == 0)
 	    {
 		    printf("counter: %d \n", counter);
 		    if (player->isDead())
@@ -294,16 +298,16 @@ public:
 			    printf("----------------------------------- \n");
 			    continue;
 		    }
-	    }
-            if (!player->isValid() || player->isKnocked() || !player->isVisible(false))
+	    }*/
+            if (player->isDead() || player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
 	    }
-            if (m_level->isSpecialMode() && (player->getTeamSpecial() == m_localPlayer->getTeamSpecial()))
+            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
 	    {
                 continue;
 	    }
-            else if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+            else if (m_level->isSpecialMode() && (player->getTeamSpecial() == m_localPlayer->getTeamSpecial()))
 	    {
                 continue;
 	    }
