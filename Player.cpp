@@ -88,7 +88,7 @@ public:
     bool isValid()
     {
         //return getBasePointer() > 0 && !isDead();
-        return getBasePointer() > 0
+        return getBasePointer() > 0;
     }
     std::string getInvalidReason()
     {
