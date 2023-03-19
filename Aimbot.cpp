@@ -106,8 +106,6 @@ public:
 						      m_lockedOnPlayer->getLocationX(),
 						      m_lockedOnPlayer->getLocationY());
 	    desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
-	    if (trigger)
-		printf("something \n");
 
         // Setup Angles
         const double pitch = m_localPlayer->getPitch();
