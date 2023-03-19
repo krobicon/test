@@ -279,18 +279,21 @@ public:
         double closestPlayerAngleSoFar;
         for (int i = 0; i < m_players->size(); i++)
         {
-	    printf("counter: %d \n", counter);
             Player *player = m_players->at(i);
 	    if (!player->isValid())
 	    {
 		    continue;
 	    }
-	    if (player->isDead() && counter % 100 == 0)
+	    if (counter % 100 == 0)
 	    {
-		    printf("This player (%d) is dead! \n", i);
-		    printf("The yaw: %f \n", player->getSpecYaw());
-		    printf("----------------------------------- \n");
-		    continue;
+		    printf("counter: %d \n", counter);
+		    if (player->isDead())
+		    {
+			    printf("This player (%d) is dead! \n", i);
+			    printf("The yaw: %f \n", player->getSpecYaw());
+			    printf("----------------------------------- \n");
+			    continue;
+		    }
 	    }
             if (!player->isValid() || player->isKnocked() || !player->isVisible(false))
 	    {
