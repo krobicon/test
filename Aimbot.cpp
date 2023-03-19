@@ -284,7 +284,7 @@ public:
 	    {
 		    continue;
 	    }
-	    if (counter % 100 == 0)
+	    if (counter % 1000 == 0)
 	    {
 		    printf("counter: %d \n", counter);
 		    if (player->isDead())
