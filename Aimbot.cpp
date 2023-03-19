@@ -284,7 +284,7 @@ public:
 	    {
 		    continue;
 	    }
-	    if (player->isDead())
+	    if (player->isDead() && counter % 100 == 0)
 	    {
 		    printf("This player (%d) is dead! \n", i);
 		    printf("The yaw: %f \n", player->getSpecYaw());
