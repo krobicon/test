@@ -279,6 +279,7 @@ public:
         double closestPlayerAngleSoFar;
         for (int i = 0; i < m_players->size(); i++)
         {
+	    printf("counter: %d \n", counter);
             Player *player = m_players->at(i);
 	    if (!player->isValid())
 	    {
