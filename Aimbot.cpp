@@ -171,6 +171,10 @@ public:
 			m_x11Utils->mouseClick(1);
 			printf("SENT \n");
 		}
+		else
+		{
+			printf("NOTHING \n");
+		}
 	}
     }
     
