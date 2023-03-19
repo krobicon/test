@@ -121,9 +121,9 @@ public:
 	{
 		if (distanceToTarget < 13 || m_localPlayer->isZooming())
 		{
-			smooth = smooth/4;
+			smooth = smooth/5;
 			//fov = fov*2;
-			fov = 27 - distanceToTarget * 1.1;
+			fov = 28 - distanceToTarget * 1.1;
 		}
 		else
 		{
