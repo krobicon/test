@@ -91,8 +91,6 @@ public:
 
 	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
 		m_lockedOnPlayer = findClosestEnemy();
-	    if (trigger)
-		    printf("something \n");
 	    if (m_lockedOnPlayer == nullptr)
 		return;
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
@@ -108,6 +106,8 @@ public:
 						      m_lockedOnPlayer->getLocationX(),
 						      m_lockedOnPlayer->getLocationY());
 	    desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
+	    if (trigger)
+		printf("something \n");
 
         // Setup Angles
         const double pitch = m_localPlayer->getPitch();
