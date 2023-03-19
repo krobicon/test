@@ -280,10 +280,6 @@ public:
         for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
-	    if (!player->isValid())
-	    {
-		    continue;
-	    }
 	    /*if (counter % 1000 == 0)
 	    {
 		    printf("counter: %d \n", counter);
@@ -295,7 +291,7 @@ public:
 			    continue;
 		    }
 	    }*/
-            if (player->isDead() || player->isKnocked() || !player->isVisible(false))
+            if (!player->isValid() || player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
 	    }
