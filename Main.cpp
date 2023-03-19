@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
         players->push_back(new Player(i));
     }
     Sense *sense = new Sense(configLoader, level, localPlayer, players, x11Utils);
-    NoRecoil *noRecoil = new NoRecoil(configLoader, level, localPlayer, players, x11Utils);
+    NoRecoil *noRecoil = new NoRecoil(configLoader, localPlayer, x11Utils);
     Aimbot *aimbot = new Aimbot(configLoader, level, localPlayer, players, x11Utils);
     Movement *movement = new Movement(level, localPlayer, x11Utils);
 
