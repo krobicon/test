@@ -45,7 +45,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
+	/*if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
 	{
 	    trigger = true;
 	}
@@ -53,7 +53,7 @@ public:
     	{
 	    m_lockedOnPlayer = nullptr;
 	    return;
-    	}
+    	}*/
 	    
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
