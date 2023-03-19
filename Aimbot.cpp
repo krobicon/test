@@ -91,6 +91,8 @@ public:
 
 	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
 		m_lockedOnPlayer = findClosestEnemy();
+	    if (trigger)
+		    printf("something \n");
 	    if (m_lockedOnPlayer == nullptr)
 		return;
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
