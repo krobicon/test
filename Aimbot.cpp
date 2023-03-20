@@ -130,6 +130,7 @@ public:
 			m_lockedOnPlayer = nullptr;
 	    		return;
 		}
+		printf("crosshair? [%d] \n", m_lockedOnPlayer->isCrosshair());
 	}
 	else if (distanceToTarget > 13)
 	{
