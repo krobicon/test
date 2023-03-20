@@ -38,6 +38,7 @@ public:
     {
 	bool trigger = false;
 	bool crosshaired = false;
+	bool readytofire = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 22;
 	float fov = m_configLoader->getAimbotActivationFOV();
         // validations
@@ -120,12 +121,13 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		if (distanceToTarget < 13 || m_localPlayer->isZooming())
+		if (m_localWeapon->getReadyTime() && (distanceToTarget < 13 || m_localPlayer->isZooming()))
 		{
 			smooth = smooth/5;
 			//fov = fov*2;
 			fov = 28 - distanceToTarget * 1.1;
 			crosshaired = m_lockedOnPlayer->isCrosshair();
+			readytofire = true;
 		}
 		else
 		{
@@ -170,7 +172,7 @@ public:
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
 		//if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/1.9) && m_lockedOnPlayer->isCrosshair())
-		if (m_localWeapon->getReadyTime() < 0.1 && crosshaired)
+		if (readytofire && crosshaired)
 		//if (counter % 50 == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/2.5))
 		{
 			m_localPlayer->setAttackState(5);
