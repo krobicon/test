@@ -172,7 +172,7 @@ public:
 	{
 		//if (m_lockedOnPlayer->isCrosshair())
 		//if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/1.9) && m_lockedOnPlayer->isCrosshair())
-		if (readytofire && crosshaired)
+		if (readytofire && crosshaired && yawAngleDeltaAbs < fov/4.5)
 		//if (counter % 50 == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/2.5))
 		{
 			m_localPlayer->setAttackState(5);
