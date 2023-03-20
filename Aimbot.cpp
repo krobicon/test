@@ -134,9 +134,9 @@ public:
 			m_lockedOnPlayer = nullptr;
 	    		return;
 		}
-		printf("------------------------ \n");
+		//printf("------------------------ \n");
 		//printf("crosshair? [%d] \n", m_lockedOnPlayer->isCrosshair());
-		printf("ready time? [%f] \n", m_localWeapon->getReadyTime());
+		//printf("ready time? [%f] \n", m_localWeapon->getReadyTime());
 	}
 	else if (distanceToTarget > 13)
 	{
