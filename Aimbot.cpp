@@ -121,7 +121,7 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget < 13 || m_localPlayer->isZooming()))
+		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 13 || m_localPlayer->isZooming()))
 		{
 			smooth = smooth/7;
 			//fov = fov*2;
