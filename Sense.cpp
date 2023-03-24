@@ -58,7 +58,7 @@ public:
                     //player->setGlowColorGreen(3);
                     //player->setGlowColorBlue(0);
                 }
-                else
+                else if (player->getGlowEnable() == 5)
                 {
                     /*const int enemyShields = player->getShieldsValue();
                     int r, g, b;
@@ -86,8 +86,10 @@ public:
                         g = 1;
                         b = 1;
                     }*/
-                    player->setGlowEnable(7);
-                    player->setGlowThroughWall(2);
+                    //player->setGlowEnable(7);
+                    //player->setGlowThroughWall(2);
+                    player->setGlowEnable(2);
+                    player->setGlowThroughWall(5);
                     //player->setGlowColorRed(r);
                     //player->setGlowColorGreen(g);
                     //player->setGlowColorBlue(b);
