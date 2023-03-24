@@ -125,7 +125,7 @@ public:
 		{
 			smooth = smooth/7;
 			//fov = fov*2;
-			fov = 30 - distanceToTarget * 1;
+			fov = 31 - distanceToTarget * 1;
 			crosshaired = m_lockedOnPlayer->isCrosshair();
 			readytofire = true;
 		}
