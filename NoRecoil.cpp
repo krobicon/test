@@ -31,7 +31,7 @@ public:
         const double punchPitch = m_localPlayer->getPunchPitch();
         if (punchPitch != 0)
         {
-            const double norecoilPitchStrength = math::RandomFloat(0.40,0.65); // RANDOM PITCH STRENGTH
+            const double norecoilPitchStrength = math::RandomFloat(0.40,0.67); // RANDOM PITCH STRENGTH
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch) * norecoilPitchStrength;
             m_localPlayer->setPitch(pitch - punchPitchDelta);
