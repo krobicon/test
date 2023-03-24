@@ -121,7 +121,7 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 13 || m_localPlayer->isZooming()))
+		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
 			smooth = smooth/7;
 			//fov = fov*2;
@@ -138,7 +138,7 @@ public:
 		//printf("crosshair? [%d] \n", m_lockedOnPlayer->isCrosshair());
 		//printf("ready time? [%f] \n", m_localWeapon->getReadyTime());
 	}
-	else if (distanceToTarget > 13)
+	else if (distanceToTarget > 14)
 	{
 		fov = fov * 12 / distanceToTarget;
 	}
