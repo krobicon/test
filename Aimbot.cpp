@@ -39,7 +39,7 @@ public:
 	bool trigger = false;
 	bool crosshaired = false;
 	bool readytofire = false;
-	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 32;
+	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
 	float fov = m_configLoader->getAimbotActivationFOV();
         // validations
         if (m_localPlayer->isWalking())
