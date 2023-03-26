@@ -123,7 +123,7 @@ public:
 	{
 		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
-			smooth = smooth/7;
+			smooth = smooth/8;
 			//fov = fov*2;
 			fov = 33 - distanceToTarget * 1;
 			crosshaired = m_lockedOnPlayer->isCrosshair();
