@@ -20,14 +20,14 @@
 int main(int argc, char *argv[])
 {
     ConfigLoader *configLoader = new ConfigLoader();
-    if (getuid())
+    /*if (getuid())
     {
         printf("MUST RUN AS ROOT!\n");
         return -1;
-    }
+    }*/
     if (mem::GetPID() == 0)
     {
-        printf("GAME NOT FOUND. EXITING!\n");
+        printf("NOPE!\n");
         return -1;
     }
     Level *level = new Level();
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     Movement *movement = new Movement(level, localPlayer, x11Utils);
 
     // Main loop
-    printf("Ksenz STARTING MAIN LOOP\n");
+    printf("ksenz\n");
     int counter = 0;
     while (1)
     {
@@ -100,8 +100,8 @@ int main(int argc, char *argv[])
         }
         catch (...)
         {
-            printf("UPDATE[%d] ERROR (LOADING SCREEN?). SLEEPING FOR 10 SECONDS\n", counter);
-            std::this_thread::sleep_for(std::chrono::seconds(10));
+            printf("SLEEPING[%d]\n", counter);
+            std::this_thread::sleep_for(std::chrono::seconds(9));
         }
         counter++;
     }
