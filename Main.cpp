@@ -73,16 +73,18 @@ int main(int argc, char *argv[])
 		{
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
-			if (configLoader->isAimbotOn())
+			
+			if (semiauto)
+			    trigger->update(counter, localWeapon);
+			else if (configLoader->isAimbotOn())
 			{
 			    aimbot->update(counter, localWeapon);
+			    if (configLoader->isNoRecoilOn())
+				noRecoil->update();
 			}
 			
-			if (configLoader->isNoRecoilOn())
-			noRecoil->update();
-			
 			movement->update();
-			if (localWeapon->getAmmo() == 1 && !localWeapon->isSemiAuto())
+			if (localWeapon->getAmmo() == 1 && !semiauto)
 			{
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
