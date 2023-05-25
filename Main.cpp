@@ -73,13 +73,12 @@ int main(int argc, char *argv[])
 		{
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
-			if (counter % 1000 == 0)
-				printf("semiauto is [%d]. \n", semiauto);
 			if (configLoader->isAimbotOn())
 			{
 			    aimbot->update(counter, localWeapon);
 			}
-
+			
+			if (configLoader->isNoRecoilOn())
 			noRecoil->update();
 			
 			movement->update();
