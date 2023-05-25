@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 			else if (configLoader->isAimbotOn())
 			{
 			    aimbot->update(counter, localWeapon);
-			    if (configLoader->isNoRecoilOn())
+			    if (configLoader->isNorecoilOn())
 				noRecoil->update();
 			}
 			
