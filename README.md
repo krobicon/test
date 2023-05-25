@@ -1,5 +1,3 @@
-# MyApex
-Simple C++ cheats for Apex Legends (Linux Steam version).
 
 ### Sense 
 Invisible enemies will be highlighted with Bloodhound Scan.
