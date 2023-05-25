@@ -70,6 +70,9 @@ int main(int argc, char *argv[])
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
+			bool semiauto = m_localWeapon->isSemiAuto();
+			if (counter % 1000 == 0)
+				printf("semiauto is [%d]. \n", semiauto);
 			if (configLoader->isAimbotOn())
 			{
 			    aimbot->update(counter, localWeapon);
