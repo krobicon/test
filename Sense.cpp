@@ -48,7 +48,7 @@ public:
                                                           player->getLocationY(),
                                                           player->getLocationZ());
             
-            if (distanceToTarget < 260)
+            if (distanceToTarget < 270)
             {
                 if (player->isVisible(true))
                 {
