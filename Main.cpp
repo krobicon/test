@@ -12,6 +12,7 @@
 #include "Sense.cpp"
 #include "NoRecoil.cpp"
 #include "Aimbot.cpp"
+#include "Trigger.cpp"
 #include "Movement.cpp"
 #include "Weapon.cpp"
 #include "X11Utils.cpp"
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     NoRecoil *noRecoil = new NoRecoil(configLoader, localPlayer, x11Utils);
     Aimbot *aimbot = new Aimbot(configLoader, level, localPlayer, players, x11Utils);
     Movement *movement = new Movement(level, localPlayer, x11Utils);
+    Trigger *trigger = new Trigger(configLoader, level, localPlayer, players, x11Utils);
 
     // Main loop
     printf("ksenz\n");
