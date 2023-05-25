@@ -47,10 +47,8 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
-	{
+	if (m_localWeapon->getAmmo() > 0)
 	    trigger = true;
-	}
 	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
     	{
 	    m_lockedOnPlayer = nullptr;
@@ -162,10 +160,10 @@ public:
 	//printf("SMOOTH: [%d] \n", smooth);
 	//printf("FOV: [%d] \n", fov);
 	    
-        double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
-	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
-        m_localPlayer->setPitch(newPitch);
-        m_localPlayer->setYaw(newYaw);
+        //double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
+	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
+        //m_localPlayer->setPitch(newPitch);
+        //m_localPlayer->setYaw(newYaw);
 	
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
 	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
