@@ -34,11 +34,8 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update(int counter, Weapon *m_localWeapon)
+    void update(int counter)
     {
-	bool trigger = false;
-	bool crosshaired = false;
-	bool readytofire = false;
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
 	float fov = m_configLoader->getAimbotActivationFOV();
         // validations
@@ -47,11 +44,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (m_localWeapon->getAmmo() > 0 && m_localWeapon->isSemiAuto())
-	{
-	    trigger = true;
-	}
-	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
+	if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
     	{
 	    m_lockedOnPlayer = nullptr;
 	    return;
@@ -119,26 +112,7 @@ public:
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	    
 	
-	if (trigger == true && m_lockedOnPlayer != nullptr)
-	{
-		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
-		{
-			smooth = smooth/8;
-			//fov = fov*2;
-			fov = 33 - distanceToTarget * 1;
-			crosshaired = m_lockedOnPlayer->isCrosshair();
-			readytofire = true;
-		}
-		else
-		{
-			m_lockedOnPlayer = nullptr;
-	    		return;
-		}
-		//printf("------------------------ \n");
-		//printf("crosshair? [%d] \n", m_lockedOnPlayer->isCrosshair());
-		//printf("ready time? [%f] \n", m_localWeapon->getReadyTime());
-	}
-	else if (distanceToTarget > 14)
+	if (distanceToTarget > 14)
 	{
 		fov = fov * 12 / distanceToTarget;
 	}
@@ -166,22 +140,6 @@ public:
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         m_localPlayer->setPitch(newPitch);
         m_localPlayer->setYaw(newYaw);
-	
-	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	{
-		//if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/1.9) && m_lockedOnPlayer->isCrosshair())
-		if (readytofire && crosshaired && yawAngleDeltaAbs < fov/3.4)
-		{
-			m_localPlayer->setAttackState(5);
-			m_x11Utils->mouseClick(1);
-			printf("SENT \n");
-		}
-		else
-		{
-			printf("NOTHING \n");
-		}
-	}
     }
     
     double normalizeYaw(double angle)
