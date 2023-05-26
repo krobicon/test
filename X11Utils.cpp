@@ -44,4 +44,11 @@ public:
             fprintf(stderr, "Error\n");
         XFlush(display);
     }
+    
+    void move (int x, int y)
+    {
+          XWarpPointer (display, None, None, 0,0,0,0, x, y);
+          XFlush (display);
+          usleep (10);
+    }
 };
