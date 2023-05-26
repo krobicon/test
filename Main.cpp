@@ -72,16 +72,16 @@ int main(int argc, char *argv[])
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
 			movement->update();
-			
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
 			
 			if (semiauto){
 			    trigger->update(counter, localWeapon);
+			    m_x11Utils->move(1,1);
 			}
 			else if (configLoader->isAimbotOn())
 			{
-			    aimbot->update(counter, localWeapon);
+			    aimbot->update(counter);
 			    if (configLoader->isNorecoilOn()){
 				noRecoil->update();
 			    }
