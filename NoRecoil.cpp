@@ -45,6 +45,7 @@ public:
 		    m_simInput->emit(EV_REL, REL_Y, 8);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		    usleep(5000);
+		    printf("mov\n");
             }
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
