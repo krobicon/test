@@ -42,9 +42,9 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
-	    punchpix = punchPitchDelta / (-0.0424);
+	    punchpixPitch = punchPitchDelta / (-0.0424);
 	    printf("punch pitch PIXELS: %d \n", punchpix);
-            if (punchpix > 100){
+            if (punchpixPitch > 100){
 		    m_simInput->emit(EV_REL, REL_X, 0);
 		    m_simInput->emit(EV_REL, REL_Y, 10);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
