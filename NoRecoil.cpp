@@ -12,6 +12,7 @@ private:
     ConfigLoader *m_configLoader;
     LocalPlayer *m_localPlayer;
     X11Utils *m_x11Utils;
+    SimInput *m_simInput;
 
     double m_previousPunchPitch = 0;
     double m_previousPunchYaw = 0;
