@@ -4,7 +4,7 @@
 #include "Math.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
-#include "SimInput.cpp"
+#include "Main.cpp"
 
 class NoRecoil
 {
