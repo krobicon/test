@@ -44,7 +44,7 @@ public:
 		printf("punch pitch PIXELS: %d \n", punchpix);
             if (punchPitchDelta <= -0.0424){
 		    m_simInput->emit(EV_REL, REL_X, 0);
-		    m_simInput->emit(EV_REL, REL_Y, 8);
+		    m_simInput->emit(EV_REL, REL_Y, -8);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		    usleep(2000);
 		    printf("mov\n");
