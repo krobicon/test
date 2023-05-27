@@ -29,7 +29,7 @@ class SimInput
           ioctl(fd, UI_DEV_SETUP, &usetup);
           ioctl(fd, UI_DEV_CREATE);
        }
-      void emit(int fd, int type, int code, int val)
+      void emit(int type, int code, int val)
       {
          struct input_event ie;
 
