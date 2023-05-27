@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 	    }
 
             // all ran fine
-            if (counter % 3000 == 0)
+            if (counter % 2000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
 		counter = 0;
