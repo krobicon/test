@@ -16,6 +16,7 @@
 #include "Movement.cpp"
 #include "Weapon.cpp"
 #include "X11Utils.cpp"
+#include "SimInput.cpp"
 #include "ConfigLoader.cpp"
 #include <fcntl.h>
 #include <linux/uinput.h>
@@ -33,25 +34,26 @@ int main(int argc, char *argv[])
         printf("NOPE!\n");
         return -1;
     }
+
     // set up virtual mouse
-    struct uinput_setup usetup;
-    int fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
+    //struct uinput_setup usetup;
+    //int fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
     /* enable mouse button left and relative events */
-    ioctl(fd, UI_SET_EVBIT, EV_KEY);
-    ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
+    //ioctl(fd, UI_SET_EVBIT, EV_KEY);
+    //ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
 
-    ioctl(fd, UI_SET_EVBIT, EV_REL);
-    ioctl(fd, UI_SET_RELBIT, REL_X);
-    ioctl(fd, UI_SET_RELBIT, REL_Y);
+    //ioctl(fd, UI_SET_EVBIT, EV_REL);
+    //ioctl(fd, UI_SET_RELBIT, REL_X);
+    //ioctl(fd, UI_SET_RELBIT, REL_Y);
 
-    memset(&usetup, 0, sizeof(usetup));
-    usetup.id.bustype = BUS_USB;
-    usetup.id.vendor = 0x1234; /* sample vendor */
-    usetup.id.product = 0x5678; /* sample product */
-    strcpy(usetup.name, "Example device");
+    //memset(&usetup, 0, sizeof(usetup));
+    //usetup.id.bustype = BUS_USB;
+    //usetup.id.vendor = 0x1234; /* sample vendor */
+    //usetup.id.product = 0x5678; /* sample product */
+    //strcpy(usetup.name, "Example device");
 
-    ioctl(fd, UI_DEV_SETUP, &usetup);
-    ioctl(fd, UI_DEV_CREATE);
+    //ioctl(fd, UI_DEV_SETUP, &usetup);
+    //ioctl(fd, UI_DEV_CREATE);*/
 
    /*
     * On UI_DEV_CREATE the kernel will create the device node for this
@@ -65,6 +67,8 @@ int main(int argc, char *argv[])
     Level *level = new Level();
     LocalPlayer *localPlayer = new LocalPlayer();
     X11Utils *x11Utils = new X11Utils();
+    SimInput *simInput = new SimInput();
+    simInput->setup();
     std::vector<Player *> *players = new std::vector<Player *>;
     for (int i = 0; i < 60; i++)
     {
@@ -112,9 +116,9 @@ int main(int argc, char *argv[])
 			   int i = 5000;
 			   /* Move the mouse diagonally, 5 units per axis */
 			   while (i--) {
-			      emit(fd, EV_REL, REL_X, 5);
-			      emit(fd, EV_REL, REL_Y, 5);
-			      emit(fd, EV_SYN, SYN_REPORT, 0);
+			      //emit(fd, EV_REL, REL_X, 5);
+			      //emit(fd, EV_REL, REL_Y, 5);
+			      //emit(fd, EV_SYN, SYN_REPORT, 0);
 			      usleep(10000);
 			   }
 			}
