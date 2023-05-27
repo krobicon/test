@@ -42,4 +42,4 @@ class SimInput
 
          write(fd, &ie, sizeof(ie));
       }
-}
+};
