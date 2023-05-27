@@ -4,7 +4,6 @@
 #include "Math.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
-#include "Main.cpp"
 
 class NoRecoil
 {
@@ -19,11 +18,13 @@ private:
 public:
     NoRecoil(ConfigLoader *configLoader,
              LocalPlayer *localPlayer,
-             X11Utils *x11Utils)
+             X11Utils *x11Utils,
+             SimInput *simInput)
     {
         m_configLoader = configLoader;
         m_localPlayer = localPlayer;
         m_x11Utils = x11Utils;
+        m_simInput = simInput;
     }
     void update()
     {
