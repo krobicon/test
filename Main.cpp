@@ -135,9 +135,9 @@ int main(int argc, char *argv[])
 			else if (configLoader->isAimbotOn())
 			{
 			    aimbot->update(counter);
-			    if (configLoader->isNorecoilOn()){
-				noRecoil->update();
-			    }
+			}
+			else if (configLoader->isNorecoilOn()){
+			    noRecoil->update();
 			}
 			
 			
