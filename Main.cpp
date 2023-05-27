@@ -109,6 +109,7 @@ int main(int argc, char *argv[])
 			      simInput->emit(EV_REL, REL_Y, 1);
 			      simInput->emit(EV_SYN, SYN_REPORT, 0);
 			      usleep(10000);
+			   }
 			}
 			
 			
