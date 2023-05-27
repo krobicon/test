@@ -36,6 +36,9 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
+            if (punchPitchDelta <= -0.0424){
+                simInput->emit(EV_REL, REL_Y, 1);
+            }
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
         }
