@@ -120,10 +120,10 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
 			
-			if (semiauto){
+			if (semiauto && counter == 1000){
 			   trigger->update(counter, localWeapon);
 				   
-			   int i = 500;
+			   int i = 5000;
 			   /* Move the mouse diagonally, 5 units per axis */
 			   while (i--) {
 			      emit(fd, EV_REL, REL_X, 5);
