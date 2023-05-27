@@ -44,5 +44,6 @@ class SimInput
       }
 };
 
-// MOVING 100 PIXELS DOWN IN Y DIRECTION == pitch += 4.2405
+// MOVING 100 PIXELS DOWN IN Y DIRECTION -> pitch += 4.2405
+// MOVING 100 PIXELS RIGHT IN x DIRECTION -> yaw -= 4.2404
 
