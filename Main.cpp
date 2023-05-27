@@ -116,9 +116,9 @@ int main(int argc, char *argv[])
 			   int i = 500;
 			   /* Move the mouse diagonally, 5 units per axis */
 			   while (i--) {
-			      simInput->emit(fd, EV_REL, REL_X, 5);
-			      simInput->emit(fd, EV_REL, REL_Y, 5);
-			      simInput->emit(fd, EV_SYN, SYN_REPORT, 0);
+			      simInput->emit(EV_REL, REL_X, 5);
+			      simInput->emit(EV_REL, REL_Y, 5);
+			      simInput->emit(EV_SYN, SYN_REPORT, 0);
 			      usleep(10000);
 			   }
 			}
