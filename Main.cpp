@@ -113,12 +113,12 @@ int main(int argc, char *argv[])
 			if (semiauto && counter == 1000){
 			   trigger->update(counter, localWeapon);
 				   
-			   int i = 5000;
+			   int i = 500;
 			   /* Move the mouse diagonally, 5 units per axis */
 			   while (i--) {
-			      //emit(fd, EV_REL, REL_X, 5);
-			      //emit(fd, EV_REL, REL_Y, 5);
-			      //emit(fd, EV_SYN, SYN_REPORT, 0);
+			      simInput->emit(fd, EV_REL, REL_X, 5);
+			      simInput->emit(fd, EV_REL, REL_Y, 5);
+			      simInput->emit(fd, EV_SYN, SYN_REPORT, 0);
 			      usleep(10000);
 			   }
 			}
