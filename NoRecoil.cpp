@@ -42,9 +42,9 @@ public:
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
             if (punchPitchDelta <= 0.0424){
 		    m_simInput->emit(EV_REL, REL_X, 0);
-		    m_simInput->emit(EV_REL, REL_Y, 10);
+		    m_simInput->emit(EV_REL, REL_Y, 8);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		    usleep(1000);
+		    usleep(5000);
             }
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
