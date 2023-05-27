@@ -3,6 +3,7 @@
 #include "LocalPlayer.cpp"
 #include "Math.cpp"
 #include "X11Utils.cpp"
+#include "SimInput.cpp"
 #include "ConfigLoader.cpp"
 
 class NoRecoil
