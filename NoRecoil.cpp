@@ -33,6 +33,8 @@ public:
         // adjust pitch
         //const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength(); STANDARD PITCH STRENGTH FROM CONFIG
         const double punchPitch = m_localPlayer->getPunchPitch();
+	int punchpixPitch = 0;
+	int punchpixYaw = 0;
         if (punchPitch != 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
@@ -40,9 +42,9 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
-		int punchpix = punchPitchDelta / (-0.0424);
-		printf("punch pitch PIXELS: %d \n", punchpix);
-            if (punchpix > 1){
+	    punchpix = punchPitchDelta / (-0.0424);
+	    printf("punch pitch PIXELS: %d \n", punchpix);
+            if (punchpix > 100){
 		    m_simInput->emit(EV_REL, REL_X, 0);
 		    m_simInput->emit(EV_REL, REL_Y, 10);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
@@ -61,9 +63,16 @@ public:
         {
             const double norecoilYawStrength = math::RandomFloat(0.12,0.35); // RANDOM
             const double yaw = m_localPlayer->getYaw();
-            const double punchYawDelta = (punchYaw - m_previousPunchYaw) * norecoilYawStrength;
+            const double punchYawDelta = (punchYaw - m_previousPunchYaw);
+	    int punchpixYaw = punchYawDelta / (-0.0424);
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
+	    m_simInput->emit(EV_REL, REL_X, punchpixYaw);
+	    m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
+	    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+	    usleep(2000);
+	    printf("mov\n");
+	
     }
 };
