@@ -42,7 +42,7 @@ public:
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
 		int punchpix = punchPitchDelta / (-0.0424);
 		printf("punch pitch PIXELS: %d \n", punchpix);
-            if (punchpix != 0){
+            if (punchpix > 0){
 		    m_simInput->emit(EV_REL, REL_X, 0);
 		    m_simInput->emit(EV_REL, REL_Y, punchpix);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
