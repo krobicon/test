@@ -40,7 +40,7 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
-            if (punchPitchDelta >= 0.0424){
+            if (punchPitchDelta <= 0.0424){
 		    m_simInput->emit(EV_REL, REL_X, 0);
 		    m_simInput->emit(EV_REL, REL_Y, 10);
 		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
