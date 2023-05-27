@@ -97,19 +97,8 @@ int main(int argc, char *argv[])
 			{
 			    aimbot->update(counter);
 			}
-			else if (configLoader->isNorecoilOn() && counter == 1000){
-			    printf("yaw: %f \n", localPlayer->getYaw());
+			else if (configLoader->isNorecoilOn() && counter % 10 == 0){
 			    noRecoil->update();
-			}
-			else if (configLoader->isNorecoilOn() && counter == 1010){
-			   int i = 100;
-			   /* Move the mouse diagonally, 5 units per axis */
-			   while (i--) {
-			      simInput->emit(EV_REL, REL_X, 1);
-			      simInput->emit(EV_REL, REL_Y, 0);
-			      simInput->emit(EV_SYN, SYN_REPORT, 0);
-			      usleep(10000);
-			   }
 			}
 			
 			
