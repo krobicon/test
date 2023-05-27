@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 			if (semiauto){
 			    trigger->update(counter, localWeapon);
 				   struct uinput_setup usetup;
-				   int i = 50;
+				   int i = 500;
 
 				   int fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
 
