@@ -43,3 +43,6 @@ class SimInput
          write(fd, &ie, sizeof(ie));
       }
 };
+
+// MOVING 100 PIXELS DOWN IN Y DIRECTION == pitch += 4.2405
+
