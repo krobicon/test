@@ -17,6 +17,7 @@
 #include "Weapon.cpp"
 #include "X11Utils.cpp"
 #include "ConfigLoader.cpp"
+#include <fcntl.h>
 #include <linux/uinput.h>
 
 void emit(int fd, int type, int code, int val)
