@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 			
 			if (semiauto){
 			    trigger->update(counter, localWeapon);
-			    m_x11Utils->move(1,1);
+			    x11Utils->move(1,1);
 			}
 			else if (configLoader->isAimbotOn())
 			{
