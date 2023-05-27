@@ -44,6 +44,7 @@ class SimInput
       }
 };
 
+// input to angle values for 1.9 sens at 110 fov
 // MOVING 100 PIXELS DOWN IN Y DIRECTION -> pitch += 4.2405
 // MOVING 100 PIXELS RIGHT IN x DIRECTION -> yaw -= 4.2404
 
