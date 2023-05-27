@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 			   /* Move the mouse diagonally, 5 units per axis */
 			   while (i--) {
 			      simInput->emit(EV_REL, REL_X, 5);
-			      simInput->emit(EV_REL, REL_Y, 5);
+			      simInput->emit(EV_REL, REL_Y, 0);
 			      simInput->emit(EV_SYN, SYN_REPORT, 0);
 			      usleep(10000);
 			   }
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
 	    }
 
             // all ran fine
-            if (counter % 4000 == 0)
+            if (counter % 3000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
 		counter = 0;
