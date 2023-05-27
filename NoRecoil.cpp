@@ -41,7 +41,7 @@ public:
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
             if (punchPitchDelta <= -0.0424){
-		    auto punchpix = punchPitchDelta / (-0.0424);
+		    int punchpix = punchPitchDelta / (-0.0424);
 		    printf("punch pitch PIXELS: %f \n", punchpix);
 		    m_simInput->emit(EV_REL, REL_X, 0);
 		    m_simInput->emit(EV_REL, REL_Y, 8);
