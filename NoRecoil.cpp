@@ -64,11 +64,11 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchpixPitch > 0){
+	/*if (punchpixPitch > 0){
 		m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
 		m_simInput->emit(EV_REL, REL_X, 0);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
-	}
+	}*/
     }
 };
