@@ -70,21 +70,69 @@ public:
 		pitchpixels += punchpixPitch;
 	}
 	yawpixels += punchpixYaw;
-	if (pitchpixels > 0 && pitchpixels < 4) {
+	bool move = false;
+	if (pitchpixels > 0 && pitchpixels < 4){
+		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
+		pitchpixels = 0;
+		move = true;
+	}
+	else if (pitchpixels >= 4) {
+		m_simInput->emit(EV_REL, REL_Y, 4);
+		pitchpixels -= 4;
+		move = true;
+	}
+	if (abs(yawpixels) < 4) {
+		m_simInput->emit(EV_REL, REL_X, yawpixels);
+		yawpixels = 0;
+		move = true;
+	}
+	else if (yawpixels >= 4 {
+		m_simInput->emit(EV_REL, REL_X, 4);
+		yawpixels -= 4;
+		move = true;
+	}
+	else if (yawpixels <= -4 {
+		m_simInput->emit(EV_REL, REL_X, -4);
+		yawpixels += 4;
+		move = true;
+	}
+	if (move) {
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+		usleep(2000);
+	}
+	/*if (pitchpixels > 0 && pitchpixels < 4 && abs(yawpixels) < 4) {
 		
 		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
 		m_simInput->emit(EV_REL, REL_X, yawpixels);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels = 0;
+		yawpixels = 0;
 	}
-	    else if (pitchpixels >= 4) {
+	else if (pitchpixels >= 4 && abs(yawpixels) < 4) {
 		m_simInput->emit(EV_REL, REL_Y, 4);
 		m_simInput->emit(EV_REL, REL_X, yawpixels);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels -= 4;
+		yawpixels = 0;
 	}
+	else if (pitchpixels > 0 && pitchpixels < 4 && yawpixels >= 4) {
+		m_simInput->emit(EV_REL, REL_Y, 4);
+		m_simInput->emit(EV_REL, REL_X, 4);
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+		usleep(2000);
+		pitchpixels -= 4;
+		yawpixels -= 4;
+	}
+	else if (pitchpixels > 0 && pitchpixels < 4 && yawpixels <= -4) {
+		m_simInput->emit(EV_REL, REL_Y, 4);
+		m_simInput->emit(EV_REL, REL_X, -4);
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+		usleep(2000);
+		pitchpixels -= 4;
+		yawpixels += 4;
+	}*/
 		    
     }
     void reset(){
