@@ -44,10 +44,10 @@ class SimInput
       }
    
       void click() {
-         emit(fd, EV_KEY, BTN_LEFT, 1);
-         emit(fd, EV_SYN, SYN_REPORT, 0);
-         emit(fd, EV_KEY, BTN_LEFT, 0);
-         emit(fd, EV_SYN, SYN_REPORT, 0);
+         emit(EV_KEY, BTN_LEFT, 1);
+         emit(EV_SYN, SYN_REPORT, 0);
+         emit(EV_KEY, BTN_LEFT, 0);
+         emit(EV_SYN, SYN_REPORT, 0);
       }
 };
 
