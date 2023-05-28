@@ -41,7 +41,7 @@ public:
             //const double norecoilPitchStrength = math::RandomFloat(0.80,0.99); // RANDOM PITCH STRENGTH
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
-            /printf("punch pitch DELTA: %f \n", punchPitchDelta);
+            //printf("punch pitch DELTA: %f \n", punchPitchDelta);
 	    punchpixPitch = punchPitchDelta / (-0.027);
 	    //printf("punch pitch PIXELS: %d \n", punchpixPitch);
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
