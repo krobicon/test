@@ -33,10 +33,11 @@ public:
         // adjust pitch
         //const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength(); STANDARD PITCH STRENGTH FROM CONFIG
         const double punchPitch = m_localPlayer->getPunchPitch();
+	const double pitchval = m_localPlayer->getPitch()
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
 	printf("punch: %f \n", punchPitch);
-	printf("%f \n", m_localPlayer->getPitch());
+	printf("%f \n", pitchval);
         if (punchPitch < 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
