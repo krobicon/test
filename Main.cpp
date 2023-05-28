@@ -87,6 +87,17 @@ int main(int argc, char *argv[])
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()){
 			    noRecoil->update();
 			}
+			else if (counter % 1000 == 0){
+				printf("Pitch: [%f]. \n", localPlayer->getPitch());
+				int k = 0;
+				while (k < 100){
+					m_simInput->emit(EV_REL, REL_Y, 1);
+					m_simInput->emit(EV_REL, REL_X, 0);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+					usleep(2000);
+					k++;
+				}
+			}
 
 			if (localWeapon->getAmmo() == 1 && !semiauto){
 				localPlayer->setAttackState(4);
