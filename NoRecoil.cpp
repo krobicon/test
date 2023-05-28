@@ -41,7 +41,7 @@ public:
         {
             //printf("punch pitch: %f \n", punchPitch);
             //const double norecoilPitchStrength = math::RandomFloat(0.80,0.99); // RANDOM PITCH STRENGTH
-            const double pitch = m_localPlayer->getPitch();
+            //const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             //printf("punch pitch DELTA: %f \n", punchPitchDelta);
 	    punchpixPitch = punchPitchDelta / (-0.03);
@@ -54,9 +54,9 @@ public:
         //const double norecoilYawStrength = m_configLoader->getNorecoilYawStrength(); STANDARD
         
         const double punchYaw = m_localPlayer->getPunchYaw();
-	const double yawval = m_localPlayer->getYaw();
-	printf("punch: %f \n", punchYaw);
-	printf("%f \n", yawval);
+	//const double yawval = m_localPlayer->getYaw();
+	//printf("punch: %f \n", punchYaw);
+	//printf("%f \n", yawval);
         if (punchYaw != 0)
         {
             //const double norecoilYawStrength = math::RandomFloat(0.12,0.35); // RANDOM
@@ -100,39 +100,6 @@ public:
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 	}
-	/*if (pitchpixels > 0 && pitchpixels < 4 && abs(yawpixels) < 4) {
-		
-		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
-		m_simInput->emit(EV_REL, REL_X, yawpixels);
-		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		usleep(2000);
-		pitchpixels = 0;
-		yawpixels = 0;
-	}
-	else if (pitchpixels >= 4 && abs(yawpixels) < 4) {
-		m_simInput->emit(EV_REL, REL_Y, 4);
-		m_simInput->emit(EV_REL, REL_X, yawpixels);
-		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		usleep(2000);
-		pitchpixels -= 4;
-		yawpixels = 0;
-	}
-	else if (pitchpixels > 0 && pitchpixels < 4 && yawpixels >= 4) {
-		m_simInput->emit(EV_REL, REL_Y, 4);
-		m_simInput->emit(EV_REL, REL_X, 4);
-		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		usleep(2000);
-		pitchpixels -= 4;
-		yawpixels -= 4;
-	}
-	else if (pitchpixels > 0 && pitchpixels < 4 && yawpixels <= -4) {
-		m_simInput->emit(EV_REL, REL_Y, 4);
-		m_simInput->emit(EV_REL, REL_X, -4);
-		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		usleep(2000);
-		pitchpixels -= 4;
-		yawpixels += 4;
-	}*/
 		    
     }
     void reset(){
