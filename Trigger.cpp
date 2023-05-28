@@ -100,7 +100,7 @@ public:
 							       m_lockedOnPlayer->getLocationX(),
 							       m_lockedOnPlayer->getLocationY(),
 							       m_lockedOnPlayer->getLocationZ());
-	    if (distanceToTarget > m_configLoader->getAimbotMaxRange())
+	    if (distanceToTarget > 21)
 		return;
 	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 						      m_localPlayer->getLocationY(),
@@ -113,7 +113,7 @@ public:
         const double pitchAngleDelta = calculatePitchAngleDelta(pitch, desiredViewAnglePitch);
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
 	    
-		const double yaw = m_localPlayer->getYaw();
+	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	    
