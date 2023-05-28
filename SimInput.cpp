@@ -48,6 +48,7 @@ class SimInput
          emit(EV_SYN, SYN_REPORT, 0);
          emit(EV_KEY, BTN_LEFT, 0);
          emit(EV_SYN, SYN_REPORT, 0);
+         usleep(10000);
       }
 };
 
