@@ -36,6 +36,7 @@ public:
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
 	printf("%f \n", punchPitch);
+	printf("%f \n", m_localPlayer->getPitch());
         if (punchPitch < 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
