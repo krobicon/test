@@ -236,14 +236,14 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    void setPitch(float angle)
+    /*void setPitch(float angle)
     {
         if (angle > 90 || angle < -90)
             return;
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::VIEW_ANGLE;
         mem::WriteFloat(ptrLong, angle);
-    }
+    }*/
     float getYaw()
     {
         long basePointer = getBasePointer();
@@ -251,14 +251,14 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    void setYaw(float angle)
+    /*void setYaw(float angle)
     {
         if (angle > 180 || angle < -180)
             return;
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::VIEW_ANGLE + sizeof(float);
         mem::WriteFloat(ptrLong, angle);
-    }
+    }*/
     bool isZooming()
     {
         long basePointer = getBasePointer();
