@@ -62,7 +62,7 @@ public:
             //const double norecoilYawStrength = math::RandomFloat(0.12,0.35); // RANDOM
             const double yaw = m_localPlayer->getYaw();
             const double punchYawDelta = (punchYaw - m_previousPunchYaw);
-	    punchpixYaw = punchYawDelta / (-0.03);
+	    punchpixYaw = punchYawDelta / (0.03);
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
