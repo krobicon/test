@@ -7,6 +7,7 @@
 #include "math.h"
 #include "Weapon.cpp"
 #include "X11Utils.cpp"
+#include "SimInput.cpp"
 #include "ConfigLoader.cpp"
 
 class Trigger
@@ -17,6 +18,7 @@ private:
     LocalPlayer *m_localPlayer;
     std::vector<Player *> *m_players;
     X11Utils *m_x11Utils;
+	SimInput *m_simInput;
 
     Player *m_lockedOnPlayer = nullptr;
     bool triggerCache = false;
@@ -36,29 +38,29 @@ public:
     }
     void update(int counter, Weapon *m_localWeapon)
     {
-	bool trigger = false;
-	bool crosshaired = false;
-	bool readytofire = false;
-	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
-	float fov = m_configLoader->getAimbotActivationFOV();
-        // validations
-        if (m_localPlayer->isWalking())
-        {
-            m_lockedOnPlayer = nullptr;
-            return;
-        }
-	if (m_localWeapon->getAmmo() > 0)
-	    trigger = true;
-	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
-    	{
-	    m_lockedOnPlayer = nullptr;
-	    return;
-    	}
+		bool trigger = false;
+		bool crosshaired = false;
+		bool readytofire = false;
+		int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
+		float fov = m_configLoader->getAimbotActivationFOV();
+			// validations
+			if (m_localPlayer->isWalking())
+			{
+				m_lockedOnPlayer = nullptr;
+				return;
+			}
+		if (m_localWeapon->getAmmo() > 0)
+			trigger = true;
+		else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
+			{
+			m_lockedOnPlayer = nullptr;
+			return;
+			}
 	    
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
-	double distanceToTarget;
+		double distanceToTarget;
         /*if (m_level->isTrainingArea())
         {
             if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
@@ -112,7 +114,7 @@ public:
         const double pitchAngleDelta = calculatePitchAngleDelta(pitch, desiredViewAnglePitch);
         const double pitchAngleDeltaAbs = abs(pitchAngleDelta);
 	    
-	const double yaw = m_localPlayer->getYaw();
+		const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 	    
@@ -141,7 +143,7 @@ public:
 		fov = fov * 12 / distanceToTarget;
 	}
 	    
-        if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
+    if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
 	{
 	    m_lockedOnPlayer = nullptr;
 	    return;
@@ -266,7 +268,7 @@ public:
     double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
     {
 	//double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
-	double localPlayerLocationZ = m_localPlayer->getCameraZ();
+		double localPlayerLocationZ = m_localPlayer->getCameraZ();
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
         /*if (m_localPlayer->isDucking())
         {
@@ -316,8 +318,8 @@ public:
                                                              player->getLocationX(),
                                                              player->getLocationY());
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
-	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
-	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+	    	double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
+	    	double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
