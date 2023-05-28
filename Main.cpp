@@ -88,6 +88,9 @@ int main(int argc, char *argv[])
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()){
 			    noRecoil->update();
 			}
+			else if (!localPlayer->isInAttack()){
+			    noRecoil->reset();
+			}
 			/*else if (counter % 500 == 0){
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
 				printf("Zoom FOV: [%f]. \n", localWeapon->getZoomFOV());
