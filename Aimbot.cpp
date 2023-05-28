@@ -138,8 +138,8 @@ public:
 	    
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
-        m_localPlayer->setPitch(newPitch);
-        m_localPlayer->setYaw(newYaw);
+        //m_localPlayer->setPitch(newPitch);
+        //m_localPlayer->setYaw(newYaw);
     }
     
     double normalizeYaw(double angle)
