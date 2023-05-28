@@ -91,9 +91,9 @@ int main(int argc, char *argv[])
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
 				int k = 0;
 				while (k < 100){
-					m_simInput->emit(EV_REL, REL_Y, 1);
-					m_simInput->emit(EV_REL, REL_X, 0);
-					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+					simInput->emit(EV_REL, REL_Y, 1);
+					simInput->emit(EV_REL, REL_X, 0);
+					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					usleep(2000);
 					k++;
 				}
