@@ -42,6 +42,13 @@ class SimInput
 
          write(fd, &ie, sizeof(ie));
       }
+   
+      void click() {
+         emit(fd, EV_KEY, BTN_LEFT, 1);
+         emit(fd, EV_SYN, SYN_REPORT, 0);
+         emit(fd, EV_KEY, BTN_LEFT, 0);
+         emit(fd, EV_SYN, SYN_REPORT, 0);
+      }
 };
 
 // input to angle values for 1.9 sens at 110 fov
