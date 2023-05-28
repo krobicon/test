@@ -35,6 +35,7 @@ public:
         const double punchPitch = m_localPlayer->getPunchPitch();
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
+	printf("punch pitch: %f \n", punchPitch);
         if (punchPitch != 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
