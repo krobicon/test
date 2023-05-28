@@ -35,6 +35,7 @@ public:
         const double punchPitch = m_localPlayer->getPunchPitch();
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
+	bool moved = false;
         if (punchPitch != 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
@@ -61,12 +62,18 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchpixPitch > 0){    
+	if (punchpixYaw != 0){
 	    m_simInput->emit(EV_REL, REL_X, -punchpixYaw);
+	    moved = true;
+	}
+	if (punchpixPitch > 0){
 	    m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
-	    //m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-	    usleep(2000);
-	    printf("mov\n");
+	    moved = true;
+	}
+	if (moved){
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+	    	usleep(2000);
+	    	printf("mov\n");
 	}
     }
 };
