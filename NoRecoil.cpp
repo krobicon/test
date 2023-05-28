@@ -42,7 +42,7 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
-	    punchpixPitch = punchPitchDelta / (-0.04);
+	    punchpixPitch = punchPitchDelta / (-0.03);
 	    printf("punch pitch PIXELS: %d \n", punchpixPitch);
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
@@ -63,7 +63,7 @@ public:
             m_previousPunchYaw = punchYaw;
         }
 	if (punchpixPitch > 0){
-		m_simInput->emit(EV_REL, REL_Y, punchpixPitch*2);
+		m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
 		m_simInput->emit(EV_REL, REL_X, -punchpixYaw);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
