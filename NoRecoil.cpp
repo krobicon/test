@@ -69,4 +69,5 @@ public:
 		usleep(2000);
 		printf("mov\n");
 	}
+	}
 };
