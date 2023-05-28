@@ -91,8 +91,8 @@ int main(int argc, char *argv[])
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
 				printf("Zoom FOV: [%f]. \n", localWeapon->getZoomFOV());
 				int k = 0;
-				while (k < 100){
-					simInput->emit(EV_REL, REL_Y, 1);
+				while (k < 50){
+					simInput->emit(EV_REL, REL_Y, 2);
 					simInput->emit(EV_REL, REL_X, 0);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					usleep(2000);
