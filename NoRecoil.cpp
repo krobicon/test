@@ -13,6 +13,7 @@ private:
     LocalPlayer *m_localPlayer;
     X11Utils *m_x11Utils;
     SimInput *m_simInput;
+    int jitter = 0;
 
     double m_previousPunchPitch = 0;
     double m_previousPunchYaw = 0;
@@ -64,11 +65,21 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchPitch != 0) {
+	if (punchPitch != 0 && jitter < 10) {
 		m_simInput->emit(EV_REL, REL_Y, 0);
 		m_simInput->emit(EV_REL, REL_X, 5);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
+		jitter++;
+	}
+	else if (punchPitch != 0 && jitter >= 10) {
+		m_simInput->emit(EV_REL, REL_Y, 0);
+		m_simInput->emit(EV_REL, REL_X, -5);
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+		usleep(2000);
+		jitter++;
+		if (jitter == 21)
+			jitter = 0;
 	}
     }
 };
