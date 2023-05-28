@@ -43,7 +43,7 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch) * norecoilPitchStrength;
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
-	    punchpixPitch = punchPitchDelta / (-0.03);
+	    punchpixPitch = punchPitchDelta / (-0.04);
 	    printf("punch pitch PIXELS: %d \n", punchpixPitch);
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
