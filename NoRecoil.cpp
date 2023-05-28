@@ -68,7 +68,7 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchpixYaw && punchpixPitch > 0){    
+	if (punchpixPitch > 0){    
 	    m_simInput->emit(EV_REL, REL_X, punchpixYaw);
 	    m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
 	    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
