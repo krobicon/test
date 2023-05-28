@@ -65,20 +65,20 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchPitch != 0 && jitter < 10) {
+	if (punchPitch != 0 && jitter < 5) {
 		m_simInput->emit(EV_REL, REL_Y, 0);
-		m_simInput->emit(EV_REL, REL_X, 5);
+		m_simInput->emit(EV_REL, REL_X, 4);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		jitter++;
 	}
-	else if (punchPitch != 0 && jitter >= 10) {
+	else if (punchPitch != 0 && jitter >= 5) {
 		m_simInput->emit(EV_REL, REL_Y, 0);
-		m_simInput->emit(EV_REL, REL_X, -5);
+		m_simInput->emit(EV_REL, REL_X, -4);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		jitter++;
-		if (jitter == 21)
+		if (jitter == 11)
 			jitter = 0;
 	}
     }
