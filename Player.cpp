@@ -247,6 +247,13 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
+    float getStartCrosshairTime()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::START_CROSSHAIR_TIME;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     bool isCrosshair()
     {
         const float lastCrosshairTime = getLastCrosshairTime();
