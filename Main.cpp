@@ -29,8 +29,7 @@ int main(int argc, char *argv[])
         printf("MUST RUN AS ROOT!\n");
         return -1;
     }*/
-    if (mem::GetPID() == 0)
-    {
+    if (mem::GetPID() == 0) {
         printf("NOPE!\n");
         return -1;
     }
@@ -41,8 +40,7 @@ int main(int argc, char *argv[])
     SimInput *simInput = new SimInput();
     simInput->setup();
     std::vector<Player *> *players = new std::vector<Player *>;
-    for (int i = 0; i < 60; i++)
-    {
+    for (int i = 0; i < 60; i++) {
         players->push_back(new Player(i));
     }
     Sense *sense = new Sense(configLoader, level, localPlayer, players, x11Utils);
@@ -63,8 +61,7 @@ int main(int argc, char *argv[])
 
             // resolve pointers
             localPlayer->markForPointerResolution();
-            for (int i = 0; i < players->size(); i++)
-            {
+            for (int i = 0; i < players->size(); i++) {
                 Player *player = players->at(i);
                 player->markForPointerResolution();
             }
@@ -83,32 +80,19 @@ int main(int argc, char *argv[])
 			
 			if (semiauto && localPlayer->isZooming()){
 			   trigger->update(counter, localWeapon);
-				   
-			   int i = 500;
-			   /* Move the mouse diagonally, 5 units per axis */
-			   while (i--) {
-			      simInput->emit(EV_REL, REL_X, 1);
-			      simInput->emit(EV_REL, REL_Y, 0);
-			      simInput->emit(EV_SYN, SYN_REPORT, 0);
-			      usleep(10000);
-			   }
 			}
-			else if (configLoader->isAimbotOn())
-			{
+			else if (configLoader->isAimbotOn()){
 			    aimbot->update(counter);
 			}
-			else if (configLoader->isNorecoilOn() && counter % 10 == 0){
+			else if (configLoader->isNorecoilOn()){
 			    noRecoil->update();
 			}
-			
-			
-			if (localWeapon->getAmmo() == 1 && !semiauto)
-			{
+
+			if (localWeapon->getAmmo() == 1 && !semiauto){
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
 			}
-			else if (localPlayer->getReloadState() == 5)
-			{
+			else if (localPlayer->getReloadState() == 5){
 				localPlayer->setReloadState(4);
 			}
 		}
