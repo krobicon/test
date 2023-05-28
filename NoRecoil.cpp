@@ -61,7 +61,7 @@ public:
             //const double norecoilYawStrength = math::RandomFloat(0.12,0.35); // RANDOM
             const double yaw = m_localPlayer->getYaw();
             const double punchYawDelta = (punchYaw - m_previousPunchYaw);
-	    punchpixYaw = punchYawDelta / (0.03);
+	    punchpixYaw = punchYawDelta / (-0.03);
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
@@ -71,14 +71,14 @@ public:
 	if (pitchpixels > 0 && pitchpixels < 4) {
 		
 		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
-		m_simInput->emit(EV_REL, REL_X, 0);
+		m_simInput->emit(EV_REL, REL_X, punchpixYaw);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels = 0;
 	}
 	    else if (pitchpixels >= 4) {
 		m_simInput->emit(EV_REL, REL_Y, 4);
-		m_simInput->emit(EV_REL, REL_X, 0);
+		m_simInput->emit(EV_REL, REL_X, punchpixYaw);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels -= 4;
