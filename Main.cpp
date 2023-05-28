@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 			else if (configLoader->isAimbotOn()){
 			    aimbot->update(counter);
 			}
-			else if (configLoader->isNorecoilOn()){
+			else if (configLoader->isNorecoilOn() && counter % 5 == 0){
 			    noRecoil->update();
 			}
 
