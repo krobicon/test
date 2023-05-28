@@ -50,5 +50,5 @@ namespace offsets
     const long READY_TIME = 0x1648;                 // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_nextReadyTime
     const long AMMO = 0x1670;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
     const long SEMI_AUTO = 0x1c14;                  // [Miscellaneous]                        ->CWeaponX!m_isSemiAuto
-    const long ZOOM_FOV = (0x16c0 + 0x00bc);          // [DataMap.WeaponPlayerData]             -> m_playerData + m_curZoomFOV
+    const long ZOOM_FOV = (0x16c0 + 0x00bc);          // [DataMap.WeaponPlayerData]             -> m_playerData + m_targetZoomFOV
 }
