@@ -77,9 +77,6 @@ int main(int argc, char *argv[])
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
-			if (counter % 300 == 0) {
-				simInput->click();
-			}
 			
 			if (semiauto) {
 			   trigger->update(counter, localWeapon);
