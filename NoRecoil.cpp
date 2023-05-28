@@ -86,12 +86,12 @@ public:
 		yawpixels = 0;
 		move = true;
 	}
-	else if (yawpixels >= 4 {
+	else if (yawpixels >= 4) {
 		m_simInput->emit(EV_REL, REL_X, 4);
 		yawpixels -= 4;
 		move = true;
 	}
-	else if (yawpixels <= -4 {
+	else if (yawpixels <= -4) {
 		m_simInput->emit(EV_REL, REL_X, -4);
 		yawpixels += 4;
 		move = true;
