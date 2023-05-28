@@ -65,12 +65,25 @@ public:
             //m_localPlayer->setYaw(yaw - punchYawDelta);
             m_previousPunchYaw = punchYaw;
         }
-	if (punchpixPitch > 0 || punchpixYaw != 0) {
-		m_simInput->emit(EV_REL, REL_Y, punchpixPitch);
-		m_simInput->emit(EV_REL, REL_X, punchpixYaw);
+	if (punchpixPitch > 0) {
+		pitchpixels += punchpixPitch;
+	}
+	if (pitchpixels > 0 && pitchpixels < 4) {
+		
+		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
+		m_simInput->emit(EV_REL, REL_X, 0);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
+		pitchpixels = 0;
 	}
+	    else if (pitchpixels >= 4) {
+		m_simInput->emit(EV_REL, REL_Y, 4);
+		m_simInput->emit(EV_REL, REL_X, 0);
+		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+		usleep(2000);
+		pitchpixels -= 4;
+	}
+		    
     }
     void reset(){
 	    pitchpixels = 0;
