@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()){
 			    noRecoil->update();
 			}
-			else if (counter % 500 == 0){
+			/*else if (counter % 500 == 0){
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
 				printf("Zoom FOV: [%f]. \n", localWeapon->getZoomFOV());
 				int k = 0;
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 					usleep(2000);
 					k++;
 				}
-			}
+			}*/
 
 			if (localWeapon->getAmmo() == 1 && !semiauto){
 				localPlayer->setAttackState(4);
