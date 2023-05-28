@@ -36,7 +36,7 @@ public:
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
 	printf("punch pitch: %f \n", punchPitch);
-        if (punchPitch != 0)
+        if (punchPitch < 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
             //const double norecoilPitchStrength = math::RandomFloat(0.80,0.99); // RANDOM PITCH STRENGTH
