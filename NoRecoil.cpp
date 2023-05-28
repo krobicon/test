@@ -17,6 +17,7 @@ private:
     double m_previousPunchPitch = 0;
     double m_previousPunchYaw = 0;
     int pitchpixels = 0;
+    int yawpixels = 0;
 
 public:
     NoRecoil(ConfigLoader *configLoader,
@@ -68,17 +69,18 @@ public:
 	if (punchpixPitch > 0) {
 		pitchpixels += punchpixPitch;
 	}
+	yawpixels += punchpixYaw;
 	if (pitchpixels > 0 && pitchpixels < 4) {
 		
 		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
-		m_simInput->emit(EV_REL, REL_X, punchpixYaw);
+		m_simInput->emit(EV_REL, REL_X, yawpixels);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels = 0;
 	}
 	    else if (pitchpixels >= 4) {
 		m_simInput->emit(EV_REL, REL_Y, 4);
-		m_simInput->emit(EV_REL, REL_X, punchpixYaw);
+		m_simInput->emit(EV_REL, REL_X, yawpixels);
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 		pitchpixels -= 4;
@@ -87,7 +89,8 @@ public:
     }
     void reset(){
 	    pitchpixels = 0;
-	    double m_previousPunchPitch = 0;
-    	    double m_previousPunchYaw = 0;
+	    yawpixels =0;
+	    m_previousPunchPitch = 0;
+    	    m_previousPunchYaw = 0;
     }
 };
