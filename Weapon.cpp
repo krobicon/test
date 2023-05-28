@@ -44,6 +44,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    float getZoomFOV()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::ZOOM_FOV;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     float getReadyTime()
     {
         long basePointer = getBasePointer();
