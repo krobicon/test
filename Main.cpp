@@ -87,12 +87,12 @@ int main(int argc, char *argv[])
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()){
 			    noRecoil->update();
 			}
-			else if (counter % 500 == 0){
+			if (counter % 500 == 0){
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
 				printf("Zoom FOV: [%f]. \n", localWeapon->getZoomFOV());
 				int k = 0;
-				while (k < 50){
-					simInput->emit(EV_REL, REL_Y, 2);
+				while (k < 100){
+					simInput->emit(EV_REL, REL_Y, 1);
 					simInput->emit(EV_REL, REL_X, 0);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					usleep(2000);
