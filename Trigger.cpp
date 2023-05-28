@@ -51,11 +51,10 @@ public:
 		}
 		if (m_localWeapon->getAmmo() > 0)
 			trigger = true;
-		else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming())
-			{
+		else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming()) {
 			m_lockedOnPlayer = nullptr;
 			return;
-			}
+		}
 	    
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
