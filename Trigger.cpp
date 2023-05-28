@@ -122,7 +122,7 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		printf("crosshair? [%d] \n", m_lockedOnPlayer->isCrosshair());
+		printf("crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
 		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
 			smooth = smooth/8;
