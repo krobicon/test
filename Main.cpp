@@ -89,6 +89,7 @@ int main(int argc, char *argv[])
 			}
 			else if (counter % 1000 == 0){
 				printf("Pitch: [%f]. \n", localPlayer->getPitch());
+				printf("Zoom FOV: [%f]. \n", localWeapon->getZoomFOV());
 				int k = 0;
 				while (k < 100){
 					simInput->emit(EV_REL, REL_Y, 1);
