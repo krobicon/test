@@ -38,19 +38,12 @@ public:
         if (punchPitch != 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
-            const double norecoilPitchStrength = math::RandomFloat(0.10,0.37); // RANDOM PITCH STRENGTH
+            const double norecoilPitchStrength = math::RandomFloat(0.80,0.99); // RANDOM PITCH STRENGTH
             const double pitch = m_localPlayer->getPitch();
-            const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
+            const double punchPitchDelta = (punchPitch - m_previousPunchPitch) * norecoilPitchStrength;
             printf("punch pitch DELTA: %f \n", punchPitchDelta);
 	    punchpixPitch = punchPitchDelta / (-0.03);
 	    printf("punch pitch PIXELS: %d \n", punchpixPitch);
-            if (punchpixPitch > 100){
-		    m_simInput->emit(EV_REL, REL_X, 0);
-		    m_simInput->emit(EV_REL, REL_Y, 10);
-		    m_simInput->emit(EV_SYN, SYN_REPORT, 0);
-		    usleep(2000);
-		    printf("mov\n");
-            }
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
         }
