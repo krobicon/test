@@ -34,11 +34,8 @@ public:
         // adjust pitch
         //const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength(); STANDARD PITCH STRENGTH FROM CONFIG
         const double punchPitch = m_localPlayer->getPunchPitch();
-	const double pitchval = m_localPlayer->getPitch();
 	int punchpixPitch = 0;
 	int punchpixYaw = 0;
-	printf("punch: %f \n", punchPitch);
-	printf("%f \n", pitchval);
         if (punchPitch < 0)
         {
             //printf("punch pitch: %f \n", punchPitch);
@@ -56,6 +53,9 @@ public:
         //const double norecoilYawStrength = m_configLoader->getNorecoilYawStrength(); STANDARD
         
         const double punchYaw = m_localPlayer->getPunchYaw();
+	const double yawval = m_localPlayer->getYaw();
+	printf("punch: %f \n", punchYaw);
+	printf("%f \n", yawval);
         if (punchYaw != 0)
         {
             //const double norecoilYawStrength = math::RandomFloat(0.12,0.35); // RANDOM
