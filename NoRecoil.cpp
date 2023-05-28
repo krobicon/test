@@ -46,7 +46,7 @@ public:
             const double pitch = m_localPlayer->getPitch();
             const double punchPitchDelta = (punchPitch - m_previousPunchPitch);
             //printf("punch pitch DELTA: %f \n", punchPitchDelta);
-	    punchpixPitch = punchPitchDelta / (-0.02);
+	    punchpixPitch = punchPitchDelta / (-0.03);
 	    //printf("punch pitch PIXELS: %d \n", punchpixPitch);
             //m_localPlayer->setPitch(pitch - punchPitchDelta);
             m_previousPunchPitch = punchPitch;
