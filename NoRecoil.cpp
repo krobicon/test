@@ -16,6 +16,7 @@ private:
 
     double m_previousPunchPitch = 0;
     double m_previousPunchYaw = 0;
+    int pitchpixels = 0;
 
 public:
     NoRecoil(ConfigLoader *configLoader,
@@ -70,5 +71,10 @@ public:
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 	}
+    }
+    void reset(){
+	    pitchpixels = 0;
+	    double m_previousPunchPitch = 0;
+    	    double m_previousPunchYaw = 0;
     }
 };
