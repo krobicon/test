@@ -70,10 +70,9 @@ int main(int argc, char *argv[])
 	    
 	    if (!level->isPlayable() && counter % 1900 == 0) {
 		    if (findMatch) {
-			    return 1;
+			    printf('finding \n');
 		    }
 		    else {
-				printf("test\n");
 				int k = 0;
 			    	int j = 0;
 				while (k < 600) {
