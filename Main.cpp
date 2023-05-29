@@ -15,6 +15,7 @@
 #include "Trigger.cpp"
 #include "Movement.cpp"
 #include "Weapon.cpp"
+#include "Farming.cpp"
 #include "X11Utils.cpp"
 #include "SimInput.cpp"
 #include "ConfigLoader.cpp"
