@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
-			if (counter % 1500 == 0 && localPlayer->isGrounded())
+			if (counter % 2500 == 0 && localPlayer->isGrounded())
 				simInput->click();
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 	    }
 
             // all ran fine
-            if (counter % 2000 == 0)
+            if (counter % 3000 == 0)
             {
                 printf("UPDATE[%d] OK. \n", counter);
 		counter = 0;
