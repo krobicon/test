@@ -73,13 +73,21 @@ int main(int argc, char *argv[])
 			    ingame = false;
 		    }
 		    else {
-			    	printf("test\n");
-			        int k = 0;
-			    	while (k < 700) {
-					simInput->emit(EV_REL, REL_Y, 3);
-					simInput->emit(EV_REL, REL_X, -3);
+				printf("test\n");
+				int k = 0;
+			    	int j = 0;
+				while (k < 600) {
+					simInput->emit(EV_REL, REL_Y, 4);
+					simInput->emit(EV_REL, REL_X, -4);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
+					usleep(10000);
+				}
+			 	while (j < 50) {
+					simInput->emit(EV_REL, REL_Y, -1);
+					simInput->emit(EV_REL, REL_X, 1);
+					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					j++;
 					usleep(10000);
 				}
 		    }
