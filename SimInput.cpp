@@ -15,9 +15,6 @@ class SimInput
        void setup(){
           ioctl(fd, UI_SET_EVBIT, EV_KEY);
           ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
-          ioctl(fd, UI_SET_KEYBIT, KEY_ESC);
-          ioctl(fd, UI_SET_KEYBIT, KEY_TAB);
-          ioctl(fd, UI_SET_KEYBIT, KEY_ENTER);
           ioctl(fd, UI_SET_KEYBIT, KEY_SPACE);
          
           ioctl(fd, UI_SET_EVBIT, EV_REL);
