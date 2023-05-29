@@ -119,14 +119,14 @@ int main(int argc, char *argv[])
 				simInput->emit(EV_KEY, KEY_ENTER, 0);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	while (k < 600) {
-					simInput->emit(EV_REL, REL_Y, 4);
-					simInput->emit(EV_REL, REL_X, -4);
+			    	while (k < 400) {
+					simInput->emit(EV_REL, REL_Y, 5);
+					simInput->emit(EV_REL, REL_X, -5);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
 				}
-			    	while (j < 55) {
+			    	while (j < 100) {
 					simInput->emit(EV_REL, REL_Y, -3);
 					simInput->emit(EV_REL, REL_X, 6);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
