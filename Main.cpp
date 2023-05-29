@@ -97,6 +97,7 @@ int main(int argc, char *argv[])
 	    if (level->isPlayable())
 	    {
 		    if (localPlayer->isDead() && counter % 1000 == 0) {
+			        printf("testing\n");
 				simInput->emit(EV_KEY, KEY_ESC, 1);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				simInput->emit(EV_KEY, KEY_ESC, 0);
