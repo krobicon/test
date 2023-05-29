@@ -49,6 +49,7 @@ public:
 					j++;
 					usleep(5000);
 				}
+			    	usleep(100000)
 			    	m_simInput->click();
 			    	findMatch = true;	
 		    }
