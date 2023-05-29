@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
         printf("NOPE!\n");
         return -1;
     }
+    
+    bool ingame = false;
 	
     Level *level = new Level();
     LocalPlayer *localPlayer = new LocalPlayer();
@@ -66,6 +68,18 @@ int main(int argc, char *argv[])
                 player->markForPointerResolution();
             }
 	    
+	    if (!level->isPlayable() && counter % 1900 == 0) {
+		    if (ingame) {
+			    ingame = false;
+		    }
+		    else {
+				simInput->emit(EV_ABS, ABS_Y, 100);
+				simInput->emit(EV_ABS, ABS_X, 100);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+			    	usleep(10000);
+		    }
+	    }
+		
 	    if (level->isPlayable())
 	    {
             // run features
@@ -74,6 +88,7 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
+			ingame = true;
 			if (counter % 2500 == 0 && localPlayer->isGrounded())
 				simInput->click();
 			movement->update();
