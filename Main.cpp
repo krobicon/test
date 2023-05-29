@@ -96,26 +96,26 @@ int main(int argc, char *argv[])
 		
 	    if (level->isPlayable())
 	    {
-		    if (localplayer->isDead() && counter % 1000 == 0) {
-				emit(EV_KEY, KEY_ESC, 1);
-				emit(EV_SYN, SYN_REPORT, 0);
-				emit(EV_KEY, KEY_ESC, 0);
-				emit(EV_SYN, SYN_REPORT, 0);
+		    if (localPlayer->isDead() && counter % 1000 == 0) {
+				simInput->emit(EV_KEY, KEY_ESC, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_ESC, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	emit(EV_KEY, KEY_TAB, 1);
-				emit(EV_SYN, SYN_REPORT, 0);
-				emit(EV_KEY, KEY_TAB, 0);
-				emit(EV_SYN, SYN_REPORT, 0);
+			    	simInput->emit(EV_KEY, KEY_TAB, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_TAB, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	emit(EV_KEY, KEY_TAB, 1);
-				emit(EV_SYN, SYN_REPORT, 0);
-				emit(EV_KEY, KEY_TAB, 0);
-				emit(EV_SYN, SYN_REPORT, 0);
+			    	simInput->emit(EV_KEY, KEY_TAB, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_TAB, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	emit(EV_KEY, KEY_ENTER, 1);
-				emit(EV_SYN, SYN_REPORT, 0);
-				emit(EV_KEY, KEY_ENTER, 0);
-				emit(EV_SYN, SYN_REPORT, 0);
+			    	simInput->emit(EV_KEY, KEY_ENTER, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_ENTER, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
 		    }
             // run features
