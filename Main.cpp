@@ -76,8 +76,8 @@ int main(int argc, char *argv[])
 			    	printf("test\n");
 			        int k = 0;
 			    	while (k < 300) {
-					simInput->emit(EV_REL, REL_Y, -3);
-					simInput->emit(EV_REL, REL_X, 3);
+					simInput->emit(EV_REL, REL_Y, 3);
+					simInput->emit(EV_REL, REL_X, -3);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
