@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 					j++;
 					usleep(10000);
 				}
-			    	//simInput->click();
+			    	simInput->click();
 		    }
             // run features
 		if (configLoader->isSenseOn())
