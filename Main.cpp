@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
 			    ingame = false;
 		    }
 		    else {
+			    	printf("test\n");
 				simInput->emit(EV_ABS, ABS_Y, 100);
 				simInput->emit(EV_ABS, ABS_X, 100);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
