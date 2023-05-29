@@ -26,9 +26,9 @@ public:
         m_x11Utils = x11Utils;
 	m_simInput = simInput;
     }
-	void update(int counter)
+    void update(int counter)
     {
-	if (!level->isPlayable() && counter % 1900 == 0) {
+	if (!m_level->isPlayable() && counter % 1900 == 0) {
 		    if (findMatch) {
 			    printf("finding \n");
 		    }
@@ -53,48 +53,48 @@ public:
 			    	findMatch = true;	
 		    }
 	    }
-	else if (!localPlayer->isDead() && !localPlayer->isKnocked()){
+	else if (!m_localPlayer->isDead() && !m_localPlayer->isKnocked()){
 		findMatch = false;
-		if (counter % 2500 == 0 && localPlayer->isGrounded())
-			simInput->click();
+		if (counter % 2500 == 0 && m_localPlayer->isGrounded())
+			m_simInput->click();
 	}
-	else if (localPlayer->isDead() && counter % 1000 == 0) {
+	else if (m_localPlayer->isDead() && counter % 1000 == 0) {
 					        int k = 0;
 			    	int j = 0;
 			    	int p = 0;
-				simInput->emit(EV_KEY, KEY_SPACE, 1);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				simInput->emit(EV_KEY, KEY_SPACE, 0);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				m_simInput->emit(EV_KEY, KEY_SPACE, 1);
+				m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+				m_simInput->emit(EV_KEY, KEY_SPACE, 0);
+				m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
 			    	while (k < 125) {
-					simInput->emit(EV_REL, REL_Y, 15);
-					simInput->emit(EV_REL, REL_X, -15);
-					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					m_simInput->emit(EV_REL, REL_Y, 15);
+					m_simInput->emit(EV_REL, REL_X, -15);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
 				}
 			    	while (j < 120) {
-					simInput->emit(EV_REL, REL_Y, -3);
-					simInput->emit(EV_REL, REL_X, 7);
-					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					m_simInput->emit(EV_REL, REL_Y, -3);
+					m_simInput->emit(EV_REL, REL_X, 7);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
 					usleep(10000);
 				}
-			    	simInput->click();
+			    	m_simInput->click();
 			    	usleep(10000);
 			    	while (p < 66) {
-					simInput->emit(EV_REL, REL_Y, 4);
-					simInput->emit(EV_REL, REL_X, 1);
-					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					m_simInput->emit(EV_REL, REL_Y, 4);
+					m_simInput->emit(EV_REL, REL_X, 1);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
 					usleep(100000);
 				}
-			    	simInput->click();
+			    	m_simInput->click();
 			    	usleep(300000);
-			    	simInput->click();
+			    	m_simInput->click();
 			    	usleep(300000);
-			    	simInput->click();
+			    	m_simInput->click();
 		    }
     }
 };
