@@ -126,9 +126,9 @@ int main(int argc, char *argv[])
 					k++;
 					usleep(10000);
 				}
-			    	while (j < 100) {
+			    	while (j < 120) {
 					simInput->emit(EV_REL, REL_Y, -3);
-					simInput->emit(EV_REL, REL_X, 6);
+					simInput->emit(EV_REL, REL_X, 7);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
 					usleep(10000);
