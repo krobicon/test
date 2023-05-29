@@ -99,9 +99,9 @@ int main(int argc, char *argv[])
 		    if (localPlayer->isDead() && counter % 1000 == 0) {
 			        int k = 0;
 			    	int j = 0;
-				simInput->emit(EV_KEY, KEY_ESC, 1);
+				simInput->emit(EV_KEY, KEY_SPACE, 1);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				simInput->emit(EV_KEY, KEY_ESC, 0);
+				simInput->emit(EV_KEY, KEY_SPACE, 0);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
 			    	while (k < 300) {
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 					k++;
 					usleep(10000);
 				}
-			    	while (j < 130) {
+			    	while (j < 120) {
 					simInput->emit(EV_REL, REL_Y, -3);
 					simInput->emit(EV_REL, REL_X, 7);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
