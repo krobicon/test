@@ -119,9 +119,9 @@ int main(int argc, char *argv[])
 				simInput->emit(EV_KEY, KEY_ENTER, 0);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	while (k < 400) {
-					simInput->emit(EV_REL, REL_Y, 5);
-					simInput->emit(EV_REL, REL_X, -5);
+			    	while (k < 300) {
+					simInput->emit(EV_REL, REL_Y, 7);
+					simInput->emit(EV_REL, REL_X, -7);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
@@ -133,6 +133,7 @@ int main(int argc, char *argv[])
 					j++;
 					usleep(10000);
 				}
+			    	simInput->click();
 		    }
             // run features
 		if (configLoader->isSenseOn())
