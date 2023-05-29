@@ -75,9 +75,9 @@ int main(int argc, char *argv[])
 		    else {
 				int k = 0;
 			    	int j = 0;
-				while (k < 300) {
-					simInput->emit(EV_REL, REL_Y, 8);
-					simInput->emit(EV_REL, REL_X, -8);
+				while (k < 140) {
+					simInput->emit(EV_REL, REL_Y, 16);
+					simInput->emit(EV_REL, REL_X, -16);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
@@ -105,9 +105,9 @@ int main(int argc, char *argv[])
 				simInput->emit(EV_KEY, KEY_SPACE, 0);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	while (k < 300) {
-					simInput->emit(EV_REL, REL_Y, 7);
-					simInput->emit(EV_REL, REL_X, -7);
+			    	while (k < 140) {
+					simInput->emit(EV_REL, REL_Y, 14);
+					simInput->emit(EV_REL, REL_X, -14);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
