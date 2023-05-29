@@ -59,8 +59,8 @@ public:
 		if (counter % 2500 == 0 && m_localPlayer->isGrounded() && rand() % 10 == 0)
 			m_simInput->click();
 	}
-	else if (m_level->isPlayable() && m_localPlayer->isDead() && counter % 1000 == 0) {
-				 int k = 0;
+	if (m_level->isPlayable() && counter % 1000 == 0) {
+				int k = 0;
 			    	int j = 0;
 			    	int p = 0;
 				m_simInput->emit(EV_KEY, KEY_SPACE, 1);
