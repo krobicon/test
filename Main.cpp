@@ -120,17 +120,15 @@ int main(int argc, char *argv[])
 					usleep(10000);
 				}
 			    	simInput->click();
-			    	std::this_thread::sleep_for(std::chrono::seconds(1));
-			    	simInput->emit(EV_KEY, KEY_SPACE, 1);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				simInput->emit(EV_KEY, KEY_SPACE, 0);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				usleep(30000);
-			    	simInput->emit(EV_KEY, KEY_SPACE, 1);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				simInput->emit(EV_KEY, KEY_SPACE, 0);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-				std::this_thread::sleep_for(std::chrono::seconds(1));
+			    	usleep(10000);
+			    	while (p < 20) {
+					simInput->emit(EV_REL, REL_Y, 3);
+					simInput->emit(EV_REL, REL_X, 5);
+					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					p++;
+					usleep(10000);
+				}
+			    	simInput->click();
 		    }
             // run features
 		if (configLoader->isSenseOn())
