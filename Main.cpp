@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     
-    bool ingame = false;
+    bool findMatch = false;
 	
     Level *level = new Level();
     LocalPlayer *localPlayer = new LocalPlayer();
@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
             }
 	    
 	    if (!level->isPlayable() && counter % 1900 == 0) {
-		    if (ingame) {
-			    ingame = false;
+		    if (findMatch) {
+			    return;
 		    }
 		    else {
 				printf("test\n");
@@ -90,6 +90,8 @@ int main(int argc, char *argv[])
 					j++;
 					usleep(10000);
 				}
+			    	simInput->click();
+			    	findMatch = true;	
 		    }
 	    }
 		
@@ -101,7 +103,7 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
-			ingame = true;
+			findMatch = false;
 			if (counter % 2500 == 0 && localPlayer->isGrounded())
 				simInput->click();
 			movement->update();
