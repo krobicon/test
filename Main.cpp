@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 		    else {
 			    	printf("test\n");
 			        int k = 0;
-			    	while (k < 300) {
+			    	while (k < 700) {
 					simInput->emit(EV_REL, REL_Y, 3);
 					simInput->emit(EV_REL, REL_X, -3);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
