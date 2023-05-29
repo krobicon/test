@@ -74,10 +74,14 @@ int main(int argc, char *argv[])
 		    }
 		    else {
 			    	printf("test\n");
-				simInput->emit(EV_ABS, ABS_Y, 100);
-				simInput->emit(EV_ABS, ABS_X, 100);
-				simInput->emit(EV_SYN, SYN_REPORT, 0);
-			    	usleep(10000);
+			        int k = 0;
+			    	while (k < 300) {
+					simInput->emit(EV_REL, REL_Y, -3);
+					simInput->emit(EV_REL, REL_X, 3);
+					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					k++;
+					usleep(10000);
+				}
 		    }
 	    }
 		
