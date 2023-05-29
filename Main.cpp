@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 	    
 	    if (!level->isPlayable() && counter % 1900 == 0) {
 		    if (findMatch) {
-			    return;
+			    return 1;
 		    }
 		    else {
 				printf("test\n");
