@@ -77,9 +77,6 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
-			findMatch = false;
-			if (counter % 2500 == 0 && localPlayer->isGrounded())
-				simInput->click();
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
