@@ -38,7 +38,7 @@ public:
 				if (m_localPlayer->getForwardState() == 0)
 				{
 					m_localPlayer->setForwardState(5);
-					//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
+					printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
 				}
 				else
 				{
