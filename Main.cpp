@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
     Aimbot *aimbot = new Aimbot(configLoader, level, localPlayer, players, x11Utils);
     Movement *movement = new Movement(level, localPlayer, x11Utils);
     Trigger *trigger = new Trigger(configLoader, level, localPlayer, players, x11Utils, simInput);
+    Farming *farming = new Farming(level, localPlayer, x11Utils, simInput);
 
     // Main loop
     printf("ksenz\n");
@@ -67,6 +68,10 @@ int main(int argc, char *argv[])
                 Player *player = players->at(i);
                 player->markForPointerResolution();
             }
+	    
+	    if (configLoader->isFarmingOn()) {
+		    farming->update(counter);
+	    }
 	    
 	    if (level->isPlayable())
 	    {
