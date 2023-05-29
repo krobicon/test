@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 			else if (configLoader->isAimbotOn()){
 			    aimbot->update(counter);
 			}
-			else if (rand() % 7 == 0 && localPlayer->isInAttack()){
+			else if (rand() % 6 == 0 && localPlayer->isInAttack()){
 			    noRecoil->update();
 			}
 			else if (!localPlayer->isInAttack()){
