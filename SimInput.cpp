@@ -19,6 +19,8 @@ class SimInput
           ioctl(fd, UI_SET_EVBIT, EV_REL);
           ioctl(fd, UI_SET_RELBIT, REL_X);
           ioctl(fd, UI_SET_RELBIT, REL_Y);
+          ioctl(fd, UI_SET_ABSBIT, ABS_Y);
+          ioctl(fd, UI_SET_ABSBIT, ABS_X);
           
           memset(&usetup, 0, sizeof(usetup));
           usetup.id.bustype = BUS_USB;
