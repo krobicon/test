@@ -71,7 +71,6 @@ int main(int argc, char *argv[])
             }
 	    
 	    if (configLoader->isFarmingOn()) {
-		    printf("test thing\n");
 		    farming->update(counter);
 	    }
 	    
