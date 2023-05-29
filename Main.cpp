@@ -121,9 +121,9 @@ int main(int argc, char *argv[])
 				}
 			    	simInput->click();
 			    	usleep(10000);
-			    	while (p < 20) {
-					simInput->emit(EV_REL, REL_Y, 3);
-					simInput->emit(EV_REL, REL_X, 5);
+			    	while (p < 40) {
+					simInput->emit(EV_REL, REL_Y, 10);
+					simInput->emit(EV_REL, REL_X, 2);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
 					usleep(10000);
