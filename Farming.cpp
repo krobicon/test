@@ -5,7 +5,7 @@
 #include "SimInput.cpp"
 #include "ConfigLoader.cpp"
 
-class Movement
+class Farming
 {
 private:
     Level *m_level;
