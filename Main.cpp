@@ -75,19 +75,19 @@ int main(int argc, char *argv[])
 		    else {
 				int k = 0;
 			    	int j = 0;
-				while (k < 140) {
+				while (k < 125) {
 					simInput->emit(EV_REL, REL_Y, 16);
 					simInput->emit(EV_REL, REL_X, -16);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
-					usleep(10000);
+					usleep(5000);
 				}
-			 	while (j < 22) {
-					simInput->emit(EV_REL, REL_Y, -4);
-					simInput->emit(EV_REL, REL_X, 4);
+			 	while (j < 11) {
+					simInput->emit(EV_REL, REL_Y, -8);
+					simInput->emit(EV_REL, REL_X, 8);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
-					usleep(10000);
+					usleep(5000);
 				}
 			    	simInput->click();
 			    	findMatch = true;	
@@ -105,9 +105,9 @@ int main(int argc, char *argv[])
 				simInput->emit(EV_KEY, KEY_SPACE, 0);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	while (k < 140) {
-					simInput->emit(EV_REL, REL_Y, 14);
-					simInput->emit(EV_REL, REL_X, -14);
+			    	while (k < 125) {
+					simInput->emit(EV_REL, REL_Y, 15);
+					simInput->emit(EV_REL, REL_X, -15);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(10000);
