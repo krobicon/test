@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
-			if (counter % 1500 == 0)
+			if (counter % 1500 == 0 && localPlayer->isGrounded())
 				simInput->click();
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
