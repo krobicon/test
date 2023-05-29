@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 				}
 			    	simInput->click();
 			    	usleep(10000);
-			    	while (p < 30) {
+			    	while (p < 33) {
 					simInput->emit(EV_REL, REL_Y, 8);
 					simInput->emit(EV_REL, REL_X, 2);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
@@ -129,9 +129,9 @@ int main(int argc, char *argv[])
 					usleep(10000);
 				}
 			    	simInput->click();
-			    	usleep(200000);
+			    	usleep(300000);
 			    	simInput->click();
-			    	usleep(200000);
+			    	usleep(300000);
 			    	simInput->click();
 		    }
             // run features
