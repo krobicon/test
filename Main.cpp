@@ -99,6 +99,7 @@ int main(int argc, char *argv[])
 		    if (localPlayer->isDead() && counter % 1000 == 0) {
 			        int k = 0;
 			    	int j = 0;
+			    	int p = 0;
 				simInput->emit(EV_KEY, KEY_SPACE, 1);
 				simInput->emit(EV_SYN, SYN_REPORT, 0);
 				simInput->emit(EV_KEY, KEY_SPACE, 0);
@@ -119,6 +120,17 @@ int main(int argc, char *argv[])
 					usleep(10000);
 				}
 			    	simInput->click();
+			    	std::this_thread::sleep_for(std::chrono::seconds(1));
+			    	simInput->emit(EV_KEY, KEY_SPACE, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_SPACE, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				usleep(30000);
+			    	simInput->emit(EV_KEY, KEY_SPACE, 1);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				simInput->emit(EV_KEY, KEY_SPACE, 0);
+				simInput->emit(EV_SYN, SYN_REPORT, 0);
+				std::this_thread::sleep_for(std::chrono::seconds(1));
 		    }
             // run features
 		if (configLoader->isSenseOn())
