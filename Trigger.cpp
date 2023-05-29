@@ -40,23 +40,22 @@ public:
     }
     void update(int counter, Weapon *m_localWeapon)
     {
-		bool trigger = false;
-		bool crosshaired = false;
-		bool readytofire = false;
-		int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
-		float fov = m_configLoader->getAimbotActivationFOV();
-			// validations
-		if (m_localPlayer->isWalking())
-		{
-			m_lockedOnPlayer = nullptr;
-			return;
-		}
-		if (m_localWeapon->getAmmo() > 0)
-			trigger = true;
-		else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming()) {
-			m_lockedOnPlayer = nullptr;
-			return;
-		}
+	bool trigger = false;
+	bool crosshaired = false;
+	bool readytofire = false;
+	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
+	float fov = m_configLoader->getAimbotActivationFOV();
+		// validations
+	if (m_localPlayer->isWalking()) {
+		m_lockedOnPlayer = nullptr;
+		return;
+	}
+	if (m_localWeapon->getAmmo() > 0)
+		trigger = true;
+	else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming()) {
+		m_lockedOnPlayer = nullptr;
+		return;
+	}
 	    
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
@@ -74,7 +73,7 @@ public:
 							       m_lockedOnPlayer->getLocationX(),
 							       m_lockedOnPlayer->getLocationY(),
 							       m_lockedOnPlayer->getLocationZ());
-	    if (distanceToTarget > 21)
+	    if (distanceToTarget > 20)
 		return;
 	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 						      m_localPlayer->getLocationY(),
