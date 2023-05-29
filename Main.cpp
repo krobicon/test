@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     // Main loop
     printf("ksenz\n");
-    int counter = 0;
+    int counter = 1;
     while (1)
     {
         try
