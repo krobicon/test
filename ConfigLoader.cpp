@@ -81,7 +81,7 @@ private:
             m_featureAimbotOn = (lineKey.compare("FEATURE_AIMBOT_ON") != 0) ? m_featureAimbotOn : utils::toBool(lineValue);
             m_featureNoRecoilOn = (lineKey.compare("FEATURE_NORECOIL_ON") != 0) ? m_featureNoRecoilOn : utils::toBool(lineValue);
             m_featureSenseOn = (lineKey.compare("FEATURE_SENSE_ON") != 0) ? m_featureSenseOn : utils::toBool(lineValue);
-            m_featureSenseOn = (lineKey.compare("FEATURE_FARMING_ON") != 0) ? m_featureSenseOn : utils::toBool(lineValue);
+            m_featureFarmingOn = (lineKey.compare("FEATURE_FARMING_ON") != 0) ? m_featureFarmingOn : utils::toBool(lineValue);
             // aimbot
             m_aimbotTrigger = (lineKey.compare("AIMBOT_TRIGGER") != 0) ? m_aimbotTrigger : stoi(lineValue, 0, 16);
             m_aimbotSmoothing = (lineKey.compare("AIMBOT_SMOOTHING") != 0) ? m_aimbotSmoothing : stoi(lineValue);
@@ -102,7 +102,7 @@ private:
         printf("FEATURE_AIMBOT_ON \t\t%s\n", m_featureAimbotOn ? "true" : "false");
         printf("FEATURE_NORECOIL_ON \t\t%s\n", m_featureNoRecoilOn ? "true" : "false");
         printf("FEATURE_SENSE_ON \t\t%s\n", m_featureSenseOn ? "true" : "false");
-        printf("FEATURE_FARMING_ON \t\t%s\n", m_featureSenseOn ? "true" : "false");
+        printf("FEATURE_FARMING_ON \t\t%s\n", m_featureFarmingOn ? "true" : "false");
 
         printf("AIMBOT_TRIGGER \t\t\t%d\n", m_aimbotTrigger);
         printf("AIMBOT_SMOOTHING \t\t%d\n", m_aimbotSmoothing);
