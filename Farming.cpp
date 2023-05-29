@@ -56,7 +56,7 @@ public:
 	    }
 	else if (!m_localPlayer->isDead() && !m_localPlayer->isKnocked()){
 		findMatch = false;
-		if (counter % 2500 == 0 && m_localPlayer->isGrounded())
+		if (counter % 2500 == 0 && m_localPlayer->isGrounded() && rand() % 25 == 0)
 			m_simInput->click();
 	}
 	else if (m_level->isPlayable() && m_localPlayer->isDead() && counter % 1000 == 0) {
