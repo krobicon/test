@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
 					k++;
 					usleep(10000);
 				}
-			 	while (j < 50) {
-					simInput->emit(EV_REL, REL_Y, -1);
-					simInput->emit(EV_REL, REL_X, 1);
+			 	while (j < 22) {
+					simInput->emit(EV_REL, REL_Y, -4);
+					simInput->emit(EV_REL, REL_X, 4);
 					simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
 					usleep(10000);
