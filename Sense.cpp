@@ -58,7 +58,7 @@ public:
                     //player->setGlowColorGreen(3);
                     //player->setGlowColorBlue(0);
                 }
-                else
+                else if (m_configLoader->isSenseOn())
                 {
                     /*const int enemyShields = player->getShieldsValue();
                     int r, g, b;
@@ -93,6 +93,10 @@ public:
                     //player->setGlowColorRed(r);
                     //player->setGlowColorGreen(g);
                     //player->setGlowColorBlue(b);
+                }
+                else if (player->getGlowEnable() == 5) {
+                    player->setGlowEnable(2);
+                    player->setGlowThroughWall(5);
                 }
             }
             else if (player->getGlowEnable() == 5 || player->getGlowEnable() == 7)
