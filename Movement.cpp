@@ -29,7 +29,6 @@ public:
 		//printf("skydivine??? set:[%d] \n", m_localPlayer->isSkydiving());
 		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
 		{
-			printf("test \n");
 			if (jumpstart == false)
 			{
 				jumpstart = true;
@@ -40,7 +39,7 @@ public:
 				if (m_localPlayer->getForwardState() == 0)
 				{
 					m_localPlayer->setForwardState(5);
-					printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
+					//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
 				}
 				else
 				{
