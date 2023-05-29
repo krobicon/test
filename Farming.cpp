@@ -58,7 +58,7 @@ public:
 		if (counter % 2500 == 0 && m_localPlayer->isGrounded())
 			m_simInput->click();
 	}
-	else if (m_localPlayer->isDead() && counter % 1000 == 0 && findMatch == false) {
+	else if (m_level->isPlayable() && m_localPlayer->isDead() && counter % 1000 == 0) {
 				 int k = 0;
 			    	int j = 0;
 			    	int p = 0;
