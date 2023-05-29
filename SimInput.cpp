@@ -18,6 +18,7 @@ class SimInput
           ioctl(fd, UI_SET_KEYBIT, KEY_ESC);
           ioctl(fd, UI_SET_KEYBIT, KEY_TAB);
           ioctl(fd, UI_SET_KEYBIT, KEY_ENTER);
+          ioctl(fd, UI_SET_KEYBIT, KEY_SPACE);
          
           ioctl(fd, UI_SET_EVBIT, EV_REL);
           ioctl(fd, UI_SET_RELBIT, REL_X);
