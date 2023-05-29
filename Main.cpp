@@ -135,8 +135,8 @@ int main(int argc, char *argv[])
 			    	simInput->click();
 		    }
             // run features
-		if (configLoader->isSenseOn())
-		    sense->update();
+		//if (configLoader->isSenseOn())
+		sense->update();
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
