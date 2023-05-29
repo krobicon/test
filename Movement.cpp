@@ -26,8 +26,9 @@ public:
     {
         // validations
 		// auto tap trafe
-		printf("skydivine??? set:[%d] \n", m_localPlayer->isSkydiving());
-		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+		//printf("skydivine??? set:[%d] \n", m_localPlayer->isSkydiving());
+		//if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+		if (!m_localPlayer->isGrounded())
 		{
 			printf("test \n");
 			if (jumpstart == false)
