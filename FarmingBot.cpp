@@ -1,4 +1,34 @@
-	    if (!level->isPlayable() && counter % 1900 == 0) {
+#pragma once
+#include "LocalPlayer.cpp"
+#include "Level.cpp"
+#include "X11Utils.cpp"
+#include "SimInput.cpp"
+#include "ConfigLoader.cpp"
+
+class Movement
+{
+private:
+    Level *m_level;
+    LocalPlayer *m_localPlayer;
+    X11Utils *m_x11Utils;
+    SimInput *m_simInput;
+
+    bool findMatch = false;
+	
+public:
+    Farming(Level *level,
+             LocalPlayer *localPlayer,
+             X11Utils *x11Utils,
+	    SimInput *simInput)
+    {
+        m_level = level;
+        m_localPlayer = localPlayer;
+        m_x11Utils = x11Utils;
+	m_simInput = simInput;
+    }
+	void update(int counter)
+    {
+	if (!level->isPlayable() && counter % 1900 == 0) {
 		    if (findMatch) {
 			    printf("finding \n");
 		    }
@@ -6,26 +36,30 @@
 				int k = 0;
 			    	int j = 0;
 				while (k < 125) {
-					simInput->emit(EV_REL, REL_Y, 16);
-					simInput->emit(EV_REL, REL_X, -16);
-					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					m_simInput->emit(EV_REL, REL_Y, 16);
+					m_simInput->emit(EV_REL, REL_X, -16);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
 					usleep(5000);
 				}
 			 	while (j < 11) {
-					simInput->emit(EV_REL, REL_Y, -8);
-					simInput->emit(EV_REL, REL_X, 8);
-					simInput->emit(EV_SYN, SYN_REPORT, 0);
+					m_simInput->emit(EV_REL, REL_Y, -8);
+					m_simInput->emit(EV_REL, REL_X, 8);
+					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
 					usleep(5000);
 				}
-			    	simInput->click();
+			    	m_simInput->click();
 			    	findMatch = true;	
 		    }
 	    }
-
-if (localPlayer->isDead() && counter % 1000 == 0) {
-			        int k = 0;
+	else if (!localPlayer->isDead() && !localPlayer->isKnocked()){
+		findMatch = false;
+		if (counter % 2500 == 0 && localPlayer->isGrounded())
+			simInput->click();
+	}
+	else if (localPlayer->isDead() && counter % 1000 == 0) {
+					        int k = 0;
 			    	int j = 0;
 			    	int p = 0;
 				simInput->emit(EV_KEY, KEY_SPACE, 1);
@@ -62,8 +96,5 @@ if (localPlayer->isDead() && counter % 1000 == 0) {
 			    	usleep(300000);
 			    	simInput->click();
 		    }
-
-
-			findMatch = false;
-			if (counter % 2500 == 0 && localPlayer->isGrounded())
-				simInput->click();
+    }
+};
