@@ -95,7 +95,9 @@ public:
 			    	m_simInput->click();
 			    	usleep(400000);
 			    	m_simInput->click();
-			    	usleep(400000);
+			    	usleep(1000000);
+			    	m_simInput->click();
+				usleep(1000000);
 			    	m_simInput->click();
 		    }
     }
