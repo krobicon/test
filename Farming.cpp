@@ -68,28 +68,28 @@ public:
 				m_simInput->emit(EV_KEY, KEY_SPACE, 0);
 				m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 				usleep(10000);
-			    	while (k < 250) {
-					m_simInput->emit(EV_REL, REL_Y, 8);
-					m_simInput->emit(EV_REL, REL_X, -8);
+			    	while (k < 400) {
+					m_simInput->emit(EV_REL, REL_Y, 5);
+					m_simInput->emit(EV_REL, REL_X, -5);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					k++;
-					usleep(10000);
+					usleep(1500);
 				}
 			    	while (j < 120) {
 					m_simInput->emit(EV_REL, REL_Y, -3);
 					m_simInput->emit(EV_REL, REL_X, 7);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
-					usleep(10000);
+					usleep(6000);
 				}
 			    	m_simInput->click();
 			    	usleep(2000000);
-			    	while (p < 66) {
+			    	while (p < 87) {
 					m_simInput->emit(EV_REL, REL_Y, 4);
 					m_simInput->emit(EV_REL, REL_X, 1);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
-					usleep(40000);
+					usleep(43000);
 				}
 				usleep(1000000);
 			    	m_simInput->click();
