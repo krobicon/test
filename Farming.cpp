@@ -59,7 +59,7 @@ public:
 		if (counter % 2500 == 0 && m_localPlayer->isGrounded() && rand() % 10 == 0)
 			m_simInput->click();
 	}
-	if (m_level->isPlayable() && counter % 2900 == 0) {
+	if (m_level->isPlayable() && counter % 1100 == 0) {
 				int k = 0;
 			    	int j = 0;
 			    	int p = 0;
@@ -80,7 +80,7 @@ public:
 					m_simInput->emit(EV_REL, REL_X, 7);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					j++;
-					usleep(6000);
+					usleep(5000);
 				}
 			    	m_simInput->click();
 			    	usleep(2000000);
@@ -89,7 +89,7 @@ public:
 					m_simInput->emit(EV_REL, REL_X, 1);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
-					usleep(43000);
+					usleep(50000);
 				}
 				usleep(1000000);
 			    	m_simInput->click();
