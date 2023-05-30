@@ -85,7 +85,7 @@ public:
 			    	m_simInput->click();
 			    	usleep(2000000);
 			    	while (p < 87) {
-					m_simInput->emit(EV_REL, REL_Y, 4);
+					m_simInput->emit(EV_REL, REL_Y, 3);
 					m_simInput->emit(EV_REL, REL_X, 1);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
