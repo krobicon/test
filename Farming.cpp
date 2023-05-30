@@ -89,7 +89,7 @@ public:
 					m_simInput->emit(EV_REL, REL_X, 1);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
-					usleep(100000);
+					usleep(90000);
 				}
 				usleep(1000000);
 			    	m_simInput->click();
