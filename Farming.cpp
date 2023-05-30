@@ -83,15 +83,15 @@ public:
 					usleep(5000);
 				}
 			    	m_simInput->click();
-			    	usleep(2000000);
+			    	usleep(1500000);
 			    	while (p < 130) {
 					m_simInput->emit(EV_REL, REL_Y, 2);
 					m_simInput->emit(EV_REL, REL_X, 1);
 					m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 					p++;
-					usleep(80000);
+					usleep(75000);
 				}
-				usleep(1000000);
+				usleep(500000);
 			    	m_simInput->click();
 			    	usleep(400000);
 			    	m_simInput->click();
