@@ -28,7 +28,7 @@ public:
     }
     void update(int counter)
     {
-	if (!m_level->isPlayable() && counter % 600 == 0) {
+	if (!m_level->isPlayable() && counter % 100 == 0) {
 		    if (findMatch) {
 			    printf("finding \n");
 		    }
