@@ -91,9 +91,9 @@ public:
 					p++;
 					usleep(75000);
 				}
-				usleep(500000);
+				usleep(700000);
 			    	m_simInput->click();
-			    	usleep(400000);
+			    	usleep(700000);
 			    	m_simInput->click();
 			    	usleep(1000000);
 			    	m_simInput->click();
