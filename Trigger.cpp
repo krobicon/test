@@ -151,7 +151,7 @@ public:
 		{
 			//m_localPlayer->setAttackState(5);
 			//m_x11Utils->mouseClick(1);
-			m_simInput->click();
+			//m_simInput->click();
 			printf("SENT \n");
 		}
 		else
