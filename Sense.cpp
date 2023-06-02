@@ -29,7 +29,7 @@ public:
         m_players = players;
         m_x11Utils = x11Utils;
     }
-    void update()
+    void update(int counter)
     {
         for (int i = 0; i < m_players->size(); i++)
         {
