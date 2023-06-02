@@ -40,7 +40,6 @@ public:
     }
     void update(int counter, Weapon *m_localWeapon)
     {
-	printf("TRIGGER UPDATE: %d\n", counter);
 	bool trigger = false;
 	bool crosshaired = false;
 	bool readytofire = false;
@@ -57,7 +56,8 @@ public:
 		m_lockedOnPlayer = nullptr;
 		return;
 	}*/
-	    
+	if (trigger)
+		printf("TRIGGER UPDATE: %d\n", counter);
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
