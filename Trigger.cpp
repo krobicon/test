@@ -93,10 +93,10 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		printf("counter: %d\n", counter);
-		printf("player address: %p\n", (void*)&m_lockedOnPlayer);
-		printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
-		printf("//////////////////////////////////////////////////\n");
+		//printf("counter: %d\n", counter);
+		//printf("player address: %p\n", (void*)&m_lockedOnPlayer);
+		//printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
+		//printf("//////////////////////////////////////////////////\n");
 		
 		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
@@ -153,11 +153,11 @@ public:
 			//m_localPlayer->setAttackState(5);
 			//m_x11Utils->mouseClick(1);
 			//m_simInput->click();
-			printf("SENT \n");
+			//printf("SENT \n");
 		}
 		else
 		{
-			printf("NOTHING \n");
+			//printf("NOTHING \n");
 		}
 	}
     }
