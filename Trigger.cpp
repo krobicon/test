@@ -62,7 +62,7 @@ public:
 
 	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
 		printf("F UPDATE: %d\n", counter);
-		m_lockedOnPlayer = findClosestEnemy();
+		m_lockedOnPlayer = findClosestEnemy(fov);
 	}
 	if (m_lockedOnPlayer == nullptr)
 		return;
@@ -255,7 +255,7 @@ public:
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
-    Player *findClosestEnemy()
+    Player *findClosestEnemy(float fov)
     {
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
@@ -286,9 +286,13 @@ public:
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
                                                              player->getLocationY());
+	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
-	    	double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
-	    	double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+	    if ( abs(yawangleDelta) > fov || abs(pitchangleDelta) > (fov / 2)) {
+	    	continue;
+	    }
+	    
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
