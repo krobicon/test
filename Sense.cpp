@@ -42,7 +42,7 @@ public:
                 //continue;
             
             if (counter % 10 == 0)
-                printf("sense visibility: %d \n", player->isVisible(false));
+                printf("sense visibility: %d \n", player->isVisible(true));
             
             double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                           m_localPlayer->getLocationY(),
