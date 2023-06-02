@@ -63,10 +63,11 @@ public:
         double desiredViewAnglePitch = 0;
 	double distanceToTarget;
 
-
-	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false))
+	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
+		printf("FINDING ENEMY: %d\n", counter);
 		m_lockedOnPlayer = findClosestEnemy();
-	    if (m_lockedOnPlayer == nullptr)
+	}
+	if (m_lockedOnPlayer == nullptr)
 		return;
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 							       m_localPlayer->getLocationY(),
