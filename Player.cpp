@@ -234,9 +234,9 @@ public:
     {
         if (update) {
             const float lastVisibleTime = getLastVisibleTime();
-            const bool isVisible = lastVisibleTime > m_lastVisibleTime;
+            Visibility = lastVisibleTime > m_lastVisibleTime;
             m_lastVisibleTime = lastVisibleTime;
-            return isVisible;
+            return Visibility;
         }
         else {
             return Visibility;
