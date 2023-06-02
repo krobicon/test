@@ -57,14 +57,14 @@ public:
 		return;
 	}*/
 	if (trigger)
-		printf("TRIGGER UPDATE: %d\n", counter);
+		printf("T UPDATE: %d\n", counter);
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
 	double distanceToTarget;
 
 	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
-		printf("FINDING ENEMY: %d\n", counter);
+		printf("F UPDATE: %d\n", counter);
 		m_lockedOnPlayer = findClosestEnemy();
 	}
 	if (m_lockedOnPlayer == nullptr)
