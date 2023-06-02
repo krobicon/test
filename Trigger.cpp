@@ -75,11 +75,11 @@ public:
 	printf("D UPDATE: %f\n", distanceToTarget);
     	if (distanceToTarget > 20)
 		return;
-	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
-						      m_localPlayer->getLocationY(),
-						      m_lockedOnPlayer->getLocationX(),
-						      m_lockedOnPlayer->getLocationY());
-	    desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
+    	desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
+					      	m_localPlayer->getLocationY(),
+					      	m_lockedOnPlayer->getLocationX(),
+				      		m_lockedOnPlayer->getLocationY());
+    	desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, m_lockedOnPlayer);
 
         // Setup Angles
         const double pitch = m_localPlayer->getPitch();
