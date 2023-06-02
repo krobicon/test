@@ -56,8 +56,6 @@ public:
 		m_lockedOnPlayer = nullptr;
 		return;
 	}*/
-	if (trigger)
-		printf("T UPDATE: %d\n", counter);
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
