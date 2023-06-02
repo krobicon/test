@@ -283,7 +283,8 @@ public:
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
-	    //printf("player visibility: %d \n", player->isVisible(false));
+	    if (counter % 10 == 0)
+	    	printf("player visibility: %d \n", player->isVisible(false));
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
