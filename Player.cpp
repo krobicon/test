@@ -232,6 +232,7 @@ public:
     bool isVisible(bool update)
     {
         const float lastVisibleTime = getLastVisibleTime();
+        printf("last visible time: %f \n", lastVisibleTime);
         const bool isVisible = lastVisibleTime > m_lastVisibleTime;
         if (update == true) {
             m_lastVisibleTime = lastVisibleTime;
