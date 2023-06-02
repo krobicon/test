@@ -36,10 +36,10 @@ public:
             Player *player = m_players->at(i);
             if (!player->isValid() || player->isDead())
                 continue;
-            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
-                continue;
-            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                continue;
+            //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+                //continue;
+            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                //continue;
             
             double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                           m_localPlayer->getLocationY(),
