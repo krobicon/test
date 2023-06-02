@@ -283,6 +283,14 @@ public:
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
+	    double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+					       m_localPlayer->getLocationY(),
+					       m_localPlayer->getLocationZ(),
+					       m_lockedOnPlayer->getLocationX(),
+					       m_lockedOnPlayer->getLocationY(),
+					       m_lockedOnPlayer->getLocationZ());
+	    if (distanceToTarget < 20)
+		    continue;
 	    if (counter % 10 == 0)
 	    	printf("player visibility: %d \n", player->isVisible(false));
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
