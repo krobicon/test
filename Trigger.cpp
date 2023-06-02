@@ -61,7 +61,8 @@ public:
         double desiredViewAnglePitch = 0;
 
 	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
-		printf("F UPDATE: %d\n", counter);
+		if (counter % 10 == 0)
+			printf("F UPDATE: %d\n", counter);
 		m_lockedOnPlayer = findClosestEnemy(fov);
 	}
 	if (m_lockedOnPlayer == nullptr)
@@ -75,7 +76,8 @@ public:
 	
     	if (distanceToTarget > 20)
 		return;
-	printf("D UPDATE: %f\n", distanceToTarget);
+	if (counter % 10 == 0)
+		printf("D UPDATE: %f\n", distanceToTarget);
     	desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 					      	m_localPlayer->getLocationY(),
 					      	m_lockedOnPlayer->getLocationX(),
