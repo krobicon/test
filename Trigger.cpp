@@ -301,7 +301,7 @@ public:
 	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
-	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 2)) {
+	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 3)) {
 	    	continue;
 	    }
 	    
