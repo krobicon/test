@@ -233,11 +233,10 @@ public:
     {
         const float lastVisibleTime = getLastVisibleTime();
         const bool isVisible = lastVisibleTime > m_lastVisibleTime;
-        /*if (update == true)
-        {
+        if (update == true) {
             m_lastVisibleTime = lastVisibleTime;
-        }*/
-        m_lastVisibleTime = lastVisibleTime;
+        }
+        //m_lastVisibleTime = lastVisibleTime;
         return isVisible;
     }
     float getLastCrosshairTime()
