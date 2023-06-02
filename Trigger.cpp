@@ -74,8 +74,8 @@ public:
 						       m_lockedOnPlayer->getLocationY(),
 						       m_lockedOnPlayer->getLocationZ());
 	
-    	if (distanceToTarget > 20)
-		return;
+    	//if (distanceToTarget > 20)
+		//return;
 	if (counter % 10 == 0)
 		printf("D UPDATE: %f\n", distanceToTarget);
     	desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
@@ -289,7 +289,7 @@ public:
 					       player->getLocationX(),
 					       player->getLocationY(),
 					       player->getLocationZ());
-	    if (distanceToTarget < 20)
+	    if (distanceToTarget > 20)
 		    continue;
 	    if (counter % 10 == 0)
 	    	printf("player visibility: %d \n", player->isVisible(false));
