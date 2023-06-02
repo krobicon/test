@@ -72,9 +72,10 @@ public:
 						       m_lockedOnPlayer->getLocationX(),
 						       m_lockedOnPlayer->getLocationY(),
 						       m_lockedOnPlayer->getLocationZ());
-	printf("D UPDATE: %f\n", distanceToTarget);
+	
     	if (distanceToTarget > 20)
 		return;
+	printf("D UPDATE: %f\n", distanceToTarget);
     	desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 					      	m_localPlayer->getLocationY(),
 					      	m_lockedOnPlayer->getLocationX(),
