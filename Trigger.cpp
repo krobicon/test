@@ -148,7 +148,7 @@ public:
         //m_localPlayer->setYaw(newYaw);
 	
 	//if (trigger == true && localWeapon->getReadyTime() == 0 && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
-	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 13)
+	if (trigger == true && m_lockedOnPlayer != nullptr && distanceToTarget < 12)
 	{
 		//if (m_localWeapon->getReadyTime() == 0 && (yawAngleDeltaAbs < fov/4.5 && pitchAngleDeltaAbs < fov/1.9) && m_lockedOnPlayer->isCrosshair())
 		if (readytofire && crosshaired && yawAngleDeltaAbs < fov/3.4)
@@ -289,10 +289,11 @@ public:
 					       player->getLocationX(),
 					       player->getLocationY(),
 					       player->getLocationZ());
-	    if (distanceToTarget > 20)
+	    if (distanceToTarget > 12)
 		    continue;
+	    float fovcheck = 33 - distanceToTarget * 1;
 	    if (counter % 10 == 0)
-	    	printf("player visibility: %d \n", player->isVisible(false));
+	    	printf("fov check: %d \n", fovcheck);
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
@@ -300,7 +301,7 @@ public:
 	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
-	    if ( abs(yawangleDelta) > fov || abs(pitchangleDelta) > (fov / 2)) {
+	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 2)) {
 	    	continue;
 	    }
 	    
