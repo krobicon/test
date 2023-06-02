@@ -6,18 +6,18 @@ namespace offsets
 {
     // buttons
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long IN_ATTACK = 0x074045b0;  // [Buttons] -> in_attack
-    const long IN_FORWARD = 0x07404520; // [Buttons] -> in_forward
-    const long IN_JUMP = 0x07404628;    // [Buttons] -> in_jump
-    const long IN_WALK = 0x0bd297f0;    // [Buttons] -> in_walk
+    const long IN_ATTACK = 0x07404610;  // [Buttons] -> in_attack
+    const long IN_FORWARD = 0x074045a0; // [Buttons] -> in_forward
+    const long IN_JUMP = 0x074046a0;    // [Buttons] -> in_jump
+    const long IN_WALK = 0x0bd29870;    // [Buttons] -> in_walk
     const long IN_RELOAD = 0x074045d0;  // [Buttons] -> in_reload
     // core
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
-    const long LEVEL = 0x165ce70;                 // [Miscellaneous] -> LevelName
-    const long LOCAL_PLAYER = (0x0213a5c0 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
-    const long ENTITY_LIST = 0x1d88fc8;           // [Miscellaneous] -> cl_entitylist
-    const long GAMEMODE = 0x02173780;             // [ConVars]       -> mp_gamemode+0x58
+    const long LEVEL = 0x165ce80;                 // [Miscellaneous] -> LevelName
+    const long LOCAL_PLAYER = (0x0213a640 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
+    const long ENTITY_LIST = 0x1d89048;           // [Miscellaneous] -> cl_entitylist
+    const long GAMEMODE = 0x02173850;             // [ConVars]       -> mp_gamemode+0x58
     // entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long LOCAL_ORIGIN = 0x0158;               // [DataMap.CBaseViewModel]     -> m_localOrigin
@@ -43,12 +43,12 @@ namespace offsets
     const long SKYDIVE_STATE = 0x46a4;              // [RecvTable.DT_Player]            -> m_skydiveState
     const long BONES = (0x0e98 + 0x48);             // [RecvTable.DT_BaseAnimating]     -> m_nForceBone + 0x48
     const long SIGNIFIER_NAME = 0x0580;             // [RecvTable.DT_BaseEntity]        -> m_iSignifierName
-    const long SPEC_YAW =  (0x22b4 - 0x8);          // [DataMap.C_Player]               -> m_currentFramePlayer.m_ammoPoolCount - 0x8
+    const long SPEC_YAW =  (0x22c4 - 0x8);          // [DataMap.C_Player]               -> m_currentFramePlayer.m_ammoPoolCount - 0x8
     // weapon stuff
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long WEAPON = 0x1a24;                     // [RecvTable.DT_BaseCombatCharacter]     -> m_latestPrimaryWeapons
     const long READY_TIME = 0x1648;                 // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_nextReadyTime
     const long AMMO = 0x1670;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
-    const long SEMI_AUTO = 0x1c14;                  // [Miscellaneous]                        ->CWeaponX!m_isSemiAuto
+    const long SEMI_AUTO = 0x1c14;                  // [Miscellaneous]                        -> CWeaponX!m_isSemiAuto
     const long ZOOM_FOV = (0x16c0 + 0x00bc);          // [DataMap.WeaponPlayerData]             -> m_playerData + m_targetZoomFOV
 }
