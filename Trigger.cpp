@@ -259,7 +259,7 @@ public:
     {
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
-        for (int i = 0; i < m_players->size(); i++)
+        for (int i = 1; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
 	    /*if (counter % 1000 == 0)
