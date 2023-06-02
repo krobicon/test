@@ -41,9 +41,6 @@ public:
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
             
-            if (counter % 10 == 0)
-                printf("sense visibility: %d \n", player->isVisible(false));
-            
             double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                           m_localPlayer->getLocationY(),
                                                           m_localPlayer->getLocationZ(),
