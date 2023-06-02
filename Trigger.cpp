@@ -93,7 +93,7 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		printf("player? [%f] \n", *m_lockedOnPlayer);
+		printf("player address: %p\n", (void*)&m_lockedOnPlayer);
 		printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
 		printf("//////////////////////////////////////////////////\n");
 		
