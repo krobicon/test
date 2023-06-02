@@ -232,29 +232,21 @@ public:
             return wayA;
         return wayB;
     }
-    double calculateDesiredYaw(
-        double localPlayerLocationX,
-        double localPlayerLocationY,
-        double enemyPlayerLocationX,
-        double enemyPlayerLocationY)
-    {
+    double calculateDesiredYaw( double localPlayerLocationX, double localPlayerLocationY, double enemyPlayerLocationX, double enemyPlayerLocationY) {
         const double locationDeltaX = enemyPlayerLocationX - localPlayerLocationX;
         const double locationDeltaY = enemyPlayerLocationY - localPlayerLocationY;
         const double yawInRadians = atan2(locationDeltaY, locationDeltaX);
         const double yawInDegrees = yawInRadians * (180 / M_PI);
         return yawInDegrees;
     }
-    double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )
-    {
+    double calculateDesiredPitch( LocalPlayer* m_localPlayer, Player* m_targetPlayer )  {
 	//double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
-		double localPlayerLocationZ = m_localPlayer->getCameraZ();
+	double localPlayerLocationZ = m_localPlayer->getCameraZ();
         double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
-        /*if (m_localPlayer->isDucking())
-        {
+        /*if (m_localPlayer->isDucking()) {
             localPlayerLocationZ -= 16;
         }
-        if (m_targetPlayer->isDucking())
-        {
+        if (m_targetPlayer->isDucking()) {
             enemyPlayerLocationZ -= 18;
         }*/
         const double locationDeltaZ = enemyPlayerLocationZ - localPlayerLocationZ;
@@ -287,8 +279,8 @@ public:
                 continue;
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
-            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                continue;
+            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                //continue;
 
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
