@@ -275,14 +275,13 @@ public:
 	    }*/
 	    if (!player->isValid())
             	continue;
-	    printf("player visibility: %d \n", player->isVisible(false));
             if (player->isKnocked() || !player->isVisible(false))
                 continue;
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
-
+	    printf("player visibility: %d \n", player->isVisible(false));
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
