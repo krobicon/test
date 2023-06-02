@@ -46,10 +46,10 @@ public:
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
 	float fov = m_configLoader->getAimbotActivationFOV();
 		// validations
-	/*if (m_localPlayer->isWalking()) {
+	if (m_localPlayer->isWalking()) {
 		m_lockedOnPlayer = nullptr;
 		return;
-	}*/
+	}
 	if (m_localWeapon->getAmmo() > 0)
 		trigger = true;
 	/*else if (!m_localPlayer->isInAttack() && !m_localPlayer->isZooming()) {
