@@ -1,5 +1,6 @@
 // https://pastebin.com/raw/mkJxaGuW (good on march 9 2023)
 // https://pastebin.com/raw/bPAkJfRz (may 26)
+// https://pastebin.com/raw/Rydupvup (june 1)
 
 #pragma once
 namespace offsets
