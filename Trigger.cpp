@@ -29,14 +29,14 @@ public:
            LocalPlayer *localPlayer,
            std::vector<Player *> *players,
            X11Utils *x11Utils,
-	   SimInput *simInput)
+	   	   SimInput *simInput)
     {
         m_configLoader = configLoader;
         m_level = level;
         m_localPlayer = localPlayer;
         m_players = players;
         m_x11Utils = x11Utils;
-	m_simInput = simInput;
+		m_simInput = simInput;
     }
     void update(int counter, Weapon *m_localWeapon)
     {
@@ -93,7 +93,8 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
-		//printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
+		printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
+		
 		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
 			smooth = smooth/8;
@@ -148,7 +149,7 @@ public:
 		{
 			//m_localPlayer->setAttackState(5);
 			//m_x11Utils->mouseClick(1);
-			m_simInput->click();
+			//m_simInput->click();
 			printf("SENT \n");
 		}
 		else
