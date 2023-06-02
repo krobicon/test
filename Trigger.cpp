@@ -284,9 +284,7 @@ public:
 	    if (!player->isValid())
             	continue;
             if (player->isKnocked() || !player->isVisible(false))
-	    {
                 continue;
-	    }
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
