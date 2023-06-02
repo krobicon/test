@@ -61,7 +61,6 @@ public:
         // get desired angle to an enemy
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
-	double distanceToTarget;
 
 	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
 		printf("F UPDATE: %d\n", counter);
@@ -69,13 +68,13 @@ public:
 	}
 	if (m_lockedOnPlayer == nullptr)
 		return;
-	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
-							       m_localPlayer->getLocationY(),
-							       m_localPlayer->getLocationZ(),
-							       m_lockedOnPlayer->getLocationX(),
-							       m_lockedOnPlayer->getLocationY(),
-							       m_lockedOnPlayer->getLocationZ());
-	    if (distanceToTarget > 20)
+    	double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+						       m_localPlayer->getLocationY(),
+						       m_localPlayer->getLocationZ(),
+						       m_lockedOnPlayer->getLocationX(),
+						       m_lockedOnPlayer->getLocationY(),
+						       m_lockedOnPlayer->getLocationZ());
+    	if (distanceToTarget > 20)
 		return;
 	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 						      m_localPlayer->getLocationY(),
