@@ -86,10 +86,12 @@ int main(int argc, char *argv[])
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
-			printf("MAIN COUNTER: %d\n", counter);
+			if (counter % 10 == 0)
+				printf("MAIN COUNTER: %d\n", counter);
 			
 			if (semiauto) {
-			   printf("SEMIAUTO COUNTER: %d\n", counter);
+			   if (counter % 10 == 0)
+			   	printf("SEMIAUTO COUNTER: %d\n", counter);
 			   trigger->update(counter, localWeapon);
 			}
 			else if (configLoader->isAimbotOn()){
