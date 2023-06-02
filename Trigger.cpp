@@ -293,7 +293,7 @@ public:
 		    continue;
 	    float fovcheck = 33 - distanceToTarget * 1;
 	    if (counter % 10 == 0)
-	    	printf("fov check: %d \n", fovcheck);
+	    	printf("fov check: %f \n", fovcheck);
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
