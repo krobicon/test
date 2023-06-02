@@ -6,6 +6,8 @@
 
 class Player
 {
+public:
+    bool Visibility = false;
 private:
     int m_entityListIndex;
     float m_lastVisibleTime;
@@ -231,17 +233,15 @@ public:
     }
     bool isVisible(bool update)
     {
-        const float lastVisibleTime = getLastVisibleTime();
-        
-        const bool isVisible = lastVisibleTime > m_lastVisibleTime;
-        if (update == true) {
+        if (update) {
+            const float lastVisibleTime = getLastVisibleTime();
+            const bool isVisible = lastVisibleTime > m_lastVisibleTime;
             m_lastVisibleTime = lastVisibleTime;
+            return isVisible;
         }
         else {
-            printf("last visible time: %f \n", lastVisibleTime);
+            return Visibility;
         }
-        //m_lastVisibleTime = lastVisibleTime;
-        return isVisible;
     }
     float getLastCrosshairTime()
     {
