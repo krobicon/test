@@ -74,7 +74,7 @@ public:
 						       m_lockedOnPlayer->getLocationX(),
 						       m_lockedOnPlayer->getLocationY(),
 						       m_lockedOnPlayer->getLocationZ());
-	printf("D UPDATE: %d\n", counter);
+	printf("D UPDATE: %f\n", distanceToTarget);
     	if (distanceToTarget > 20)
 		return;
 	    desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
@@ -290,8 +290,8 @@ public:
 	    }
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
-            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                continue;
+            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                //continue;
 
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
