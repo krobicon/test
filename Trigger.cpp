@@ -63,7 +63,7 @@ public:
 	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
 		if (counter % 10 == 0)
 			printf("F UPDATE: %d\n", counter);
-		m_lockedOnPlayer = findClosestEnemy(fov);
+		m_lockedOnPlayer = findClosestEnemy(counter, fov);
 	}
 	if (m_lockedOnPlayer == nullptr)
 		return;
@@ -257,7 +257,7 @@ public:
         const double pitchInDegrees = pitchInRadians * (180 / M_PI);
         return pitchInDegrees;
     }
-    Player *findClosestEnemy(float fov)
+    Player *findClosestEnemy(int counter, float fov)
     {
         Player *closestPlayerSoFar = nullptr;
         double closestPlayerAngleSoFar;
