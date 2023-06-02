@@ -31,15 +31,15 @@ public:
     }
     void update(int counter)
     {
-        for (int i = 1; i < m_players->size(); i++)
+        for (int i = 0; i < m_players->size(); i++)
         {
             Player *player = m_players->at(i);
             if (!player->isValid() || player->isDead())
                 continue;
-            //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
-                //continue;
-            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
-                //continue;
+            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+                continue;
+            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+                continue;
             
             if (counter % 10 == 0)
                 printf("sense visibility: %d \n", player->isVisible(true));
