@@ -90,8 +90,6 @@ int main(int argc, char *argv[])
 				printf("MAIN COUNTER: %d\n", counter);
 			
 			if (semiauto) {
-			   if (counter % 10 == 0)
-			   	printf("SEMIAUTO COUNTER: %d\n", counter);
 			   trigger->update(counter, localWeapon);
 			}
 			//else if (configLoader->isAimbotOn()){
