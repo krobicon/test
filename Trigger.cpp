@@ -286,9 +286,9 @@ public:
 	    double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 					       m_localPlayer->getLocationY(),
 					       m_localPlayer->getLocationZ(),
-					       m_lockedOnPlayer->getLocationX(),
-					       m_lockedOnPlayer->getLocationY(),
-					       m_lockedOnPlayer->getLocationZ());
+					       player->getLocationX(),
+					       player->getLocationY(),
+					       player->getLocationZ());
 	    if (distanceToTarget < 20)
 		    continue;
 	    if (counter % 10 == 0)
