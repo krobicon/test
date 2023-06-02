@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 		    
             // run features
 		//if (configLoader->isSenseOn())
-		sense->update();
+		sense->update(counter);
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked())
 		{
