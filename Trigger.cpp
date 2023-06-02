@@ -93,7 +93,9 @@ public:
 	
 	if (trigger == true && m_lockedOnPlayer != nullptr)
 	{
+		printf("player? [%f] \n", m_lockedOnPlayer);
 		printf("get crosshair time? [%f] \n", m_lockedOnPlayer->getLastCrosshairTime());
+		printf("//////////////////////////////////////////////////\n");
 		
 		if (m_localWeapon->getReadyTime() == 0 && (distanceToTarget <= 14 || m_localPlayer->isZooming()))
 		{
