@@ -40,6 +40,7 @@ public:
     }
     void update(int counter, Weapon *m_localWeapon)
     {
+	printf("TRIGGER UPDATE: %d\n", counter);
 	bool trigger = false;
 	bool crosshaired = false;
 	bool readytofire = false;
