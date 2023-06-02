@@ -6,9 +6,8 @@
 
 class Player
 {
-public:
-    bool Visibility = false;
 private:
+    bool Visibility = false;
     int m_entityListIndex;
     float m_lastVisibleTime;
     float m_lastCrosshairTime;
