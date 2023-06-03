@@ -79,11 +79,14 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-    bool isClimbing() {
+   /*bool isClimbing() {
         float WallrunStart = getWallrunStart();
 	float WallrunClear = getWallrunClear();
         bool result = WallrunStart > WallrunClear;
         return result;
+    }*/
+    bool isClimbing() {
+        return getWallrunStart() > getWallrunClear();
     }
     float getLocationX()
     {
