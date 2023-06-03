@@ -42,11 +42,9 @@ public:
 	if (longclimb) {
 		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
 			longclimb = false;
-		else
-			return;
 	}
 	// auto tap trafe
-	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb)
 	{
 		if (jumpstart == false) {
 			jumpstart = true;
