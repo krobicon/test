@@ -44,6 +44,13 @@ public:
         short result = mem::ReadShort(ptrLong);
         return result > 0;
     }
+    bool isBurst()
+    {
+       long basePointer = getBasePointer();
+       long ptrLong = basePointer + offsets::BURST;
+       int result = mem::ReadInt(ptrLong);
+       return result > 0;
+    } 
     float getZoomFOV()
     {
         long basePointer = getBasePointer();
