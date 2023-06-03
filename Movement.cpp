@@ -29,7 +29,7 @@ public:
     {
 	//check climb status
 	if (m_localPlayer->isClimbing()) {
-		auto climbTime = m_localPlayer->GetTime() - m_localPlayer->GetWallrunStart();
+		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8){
 			printf("long climb \n");
 			return;
