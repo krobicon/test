@@ -35,12 +35,9 @@ public:
 			longclimb = true;
 			return;
 		}
-		else {
-			longclimb = false;
-		}
 	}
 	if (longclimb) {
-		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.2)
+		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
 			longclimb = false;
 		else
 			return;
