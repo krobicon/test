@@ -24,6 +24,8 @@ namespace offsets
     const long LOCAL_ORIGIN = 0x0158;               // [DataMap.CBaseViewModel]     -> m_localOrigin
     const long CAMERA_POS = 0x1f58;                 // [Miscellaneous]              -> CPlayer!camera_origin
     const long TIME = 0x2110;                       // [DataMap.C_Player]           -> m_currentFramePlayer.timeBase
+    const long TRAVERSAL_START = 0x2b60             // [DataMap.C_Player]           -> m_traversalStartTime
+    const long TRAVERSAL_PROGRESS = 0x2b5c          // [DataMap.C_Player]           -> m_traversalProgress
     // player entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
