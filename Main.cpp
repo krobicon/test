@@ -87,7 +87,8 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			if (counter % 10 == 0) {
-				printf("wall?: %f\n", localPlayer->getWallrunStart());
+				printf("wall start?: %f\n", localPlayer->getWallrunStart());
+				printf("wall clear?: %f\n", localPlayer->getWallrunClear());
 			}
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
