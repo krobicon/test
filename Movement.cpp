@@ -19,6 +19,8 @@ private:
     float previousTraversal;
     int superglideTimer;
     bool superglideStart = false;
+    float onWallOffTmp;
+    float onWallTmp;
 	
 public:
     Movement(Level *level,
@@ -120,5 +122,40 @@ public:
 			superglideTimer = 0;
 		}
 	}
+	//////////////////////////// TEST AUTO WALL JUMP /////////////
+	float onWall = m_localPlayer->getWallrunStart();
+	if (onWall != onWallTmp) {
+		if (m_localPlayer->getForwardDown() == 0) {
+			wallJumpNow = 1;
+			m_localPlayer->setJumpState(5);
+		}
+	}
+	onWallTmp = onWall;
+
+	float onWallOff = m_localPlayer->getWallrunClear();
+	if (wallJumpNow == 1) {
+		if (onWallOff != onWallOffTmp) {
+			wallJumpNow = 0;
+			m_localPlayer->setJumpState(4);
+		}
+	}
+	onWallOffTmp = onWallOff;
+	/*
+	float onEdge = mem.Read<float>(lPlayer + OFFSET_TRAVERSAL_PROGRESS);
+	if (traversalProgress != previousTraversal){
+		if (mem.Read<int>(g_Base + OFFSET_MOVE_FORWARD) == 0) {
+			wallJumpNow = 2;
+			mem.Write<int>(g_Base + OFFSET_FORCE_JUMP, 5);
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		}
+	}
+	onEdgeTmp = onEdge;
+
+	if (wallJumpNow == 2) {
+		if ((mem.Read<uint32_t>(lPlayer + OFFSET_FLAGS) & 0x1) == 1){
+			wallJumpNow = 0;
+			mem.Write<int>(g_Base + OFFSET_FORCE_JUMP, 4);
+		}
+	}*/
     }
 };
