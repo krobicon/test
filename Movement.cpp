@@ -62,7 +62,7 @@ public:
 	}
 		
 	// auto superglide
-	auto worldTime = m_localPlayer->getTime()
+	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.5f) {
