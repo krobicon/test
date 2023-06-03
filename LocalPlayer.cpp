@@ -20,6 +20,9 @@ private:
             m_basePointer = mem::ReadLong(getUnresolvedBasePointer());
         return m_basePointer;
     }
+    //bool isClimbing = false;
+    //float lastWallStart = -1.0f;
+    //float lastWallClear = -1.0f;
 
 public:
     void markForPointerResolution()
@@ -74,6 +77,12 @@ public:
         long basePointer = getBasePointer();
         long ptrLong = basePointer + offsets::WALLRUN_CLEAR;
         float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
+    bool isClimbing() {
+        float WallrunStart = getWallrunStart();
+	float WallrunClear = getWallrunClear();
+        bool result = WallrunStart > WallrunClear
         return result;
     }
     float getLocationX()
