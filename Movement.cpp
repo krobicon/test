@@ -82,11 +82,11 @@ public:
 		startSg = true;
 	}
 	
-	else if (startSg && (worldTime - startjumpTime) <= 0.05f) {
+	else if (startSg && (worldTime - startjumpTime) <= 0.05f && !gliding) {
 	//press button
-		m_localPlayer->setJumpState(7);
+		m_localPlayer->setJumpState(5);
 		if ((worldTime - startjumpTime) > 0.007) {
-			m_localPlayer->setDuckState(6);
+			m_localPlayer->setDuckState(5);
 			gliding = true;
 		}
 		printf("how many times? \n");
