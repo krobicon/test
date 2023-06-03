@@ -74,15 +74,11 @@ int main(int argc, char *argv[])
 		    farming->update(counter);
 	    }
 	    
-	    if (level->isPlayable())
-	    {
-		    
-            // run features
-		//if (configLoader->isSenseOn())
+	    if (level->isPlayable()) {
+            	// run features
 		sense->update(counter);
 		    
-		if (!localPlayer->isDead() && !localPlayer->isKnocked())
-		{
+		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
@@ -98,10 +94,10 @@ int main(int argc, char *argv[])
 			//else if (configLoader->isAimbotOn()){
 			    //aimbot->update(counter);
 			//}
-			else if (rand() % 6 == 0 && localPlayer->isInAttack()){
+			else if (rand() % 6 == 0 && localPlayer->isInAttack()) {
 			    noRecoil->update();
 			}
-			else if (!localPlayer->isInAttack()){
+			else if (!localPlayer->isInAttack()) {
 			    noRecoil->reset();
 			}
 			/*else if (counter % 500 == 0){
@@ -116,27 +112,24 @@ int main(int argc, char *argv[])
 					k++;
 				}
 			}*/
-
-			if (localWeapon->getAmmo() == 1 && !triggergun){
+			if (localWeapon->getAmmo() == 1 && !triggergun) {
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
 			}
-			else if (localPlayer->getReloadState() == 5){
+			else if (localPlayer->getReloadState() == 5) {
 				localPlayer->setReloadState(4);
 			}
 		}
 	    }
 
             // all ran fine
-            if (counter % 3000 == 0)
-            {
+            if (counter % 3000 == 0) {
                 printf("UPDATE[%d] OK. \n", counter);
 		counter = 0;
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
-        catch (...)
-        {
+        catch (...) {
             printf("SLEEPING[%d]\n", counter);
             std::this_thread::sleep_for(std::chrono::seconds(10));
         }
