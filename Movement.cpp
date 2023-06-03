@@ -65,7 +65,7 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
-	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.5f) {
+	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
@@ -79,7 +79,7 @@ public:
 		}
 		printf("how many times? \n");
 	}
-	if ((worldTime - startjumpTime) > 1.5f && startSg){
+	if ((worldTime - startjumpTime) > 1.2f && startSg){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
