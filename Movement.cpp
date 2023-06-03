@@ -29,7 +29,7 @@ public:
         m_localPlayer = localPlayer;
         m_x11Utils = x11Utils;
     }
-	void update(int counter)
+    void update(int counter)
     {
 	//don't tap strafe if making a long climb to mantle
 	if (m_localPlayer->isClimbing()) {
