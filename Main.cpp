@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 			if (counter % 10 == 0) {
 				printf("is climbing?: %d\n", localPlayer->isClimbing());
 				if (localPlayer->isClimbing())
-					printf("climb time? %f\n", localPlayer->getWallrunStart() - localPlayer->getWallrunClear());
+					printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
 				//printf("wall clear?: %f\n", localPlayer->getWallrunClear());
 			}
 			if (triggergun) {
