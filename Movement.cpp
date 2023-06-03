@@ -12,7 +12,8 @@ private:
 
     bool jumpstart = false;
     int strafeTick;
-    bool startSuperglide = false;
+    bool startSg = false;
+    float startjumpTime;
 	
 public:
     Movement(Level *level,
@@ -59,7 +60,29 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-	// auto superglide
 		
+	// auto superglide
+	auto worldTime = m_localPlayer->getTime()
+	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
+	float traversalProgress = m_localPlayer->getTraversalProgress();
+	if (m_traversalProgress > 0.87f && !startSg && HangOnWall > 0.05f && HangOnWall < 1.5f) {
+	//start SG
+		startjumpTime = worldTime;
+		startSg = true;
+	}
+	
+	if (startSg) {
+	//press button
+		m_localPlayer->setJumpState(7);
+		if ((WorldTime - startjumpTime) > 0.007) {
+			m_localPlayer->setDuckState(6);
+		}
+	}
+	if ((WorldTime - startjumpTime) > 1.5f && startSg){
+	//need to release button
+		m_localPlayer->setJumpState(4);;
+		m_localPlayer->setDuckState(4);
+		startSg = false;
+	}
     }
 };
