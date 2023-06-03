@@ -284,16 +284,16 @@ public:
                 //continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
-	    double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+	    double distance = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 					       m_localPlayer->getLocationY(),
 					       m_localPlayer->getLocationZ(),
 					       player->getLocationX(),
 					       player->getLocationY(),
 					       player->getLocationZ());
-	    if (distanceToTarget > 12) {
+	    if (distance > 12) {
 		    continue;
 	    }
-	    float fovcheck = 32 - distanceToTarget * 1.2;
+	    float fovcheck = 32 - distance * 1.2;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
