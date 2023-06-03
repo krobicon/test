@@ -87,8 +87,7 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			if (counter % 10 == 0) {
-				printf("hang time?: %f\n", localPlayer->getTime() - localPlayer->getTraversalStart());
-				printf("TP?: %f\n", localPlayer->getTraversalProgress());
+				printf("jump state?: %d\n", localPlayer->getJumpState());
 			}
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
