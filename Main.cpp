@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			if (counter % 10 == 0) {
-				printf("is climbing?: %d\n", localPlayer->isClimbing());
+				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				if (localPlayer->isClimbing())
 					printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
 				//printf("wall clear?: %f\n", localPlayer->getWallrunClear());
