@@ -65,7 +65,7 @@ public:
 	auto worldTime = m_localPlayer->getTime()
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
-	if (m_traversalProgress > 0.87f && !startSg && HangOnWall > 0.05f && HangOnWall < 1.5f) {
+	if (m_traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.5f) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
@@ -74,11 +74,11 @@ public:
 	if (startSg) {
 	//press button
 		m_localPlayer->setJumpState(7);
-		if ((WorldTime - startjumpTime) > 0.007) {
+		if ((worldTime - startjumpTime) > 0.007) {
 			m_localPlayer->setDuckState(6);
 		}
 	}
-	if ((WorldTime - startjumpTime) > 1.5f && startSg){
+	if ((worldTime - startjumpTime) > 1.5f && startSg){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
