@@ -27,6 +27,7 @@ namespace offsets
     const long TIME = 0x2110;                       // [DataMap.C_Player]           -> m_currentFramePlayer.timeBase
     const long TRAVERSAL_START = 0x2b60;            // [DataMap.C_Player]           -> m_traversalStartTime
     const long TRAVERSAL_PROGRESS = 0x2b5c;         // [DataMap.C_Player]           -> m_traversalProgress
+    const loing WALLRUN_START = 0x35b4;             // [DataMap.C_Player]           -> m_wallRunStartTime
     // player entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
