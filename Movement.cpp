@@ -81,7 +81,7 @@ public:
 		}
 		printf("how many times? \n");
 	}
-	if ((worldTime - startjumpTime) > 1.2f && startSg && gliding){
+	if ((worldTime - startjumpTime) > 0.9f && startSg && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
