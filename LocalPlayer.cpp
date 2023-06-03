@@ -70,6 +70,12 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
+    float getWallrunClear() {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::WALLRUN_CLEAR;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     float getLocationX()
     {
         long basePointer = getBasePointer();
