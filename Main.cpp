@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 		sense->update(counter);
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
-			movement->update();
+			movement->update(counter);
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			/*if (counter % 10 == 0) {
