@@ -15,6 +15,7 @@ private:
     bool startSg = false;
     float startjumpTime;
     bool gliding = false;
+    bool longclimb = false;
 	
 public:
     Movement(Level *level,
@@ -31,9 +32,18 @@ public:
 	if (m_localPlayer->isClimbing()) {
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8){
-			printf("long climb \n");
+			longclimb = true;
 			return;
 		}
+		else {
+			longclimb = false;
+		}
+	}
+	if (longclimb) {
+		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.2)
+			longclimb = false;
+		else
+			return;
 	}
 	// auto tap trafe
 	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
