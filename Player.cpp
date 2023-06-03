@@ -80,6 +80,12 @@ public:
         std::string result = mem::ReadString(ptrLong);
         return result;
     }
+    float getTime() {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::TIME;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
    bool isDummy()
     {
         if (getSignifierName().compare("npc_dummie") == 0)
