@@ -60,7 +60,8 @@ public:
         double desiredViewAngleYaw = 0;
         double desiredViewAnglePitch = 0;
 
-	if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
+	//if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
+	if (1) {
 		//if (counter % 10 == 0)
 			//printf("F UPDATE: %d\n", counter);
 		m_lockedOnPlayer = findClosestEnemy(counter, fov);
