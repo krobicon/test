@@ -85,11 +85,11 @@ int main(int argc, char *argv[])
 		{
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
-			bool semiauto = localWeapon->isSemiAuto();
+			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			//if (counter % 10 == 0)
 				//printf("MAIN COUNTER: %d\n", counter);
 			
-			if (semiauto) {
+			if (triggergun) {
 			   trigger->update(counter, localWeapon);
 			}
 			//else if (configLoader->isAimbotOn()){
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 				}
 			}*/
 
-			if (localWeapon->getAmmo() == 1 && !semiauto){
+			if (localWeapon->getAmmo() == 1 && !triggergun){
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
 			}
