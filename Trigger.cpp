@@ -155,12 +155,12 @@ public:
 		{
 			//m_localPlayer->setAttackState(5);
 			//m_x11Utils->mouseClick(1);
-			m_simInput->click();
-			printf("SENT \n");
+			//m_simInput->click();
+			//printf("SENT \n");
 		}
 		else
 		{
-			printf("NOTHING \n");
+			//printf("NOTHING \n");
 		}
 	}
     }
@@ -292,8 +292,6 @@ public:
 	    if (distanceToTarget > 12)
 		    continue;
 	    float fovcheck = 32 - distanceToTarget * 1.2;
-	    if (counter % 10 == 0)
-	    	printf("fov check: %f \n", fovcheck);
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
@@ -301,6 +299,13 @@ public:
 	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+		
+	    if (counter % 10 == 0) {
+	    	printf("distance to target: %f \n", distanceToTarget);
+		printf("yaw angle delta: %d \n", yawangleDelta);
+		printf("pitch angle delta: %d \n", pitchangleDelta);
+	    }
+		
 	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 3)) {
 	    	continue;
 	    }
