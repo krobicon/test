@@ -19,11 +19,12 @@ namespace offsets
     const long LOCAL_PLAYER = (0x0213a640 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8
     const long ENTITY_LIST = 0x1d89048;           // [Miscellaneous] -> cl_entitylist
     const long GAMEMODE = 0x02173850;             // [ConVars]       -> mp_gamemode+0x58
-    // entity
+    // local player
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long LOCAL_ORIGIN = 0x0158;               // [DataMap.CBaseViewModel]     -> m_localOrigin
     const long CAMERA_POS = 0x1f58;                 // [Miscellaneous]              -> CPlayer!camera_origin
-    // player
+    const long TIME = 0x2110;                       // [DataMap.C_Player]           -> m_currentFramePlayer.timeBase
+    // player entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
     const long GLOW_THROUGH_WALL = (0x03c0 + 0x10); // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x10
