@@ -81,7 +81,7 @@ public:
 		}
 		printf("how many times? \n");
 	}
-	if (( startSg && gliding){
+	if (startSg && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
