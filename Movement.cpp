@@ -26,7 +26,7 @@ public:
         m_localPlayer = localPlayer;
         m_x11Utils = x11Utils;
     }
-	void update()
+	void update(int counter)
     {
 	//don't tap strafe if making a long climb to mantle
 	if (m_localPlayer->isClimbing()) {
@@ -73,6 +73,8 @@ public:
 	}
 		
 	// auto superglide
+	if (counter % 10 == 0)
+		printf("sg bool: %d \n", startSg);
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
