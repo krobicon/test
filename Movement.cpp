@@ -16,6 +16,9 @@ private:
     float startjumpTime;
     bool gliding = false;
     bool longclimb = false;
+    float previousTraversal;
+    int superglideTimer;
+    bool superglideStart = false;
 	
 public:
     Movement(Level *level,
@@ -73,7 +76,7 @@ public:
 	}
 		
 	// auto superglide
-	if (counter % 10 == 0)
+	/*if (counter % 10 == 0)
 		printf("sg bool: %d \n", startSg);
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
@@ -99,6 +102,25 @@ public:
 		m_localPlayer->setDuckState(4);
 		gliding = false;
 		startSg = false;
+	}*/
+	float traversalProgress = m_localPlayer->getTraversalProgress();
+	if (traversalProgress > 0.85f && traversalProgress < 1.0f) {
+		superglideStart = true;
+	}
+	if (superglideStart) {
+		superglideTimer++;
+		if (superglideTimer == 5)
+			m_localPlayer->setJumpState(5);
+		else if (superglideTimer == 6)
+			m_localPlayer->setDuckState(5);
+		else if (superglideTimer == 14) {
+			m_localPlayer->setJumpState(4);
+			previousTraversal = traversalProgress;
+		}
+		else if (superglideTimer > 10 && traversalProgress != previousTraversal) {
+			superglideStart = false;
+			superglideTimer = 0;
+		}
 	}
     }
 };
