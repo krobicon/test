@@ -28,7 +28,7 @@ public:
     }
 	void update()
     {
-	//check climb status
+	//don't tap strafe if making a long climb to mantle
 	if (m_localPlayer->isClimbing()) {
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8){
