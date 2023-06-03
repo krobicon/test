@@ -12,6 +12,7 @@ namespace offsets
     const long IN_JUMP = 0x074046a0;    // [Buttons] -> in_jump
     const long IN_WALK = 0x0bd29870;    // [Buttons] -> in_walk
     const long IN_RELOAD = 0x07404650;  // [Buttons] -> in_reload
+    const long IN_DUCK = 0x0bd29778;    // [Buttons] -> in_duck
     // core
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
