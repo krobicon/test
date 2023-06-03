@@ -282,7 +282,7 @@ public:
                 continue;
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
-            //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
+            if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
 	    double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 					       m_localPlayer->getLocationY(),
@@ -301,11 +301,11 @@ public:
             double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
 		
-	    if (counter % 10 == 0) {
+	    /*if (counter % 10 == 0) {
 	    	printf("distance to target: %f \n", distanceToTarget);
 		printf("yaw angle delta: %f \n", yawangleDelta);
 		printf("pitch angle delta: %f \n", pitchangleDelta);
-	    }
+	    }*/
 		
 	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 3)) {
 	    	continue;
