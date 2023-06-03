@@ -12,6 +12,7 @@ private:
 
     bool jumpstart = false;
     int strafeTick;
+    bool startSuperglide = false;
 	
 public:
     Movement(Level *level,
@@ -24,41 +25,41 @@ public:
     }
 	void update()
     {
-        // validations
-		// auto tap trafe
-		//printf("skydivine??? set:[%d] \n", m_localPlayer->isSkydiving());
-		if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+	// auto tap trafe
+	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
+	{
+		if (jumpstart == false)
 		{
-			if (jumpstart == false)
-			{
-				jumpstart = true;
-				strafeTick = 0;
-			}
-			else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 170 && m_localPlayer->getForwardDown() == 33))
-			{
-				if (m_localPlayer->getForwardState() == 0)
-				{
-					m_localPlayer->setForwardState(5);
-					//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
-				}
-				else
-				{
-					m_localPlayer->setForwardState(4);
-				}
-			}
-			strafeTick++;
+			jumpstart = true;
+			strafeTick = 0;
 		}
-		else if (jumpstart == true && m_localPlayer->isGrounded())
+		else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 170 && m_localPlayer->getForwardDown() == 33))
 		{
-			jumpstart = false;
-			if (m_localPlayer->getForwardDown() == 0)
+			if (m_localPlayer->getForwardState() == 0)
 			{
-				m_localPlayer->setForwardState(0);
+				m_localPlayer->setForwardState(5);
+				//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
 			}
-			else if (m_localPlayer->getForwardDown() == 33)
+			else
 			{
-				m_localPlayer->setForwardState(1);
+				m_localPlayer->setForwardState(4);
 			}
 		}
+		strafeTick++;
+	}
+	else if (jumpstart == true && m_localPlayer->isGrounded())
+	{
+		jumpstart = false;
+		if (m_localPlayer->getForwardDown() == 0)
+		{
+			m_localPlayer->setForwardState(0);
+		}
+		else if (m_localPlayer->getForwardDown() == 33)
+		{
+			m_localPlayer->setForwardState(1);
+		}
+	}
+	// auto superglide
+		
     }
 };
