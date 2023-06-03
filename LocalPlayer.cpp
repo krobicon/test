@@ -52,6 +52,12 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
+    float getTraversalProgress() {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::TRAVERSAL_PROGRESS;
+        float result = mem::ReadFloat(ptrLong);
+        return result;
+    }
     float getLocationX()
     {
         long basePointer = getBasePointer();
