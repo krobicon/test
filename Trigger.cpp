@@ -105,7 +105,7 @@ public:
 		{
 			smooth = smooth/8;
 			//fov = fov*2;
-			fov = 32 - distanceToTarget * 1.1;
+			fov = 32 - distanceToTarget * 1.2;
 			crosshaired = m_lockedOnPlayer->isCrosshair();
 			readytofire = true;
 		}
@@ -291,7 +291,7 @@ public:
 					       player->getLocationZ());
 	    if (distanceToTarget > 12)
 		    continue;
-	    float fovcheck = 32 - distanceToTarget * 1.1;
+	    float fovcheck = 32 - distanceToTarget * 1.2;
 	    if (counter % 10 == 0)
 	    	printf("fov check: %f \n", fovcheck);
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
