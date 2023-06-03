@@ -77,6 +77,7 @@ public:
 		if ((worldTime - startjumpTime) > 0.007) {
 			m_localPlayer->setDuckState(6);
 		}
+		printf("how many times? \n");
 	}
 	if ((worldTime - startjumpTime) > 1.5f && startSg){
 	//need to release button
