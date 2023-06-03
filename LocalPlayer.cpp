@@ -213,6 +213,26 @@ public:
         long ptrLong = offsets::REGION + offsets::IN_JUMP + 0x8;
         mem::WriteInt(ptrLong, state);
     }
+    int getDuckDown()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_DUCK;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    int getDuckState()
+	{
+	long basePointer = getBasePointer();
+	long ptrLong = offsets::REGION + offsets::IN_DUCK + 0x8;
+	int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    void setDuckState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_DUCK + 0x8;
+        mem::WriteInt(ptrLong, state);
+    }
     int getReloadDown()
     {
         long basePointer = getBasePointer();
