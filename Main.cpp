@@ -86,8 +86,8 @@ int main(int argc, char *argv[])
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool semiauto = localWeapon->isSemiAuto();
-			if (counter % 10 == 0)
-				printf("MAIN COUNTER: %d\n", counter);
+			//if (counter % 10 == 0)
+				//printf("MAIN COUNTER: %d\n", counter);
 			
 			if (semiauto) {
 			   trigger->update(counter, localWeapon);
