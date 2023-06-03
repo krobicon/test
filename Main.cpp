@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     Farming *farming = new Farming(level, localPlayer, x11Utils, simInput);
 
     // Main loop
-    printf("ksenz\n");
+    printf("reign\n");
     int counter = 1;
     while (1)
     {
