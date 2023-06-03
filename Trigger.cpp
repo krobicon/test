@@ -302,8 +302,8 @@ public:
 		
 	    if (counter % 10 == 0) {
 	    	printf("distance to target: %f \n", distanceToTarget);
-		printf("yaw angle delta: %d \n", yawangleDelta);
-		printf("pitch angle delta: %d \n", pitchangleDelta);
+		printf("yaw angle delta: %f \n", yawangleDelta);
+		printf("pitch angle delta: %f \n", pitchangleDelta);
 	    }
 		
 	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 3)) {
