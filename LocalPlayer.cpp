@@ -82,7 +82,7 @@ public:
     bool isClimbing() {
         float WallrunStart = getWallrunStart();
 	float WallrunClear = getWallrunClear();
-        bool result = WallrunStart > WallrunClear
+        bool result = WallrunStart > WallrunClear;
         return result;
     }
     float getLocationX()
