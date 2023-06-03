@@ -14,6 +14,7 @@ private:
     int strafeTick;
     bool startSg = false;
     float startjumpTime;
+    bool gliding = false;
 	
 public:
     Movement(Level *level,
@@ -65,24 +66,26 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
-	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f) {
+	if (traversalProgress > 0.88f && !startSg && hangTime > 0.05f && hangTime < 1.2f) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
 	}
 	
-	if (startSg) {
+	else if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(7);
 		if ((worldTime - startjumpTime) > 0.007) {
 			m_localPlayer->setDuckState(6);
+			gliding = true;
 		}
 		printf("how many times? \n");
 	}
-	if ((worldTime - startjumpTime) > 1.2f && startSg){
+	if ((worldTime - startjumpTime) > 1.2f && startSg && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
+		gliding = false;
 		startSg = false;
 	}
     }
