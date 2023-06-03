@@ -86,8 +86,8 @@ int main(int argc, char *argv[])
 			movement->update();
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
-			//if (counter % 10 == 0)
-				//printf("burst: %d\n", localWeapon->isBurst());
+			if (counter % 10 == 0)
+				printf("TIME????: %f\n", localPlayer->getTime());
 			
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
