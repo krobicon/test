@@ -71,7 +71,7 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-	/*	
+		
 	// auto superglide
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
@@ -82,7 +82,7 @@ public:
 		startSg = true;
 	}
 	
-	else if (startSg && !gliding) {
+	else if (startSg && (worldTime - startjumpTime) < 0.1f) {
 	//press button
 		m_localPlayer->setJumpState(7);
 		if ((worldTime - startjumpTime) > 0.007) {
@@ -91,12 +91,12 @@ public:
 		}
 		printf("how many times? \n");
 	}
-	if ((worldTime - startjumpTime) > 0.5f && startSg && gliding){
+	if ((worldTime - startjumpTime) > 0.1f && startSg && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);;
 		m_localPlayer->setDuckState(4);
 		gliding = false;
 		startSg = false;
-	}*/
+	}
     }
 };
