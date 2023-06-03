@@ -27,6 +27,14 @@ public:
     }
 	void update()
     {
+	//check climb status
+	if (m_localPlayer->isClimbing()) {
+		auto climbTime = m_localPlayer->GetTime() - m_localPlayer->GetWallrunStart();
+		if (climbTime > 0.8){
+			printf("long climb \n");
+			return;
+		}
+	}
 	// auto tap trafe
 	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving())
 	{
@@ -61,7 +69,7 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-		
+	/*	
 	// auto superglide
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
@@ -87,6 +95,6 @@ public:
 		m_localPlayer->setDuckState(4);
 		gliding = false;
 		startSg = false;
-	}
+	}*/
     }
 };
