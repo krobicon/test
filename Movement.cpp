@@ -21,6 +21,7 @@ private:
     bool superglideStart = false;
     float onWallOffTmp;
     float onWallTmp;
+    int wallJumpNow;
 	
 public:
     Movement(Level *level,
