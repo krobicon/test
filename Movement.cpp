@@ -78,7 +78,7 @@ public:
 		
 	// auto superglide
 	if (counter % 10 == 0)
-		printf("sg bool: %d \n", startSg);
+		printf("duck down: %d \n", m_localPlayer->getDuckDown());
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
