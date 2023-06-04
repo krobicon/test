@@ -107,6 +107,7 @@ public:
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.85f && traversalProgress < 1.0f) {
 		superglideStart = true;
+		printf("SUPER~~\n");
 	}
 	if (superglideStart) {
 		superglideTimer++;
