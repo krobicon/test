@@ -124,7 +124,7 @@ public:
 		}
 	}
 	//////////////////////////// TEST AUTO WALL JUMP /////////////
-	float onWall = m_localPlayer->getWallrunStart();
+	/*float onWall = m_localPlayer->getWallrunStart();
 	if (onWall != onWallTmp) {
 		if (m_localPlayer->getForwardDown() == 0) {
 			wallJumpNow = 1;
