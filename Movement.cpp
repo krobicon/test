@@ -77,7 +77,7 @@ public:
 	}
 		
 	// auto superglide
-	if (counter % 10 == 0)
+	/*if (counter % 10 == 0)
 		printf("duck down: %d \n", m_localPlayer->getDuckDown());
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
@@ -106,7 +106,7 @@ public:
 		gliding = false;
 		startSg = false;
 	}
-	/*float traversalProgress = m_localPlayer->getTraversalProgress();
+	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.85f && traversalProgress < 1.0f) {
 		superglideStart = true;
 		printf("SUPER~~\n");
@@ -128,7 +128,7 @@ public:
 		}
 	}*/
 	//////////////////////////// TEST AUTO WALL JUMP /////////////
-	/*float onWall = m_localPlayer->getWallrunStart();
+	float onWall = m_localPlayer->getWallrunStart();
 	if (onWall != onWallTmp) {
 		if (m_localPlayer->getForwardDown() == 0) {
 			wallJumpNow = 1;
