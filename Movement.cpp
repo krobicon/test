@@ -117,6 +117,7 @@ public:
 			m_localPlayer->setDuckState(5);
 		else if (superglideTimer == 14) {
 			m_localPlayer->setJumpState(4);
+			m_localPlayer->setDuckState(4);
 			previousTraversal = traversalProgress;
 		}
 		else if (superglideTimer > 10 && traversalProgress != previousTraversal) {
