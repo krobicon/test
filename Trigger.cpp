@@ -280,8 +280,8 @@ public:
             	continue;
             if (player->isKnocked() || !player->isVisible(false))
                 continue;
-            //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
-                //continue;
+            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+                continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 continue;
 	    double dist = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
