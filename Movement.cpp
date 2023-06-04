@@ -99,8 +99,10 @@ public:
 	}
 	if ((worldTime - startjumpTime) > 0.2f && startSg && gliding){
 	//need to release button
-		m_localPlayer->setJumpState(4);;
-		m_localPlayer->setDuckState(4);
+		m_localPlayer->setJumpState(4);
+		if (m_localPlayer->getDuckDown != 79) {
+			m_localPlayer->setDuckState(4);
+		}
 		gliding = false;
 		startSg = false;
 	}
