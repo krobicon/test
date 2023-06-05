@@ -78,6 +78,7 @@ public:
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && counter % 2 == 0) {
 		m_localPlayer->setJumpState(5);
+		usleep(1000);
 		m_localPlayer->setJumpState(4);
 	}
 	/*else if (m_localPlayer->getJumpDown() == 65 && counter % 1 == 0) {
