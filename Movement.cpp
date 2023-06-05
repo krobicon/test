@@ -82,6 +82,9 @@ public:
 	else if (m_localPlayer->getJumpDown() == 65 && counter % 1 == 0) {
 		m_localPlayer->setJumpState(4);
 	}
+	
+	 printf("jumpstart: %d \n", jumpstart);
+	
 	// auto superglide
 	/*if (counter % 10 == 0)
 		printf("duck down: %d \n", m_localPlayer->getDuckDown());
