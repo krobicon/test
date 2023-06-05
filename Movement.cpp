@@ -47,13 +47,13 @@ public:
 			longclimb = false;
 	}
 	// auto tap trafe
-	if (m_localPlayer->isDucking() || !m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb)
+	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb)
 	{
 		if (jumpstart == false) {
 			jumpstart = true;
 			strafeTick = 0;
 		}
-		else if ((strafeTick > 20 && strafeTick < 130 && m_localPlayer->getForwardDown() == 33)) {
+		else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 130 && m_localPlayer->getForwardDown() == 33)) {
 			if (m_localPlayer->getForwardState() == 0)
 			{
 				m_localPlayer->setForwardState(5);
