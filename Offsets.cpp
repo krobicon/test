@@ -29,6 +29,7 @@ namespace offsets
     const long TRAVERSAL_PROGRESS = 0x2b5c;         // [DataMap.C_Player]           -> m_traversalProgress
     const long WALLRUN_START = 0x35b4;              // [DataMap.C_Player]           -> m_wallRunStartTime
     const long WALLRUN_CLEAR = 0x35b8;              // [DataMap.C_Player]           -> m_wallRunClearTime
+    const long FPS_MAX = 0x01594d50;                // [ConVars]                    -> fps_max
     // player entity
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long GLOW_ENABLE = (0x03c0 + 0x8);        // [RecvTable.DT_HighlightSettings] -> m_highlightServerContextID + 0x8
