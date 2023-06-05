@@ -37,11 +37,11 @@ public:
 	//don't tap strafe if making a long climb to mantle
 	if (m_localPlayer->isClimbing()) {
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
-		if (climbTime > 0.8){
+		if (climbTime > 0.8) {
 			longclimb = true;
 		}
-		auto worldTime = m_localPlayer->getTime();
-		auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
+		//auto worldTime = m_localPlayer->getTime();
+		float hangTime =  m_localPlayer->getTime() - m_localPlayer->getTraversalStart();
 		float traversalProgress = m_localPlayer->getTraversalProgress();
 		if (counter % 10 == 0) {
 			printf("hangtime: %f \n", hangTime);
