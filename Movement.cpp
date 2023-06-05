@@ -84,6 +84,7 @@ public:
 	}
 	
 	 printf("jumpstart: %d \n", jumpstart);
+	 printf("strafe tick: %d \n", strafeTick);
 	
 	// auto superglide
 	/*if (counter % 10 == 0)
