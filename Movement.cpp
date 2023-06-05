@@ -78,10 +78,11 @@ public:
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && counter % 2 == 0) {
 		m_localPlayer->setJumpState(5);
-	}
-	else if (m_localPlayer->getJumpDown() == 65 && counter % 1 == 0) {
 		m_localPlayer->setJumpState(4);
 	}
+	/*else if (m_localPlayer->getJumpDown() == 65 && counter % 1 == 0) {
+		m_localPlayer->setJumpState(4);
+	}*/
 	
 	 printf("jumpstart: %d \n", jumpstart);
 	 printf("strafe tick: %d \n", strafeTick);
