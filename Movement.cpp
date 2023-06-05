@@ -87,7 +87,7 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
-	if (counter % 10 == 0) {
+	if (m_localPlayer->isClimbing() && counter % 10 == 0) {
 		printf("hangtime: %f \n", hangTime);
 	}
 	/*if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f && m_localPlayer->getForwardDown()) {
