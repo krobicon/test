@@ -53,7 +53,7 @@ public:
 			jumpstart = true;
 			strafeTick = 0;
 		}
-		else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 130 && m_localPlayer->getForwardDown() == 33)) {
+		else if ((strafeTick > 20 && strafeTick < 130 && m_localPlayer->getForwardDown() == 33)) {
 			if (m_localPlayer->getForwardState() == 0)
 			{
 				m_localPlayer->setForwardState(5);
