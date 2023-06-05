@@ -47,9 +47,7 @@ public:
 		//if (counter % 10 == 0) {
 		//	printf("hangtime: %f \n", hangTime);
 		//}
-		//return;
-	}
-		
+		//return;	
 	}
 	if (longclimb) {
 		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
