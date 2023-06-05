@@ -99,9 +99,9 @@ public:
 	
 	if (startSg) {
 	//press button
-		m_localPlayer->setJumpState(5);
+		m_localPlayer->setJumpState(7);
 		if ((worldTime - startjumpTime) > 0.005) {
-			m_localPlayer->setDuckState(5);
+			m_localPlayer->setDuckState(6);
 			gliding = true;
 		}
 		printf("how many times? \n");
