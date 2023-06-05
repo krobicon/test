@@ -93,7 +93,7 @@ public:
 		startSg = true;
 	}
 	
-	else if (startSg) {
+	else if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(5);
 		if ((worldTime - startjumpTime) > 0.007) {
