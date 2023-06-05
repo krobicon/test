@@ -83,12 +83,7 @@ public:
 			m_localPlayer->setJumpState(4);
 	}
 	
-	 printf("jumpstart: %d \n", jumpstart);
-	 printf("strafe tick: %d \n", strafeTick);
-	
 	// auto superglide
-	/*if (counter % 10 == 0)
-		printf("duck down: %d \n", m_localPlayer->getDuckDown());
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
@@ -116,6 +111,8 @@ public:
 		gliding = false;
 		startSg = false;
 	}
+	    
+	/*
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.85f && traversalProgress < 1.0f) {
 		superglideStart = true;
