@@ -89,7 +89,6 @@ public:
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (counter % 10 == 0) {
 		printf("hangtime: %f \n", hangTime);
-		printf("fps: %d \n", m_level->getFpsMax());
 	}
 
 	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 0.8f && m_localPlayer->getForwardDown()) {
@@ -100,9 +99,9 @@ public:
 	
 	if (startSg) {
 	//press button
-		m_localPlayer->setJumpState(7);
+		m_localPlayer->setJumpState(5);
 		if ((worldTime - startjumpTime) > 0.005) {
-			m_localPlayer->setDuckState(6);
+			m_localPlayer->setDuckState(5);
 			gliding = true;
 		}
 		printf("how many times? \n");
