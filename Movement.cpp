@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "LocalPlayer.cpp"
 #include "Level.cpp"
 #include "X11Utils.cpp"
@@ -75,8 +75,9 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-	if (counter % 10 == 0) {
-		printf("jump state: %d \n", m_localPlayer->getJumpState());;
+	else if (m_localPlayer->getJumpDown() == 65) {
+		m_localPlayer->setJumpState(4);
+		m_localPlayer->setJumpState(5);
 	}
 		
 	// auto superglide
