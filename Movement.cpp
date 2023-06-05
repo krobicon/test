@@ -40,12 +40,6 @@ public:
 		if (climbTime > 0.8) {
 			longclimb = true;
 		}
-		//auto worldTime = m_localPlayer->getTime();
-		float hangTime =  m_localPlayer->getTime() - m_localPlayer->getTraversalStart();
-		float traversalProgress = m_localPlayer->getTraversalProgress();
-		if (counter % 10 == 0) {
-			printf("hangtime: %f \n", hangTime);
-		}
 		return;	
 	}
 	if (longclimb) {
@@ -93,6 +87,9 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
+	if (counter % 10 == 0) {
+		printf("hangtime: %f \n", hangTime);
+	}
 
 	/*if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f && m_localPlayer->getForwardDown()) {
 	//start SG
