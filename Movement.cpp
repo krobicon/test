@@ -39,15 +39,14 @@ public:
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8) {
 			longclimb = true;
-			return;
 		}
 		//auto worldTime = m_localPlayer->getTime();
-		//float hangTime =  m_localPlayer->getTime() - m_localPlayer->getTraversalStart();
-		//float traversalProgress = m_localPlayer->getTraversalProgress();
-		//if (counter % 10 == 0) {
-		//	printf("hangtime: %f \n", hangTime);
-		//}
-		//return;	
+		float hangTime =  m_localPlayer->getTime() - m_localPlayer->getTraversalStart();
+		float traversalProgress = m_localPlayer->getTraversalProgress();
+		if (counter % 10 == 0) {
+			printf("hangtime: %f \n", hangTime);
+		}
+		return;	
 	}
 	if (longclimb) {
 		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
