@@ -89,6 +89,7 @@ public:
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (counter % 10 == 0) {
 		printf("hangtime: %f \n", hangTime);
+		printf("fps: %d \n", m_level->getFpsMax());
 	}
 
 	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 0.8f && m_localPlayer->getForwardDown()) {
