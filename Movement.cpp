@@ -39,8 +39,8 @@ public:
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8) {
 			longclimb = true;
+			return;	
 		}
-		return;	
 	}
 	if (longclimb) {
 		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
