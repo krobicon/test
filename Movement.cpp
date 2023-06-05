@@ -75,17 +75,13 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
+	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && counter % 2 == 0) {
 		m_localPlayer->setJumpState(5);
-		printf("attempt \n");
 	}
 	else if (m_localPlayer->getJumpDown() == 65 && counter % 1 == 0) {
 		m_localPlayer->setJumpState(4);
-		printf("attempt \n");
 	}
-	    
-	printf("jump state: %d \n", m_localPlayer->getJumpState());
-		
 	// auto superglide
 	/*if (counter % 10 == 0)
 		printf("duck down: %d \n", m_localPlayer->getDuckDown());
