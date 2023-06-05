@@ -11,6 +11,15 @@ public:
         long basePointer = offsets::REGION + offsets::LEVEL;
         return basePointer;
     }
+    long getFpsPointer() {
+        long basePointer = offsets::REGION + offsets::FPS_MAX;
+        return basePointer
+    }
+    int getFpsMax() {
+        long fpsPointer = mem::ReadLong(getFpsPointer()+0x6c);
+        int result = mem::ReadInt(fpsPointer);
+        return result;
+    }
     std::string getName()
     {
         long basePointer = getBasePointer();
