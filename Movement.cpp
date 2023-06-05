@@ -80,6 +80,8 @@ public:
 		//m_localPlayer->setJumpState(5);
 		printf("attempt \n");
 	}
+	    
+	printf("jump state: %d \n", m_localPlayer->getJumpState());
 		
 	// auto superglide
 	/*if (counter % 10 == 0)
