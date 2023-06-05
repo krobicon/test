@@ -75,8 +75,8 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-	else if (m_localPlayer->getJumpDown() == 65) {
-		m_localPlayer->getJumpState();
+	else if (m_localPlayer->getJumpDown() == 65 && counter % 10 == 0) {
+		printf("jump state: %d \n", m_localPlayer->getJumpState());;
 	}
 		
 	// auto superglide
