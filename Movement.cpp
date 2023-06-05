@@ -12,7 +12,6 @@ private:
 
     bool jumpstart = false;
     int strafeTick;
-    bool startSg = false;
     float startjumpTime;
     bool gliding = false;
     bool longclimb = false;
@@ -87,6 +86,7 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
+	bool startSg = false;
 	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f && m_localPlayer->getForwardDown()) {
 	//start SG
 		startjumpTime = worldTime;
