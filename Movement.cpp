@@ -75,8 +75,8 @@ public:
 			m_localPlayer->setForwardState(1);
 		}
 	}
-	else if (m_localPlayer->getJumpDown()) {
-		m_localPlayer->setJumpState(5);
+	else if (m_localPlayer->getJumpDown() == 65) {
+		m_localPlayer->getJumpState();
 	}
 		
 	// auto superglide
