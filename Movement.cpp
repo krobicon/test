@@ -21,6 +21,7 @@ private:
     float onWallOffTmp;
     float onWallTmp;
     int wallJumpNow;
+    bool startSg = false;
 	
 public:
     Movement(Level *level,
@@ -86,8 +87,10 @@ public:
 	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
-	bool startSg = false;
-	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f && m_localPlayer->getForwardDown()) {
+	if (counter % 10 == 0) {
+		printf("hangtime: %f \n", hangTime);
+	}
+	/*if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.2f && m_localPlayer->getForwardDown()) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
