@@ -13,7 +13,7 @@ public:
     }
     long getFpsPointer() {
         long basePointer = offsets::REGION + offsets::FPS_MAX;
-        return basePointer
+        return basePointer;
     }
     int getFpsMax() {
         long fpsPointer = mem::ReadLong(getFpsPointer()+0x6c);
