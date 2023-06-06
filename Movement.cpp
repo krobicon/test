@@ -22,6 +22,7 @@ private:
     float onWallTmp;
     int wallJumpNow;
     bool startSg = false;
+    int sgCounter = 0;
 	
 public:
     Movement(Level *level,
@@ -84,7 +85,7 @@ public:
 	}
 	
 	// auto superglide
-	auto worldTime = m_localPlayer->getTime();
+	/*auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (counter % 10 == 0) {
@@ -97,9 +98,10 @@ public:
 		startSg = true;
 	}
 	
-	if (startSg && !gliding) {
+	if (startSg) {
 	//press button
 		m_localPlayer->setJumpState(5);
+		sgCounter = counter;
 		if ((worldTime - startjumpTime) >= 0.0036) {
 			m_localPlayer->setDuckState(5);
 			gliding = true;
@@ -114,9 +116,10 @@ public:
 		}
 		gliding = false;
 		startSg = false;
-	}
+		sgCounter = 0;
+	}*/
 	    
-	/*
+	
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.85f && traversalProgress < 1.0f) {
 		superglideStart = true;
@@ -137,7 +140,7 @@ public:
 			superglideStart = false;
 			superglideTimer = 0;
 		}
-	}*/
+	}
 	//////////////////////////// TEST AUTO WALL JUMP /////////////
 	/*float onWall = m_localPlayer->getWallrunStart();
 	if (onWall != onWallTmp) {
