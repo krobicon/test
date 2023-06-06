@@ -12,7 +12,7 @@ private:
 
     bool jumpstart = false;
     int strafeTick;
-    float startjumpTime;
+    float startjumpTime = 0;
     bool gliding = false;
     bool longclimb = false;
     float previousTraversal;
@@ -22,7 +22,7 @@ private:
     float onWallTmp;
     int wallJumpNow;
     bool startSg = false;
-    int sgCounter = 0;
+    float superglideCooldown;
 	
 public:
     Movement(Level *level,
@@ -55,13 +55,11 @@ public:
 			strafeTick = 0;
 		}
 		else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 130 && m_localPlayer->getForwardDown() == 33)) {
-			if (m_localPlayer->getForwardState() == 0)
-			{
+			if (m_localPlayer->getForwardState() == 0) {
 				m_localPlayer->setForwardState(5);
 				//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
 			}
-			else
-			{
+			else {
 				m_localPlayer->setForwardState(4);
 			}
 		}
@@ -92,7 +90,7 @@ public:
 		printf("hangtime: %f \n", hangTime);
 	}
 
-	if (traversalProgress > 0.85f && !startSg && hangTime > 0.05f && hangTime < 0.5f) {
+	if (!startSg && traversalProgress > 0.87f && hangTime > 0.05f && hangTime < 0.5f && worldTime > (startjumpTime + 2.0f)) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
@@ -101,13 +99,13 @@ public:
 	if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(5);
-		if ((worldTime - startjumpTime) >= 0.003) {
+		if ((worldTime - startjumpTime) >= 0.004) {
 			m_localPlayer->setDuckState(5);
 			gliding = true;
 		}
 		printf("how many times? \n");
 	}
-	else if ((worldTime - startjumpTime) >= 0.5f && gliding){
+	else if ((worldTime - startjumpTime) >= 0.1f && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);
 		if (m_localPlayer->getDuckDown() != 79) {
