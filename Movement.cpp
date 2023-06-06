@@ -100,7 +100,7 @@ public:
 	if (startSg) {
 	//press button
 		m_localPlayer->setJumpState(5);
-		if ((worldTime - startjumpTime) > 0.007) {
+		if ((worldTime - startjumpTime) >= 0.005) {
 			m_localPlayer->setDuckState(5);
 		}
 		printf("how many times? \n");
