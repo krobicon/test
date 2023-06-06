@@ -97,11 +97,12 @@ public:
 		startSg = true;
 	}
 	
-	if (startSg) {
+	if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(5);
 		if ((worldTime - startjumpTime) >= 0.005) {
 			m_localPlayer->setDuckState(5);
+			gliding = true;
 		}
 		printf("how many times? \n");
 	}
@@ -111,6 +112,7 @@ public:
 		if (m_localPlayer->getDuckDown() != 79) {
 			m_localPlayer->setDuckState(4);
 		}
+		gliding = false;
 		startSg = false;
 	}
 	    
