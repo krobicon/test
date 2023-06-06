@@ -85,30 +85,29 @@ public:
 	}
 	
 	// auto superglide
-	/*auto worldTime = m_localPlayer->getTime();
+	auto worldTime = m_localPlayer->getTime();
 	auto hangTime =  worldTime - m_localPlayer->getTraversalStart();
 	float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (counter % 10 == 0) {
 		printf("hangtime: %f \n", hangTime);
 	}
 
-	if (traversalProgress > 0.85f && !startSg && hangTime > 0.05f && hangTime < 0.8f) {
+	if (traversalProgress > 0.85f && !startSg && hangTime > 0.05f && hangTime < 0.4f) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
 	}
 	
-	if (startSg) {
+	if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(5);
-		sgCounter = counter;
-		if ((worldTime - startjumpTime) >= 0.0036) {
+		if ((worldTime - startjumpTime) >= 0.003) {
 			m_localPlayer->setDuckState(5);
 			gliding = true;
 		}
 		printf("how many times? \n");
 	}
-	else if ((worldTime - startjumpTime) >= 0.5f && startSg){
+	else if ((worldTime - startjumpTime) >= 0.4f && gliding){
 	//need to release button
 		m_localPlayer->setJumpState(4);
 		if (m_localPlayer->getDuckDown() != 79) {
@@ -116,11 +115,10 @@ public:
 		}
 		gliding = false;
 		startSg = false;
-		sgCounter = 0;
-	}*/
+	}
 	    
 	
-	float traversalProgress = m_localPlayer->getTraversalProgress();
+	/*float traversalProgress = m_localPlayer->getTraversalProgress();
 	if (traversalProgress > 0.85f && traversalProgress < 1.0f && !superglideStart) {
 		superglideStart = true;
 		printf("SUPER~~\n");
@@ -140,7 +138,7 @@ public:
 			superglideStart = false;
 			superglideTimer = 0;
 		}
-	}
+	}*/
 	//////////////////////////// TEST AUTO WALL JUMP /////////////
 	/*float onWall = m_localPlayer->getWallrunStart();
 	if (onWall != onWallTmp) {
