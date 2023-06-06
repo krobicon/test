@@ -91,7 +91,7 @@ public:
 		printf("hangtime: %f \n", hangTime);
 	}
 
-	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 1.5f && m_localPlayer->getForwardDown()) {
+	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 0.8f && m_localPlayer->getForwardDown()) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
@@ -100,18 +100,16 @@ public:
 	if (startSg) {
 	//press button
 		m_localPlayer->setJumpState(5);
-		if ((worldTime - startjumpTime) > 0.005) {
+		if ((worldTime - startjumpTime) > 0.007) {
 			m_localPlayer->setDuckState(5);
-			gliding = true;
 		}
 		printf("how many times? \n");
 	}
-	if ((worldTime - startjumpTime) >= 1.5f && startSg && gliding){
+	if ((worldTime - startjumpTime) >= 0.8f && startSg){
 	//need to release button
 		m_localPlayer->setJumpState(4);
 		if (m_localPlayer->getDuckDown() != 79) {
 			m_localPlayer->setDuckState(4);
-			gliding = false;
 		}
 		startSg = false;
 	}
