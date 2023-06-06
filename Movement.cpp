@@ -90,7 +90,7 @@ public:
 	//	printf("hangtime: %f \n", hangTime);
 	//}
 
-	if (!startSg && traversalProgress > 0.87f && hangTime > 0.05f && hangTime < 0.5f && worldTime > (startjumpTime + 2.0f)) {
+	if (!startSg && traversalProgress > 0.87f && hangTime > 0.05f && hangTime < 0.9f && worldTime > (startjumpTime + 2.0f)) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
