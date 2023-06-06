@@ -91,7 +91,7 @@ public:
 		printf("hangtime: %f \n", hangTime);
 	}
 
-	if (traversalProgress > 0.87f && !startSg && hangTime > 0.05f && hangTime < 0.8f && m_localPlayer->getForwardDown()) {
+	if (traversalProgress > 0.85f && !startSg && hangTime > 0.05f && hangTime < 0.8f && m_localPlayer->getForwardDown()) {
 	//start SG
 		startjumpTime = worldTime;
 		startSg = true;
