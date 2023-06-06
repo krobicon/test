@@ -100,7 +100,7 @@ public:
 	if (startSg && !gliding) {
 	//press button
 		m_localPlayer->setJumpState(5);
-		if ((worldTime - startjumpTime) >= 0.005) {
+		if ((worldTime - startjumpTime) >= 0.01) {
 			m_localPlayer->setDuckState(5);
 			gliding = true;
 		}
