@@ -77,8 +77,8 @@ public:
 	
     	//if (distanceToTarget > 20)
 		//return;
-	if (counter % 10 == 0)
-		printf("D UPDATE: %f\n", distanceToTarget);
+	//if (counter % 10 == 0)
+		//printf("D UPDATE: %f\n", distanceToTarget);
     	desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
 					      	m_localPlayer->getLocationY(),
 					      	m_lockedOnPlayer->getLocationX(),
