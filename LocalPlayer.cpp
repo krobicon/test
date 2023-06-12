@@ -79,12 +79,6 @@ public:
         float result = mem::ReadFloat(ptrLong);
         return result;
     }
-   /*bool isClimbing() {
-        float WallrunStart = getWallrunStart();
-	float WallrunClear = getWallrunClear();
-        bool result = WallrunStart > WallrunClear;
-        return result;
-    }*/
     bool isClimbing() {
         return getWallrunStart() > getWallrunClear();
     }
@@ -215,6 +209,26 @@ public:
     {
         long basePointer = getBasePointer();
         long ptrLong = offsets::REGION + offsets::IN_FORWARD + 0x8;
+        mem::WriteInt(ptrLong, state);
+    }
+    int getBackwardDown()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_BACKWARD;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    int getBackwardState()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_BACKWARD + 0x8;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
+    void setBackwardState(int state)
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = offsets::REGION + offsets::IN_BACKWARD + 0x8;
         mem::WriteInt(ptrLong, state);
     }
     int getJumpDown()
