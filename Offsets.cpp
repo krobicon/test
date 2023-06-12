@@ -9,6 +9,7 @@ namespace offsets
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long IN_ATTACK = 0x07404610;  // [Buttons] -> in_attack
     const long IN_FORWARD = 0x074045a0; // [Buttons] -> in_forward
+    const long IN_BACKWARD = 0x074045c8;
     const long IN_JUMP = 0x074046a0;    // [Buttons] -> in_jump
     const long IN_WALK = 0x0bd29870;    // [Buttons] -> in_walk
     const long IN_RELOAD = 0x07404650;  // [Buttons] -> in_reload
