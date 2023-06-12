@@ -48,7 +48,7 @@ public:
 			longclimb = false;
 	}
 	// auto tap trafe
-	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb)
+	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb && !m_localPlayer->getBackwardDown())
 	{
 		if (jumpstart == false) {
 			jumpstart = true;
