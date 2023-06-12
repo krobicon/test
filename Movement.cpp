@@ -35,6 +35,9 @@ public:
     }
     void update(int counter)
     {
+	if (counter % 10 == 0 ){
+		printf("Forward down:[%d] \n", m_localPlayer->getForwardDown());
+	}
 	//don't tap strafe if making a long climb to mantle
 	if (m_localPlayer->isClimbing()) {
 		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
