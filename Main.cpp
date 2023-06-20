@@ -91,9 +91,9 @@ int main(int argc, char *argv[])
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
 			}
-			//else if (configLoader->isAimbotOn()){
+			else if (configLoader->isAimbotOn()){
 			    //aimbot->update(counter);
-			//}
+			}
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()) {
 			    noRecoil->update();
 			}
