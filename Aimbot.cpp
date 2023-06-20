@@ -117,13 +117,15 @@ public:
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
 
-	if (counter % 20 == 0) {
-		printf("pitch delta: %f \n", pitchAngleDeltaAbs);
-	}
+
 	
 	if (distanceToTarget > 14)
 	{
 		fov = fov * 12 / distanceToTarget;
+	}
+
+	if (counter % 10 == 0) {
+		printf("target fov: %f \n", fov);
 	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
