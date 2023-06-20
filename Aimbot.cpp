@@ -255,7 +255,6 @@ public:
         double closestPlayerAngleSoFar;
         for (int i = 0; i < m_players->size(); i++)
         {
-		printf("test3333 \n");
             Player *player = m_players->at(i);
 	    /*if (counter % 1000 == 0)
 	    {
@@ -270,10 +269,12 @@ public:
 	    }*/
 	    if (!player->isValid())
             	continue;
+	    printf("test3333 \n");
             if (player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
 	    }
+	    printf("test444 \n");
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
