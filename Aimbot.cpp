@@ -147,7 +147,7 @@ public:
 	int pixPitch = pitchAngleDelta / (-0.03);
 	pitchpixels += pixPitch;
 	bool move = false;
-	    
+	/*    
 	if (pitchpixels > -4 && pitchpixels < 4){
 		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
 		pitchpixels = 0;
@@ -167,7 +167,7 @@ public:
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
 	}
-	    
+	  */  
         double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
 	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         //m_localPlayer->setPitch(newPitch);
