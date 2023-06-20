@@ -85,7 +85,6 @@ public:
         }*/
 
 	    if (m_lockedOnPlayer == nullptr || !m_lockedOnPlayer->isVisible(false)) {
-		printf("finding \n");
 		m_lockedOnPlayer = findClosestEnemy();
 	    }
 	    if (m_lockedOnPlayer == nullptr)
@@ -112,6 +111,10 @@ public:
 	const double yaw = m_localPlayer->getYaw();
         const double yawAngleDelta = calculateAngleDelta(yaw, desiredViewAngleYaw);
         const double yawAngleDeltaAbs = abs(yawAngleDelta);
+
+	if (counter % 20 == 0) {
+		printf("pitch delta: %f \n", pitchAngleDeltaAbs);
+	}
 	
 	if (distanceToTarget > 14)
 	{
