@@ -145,6 +145,7 @@ public:
 	//printf("SMOOTH: [%d] \n", smooth);
 	//printf("FOV: [%d] \n", fov);
 	int pixelsPitch = pitchAngleDelta / (0.03);
+	int pixelsYaw = yawAngleDelta / (0.03);
 	//pitchpixels += pixPitch;
 	bool move = false;
 	 
@@ -158,6 +159,19 @@ public:
 	}
 	else if (pixelsPitch <= -3) {
 		m_simInput->emit(EV_REL, REL_Y, -3);
+		move = true;
+	}
+	if (abs(pixelsYaw) < 3) {
+		m_simInput->emit(EV_REL, REL_X, pixelsYaw);
+		yawpixels = 0;
+		move = true;
+	}
+	else if (pixelsYaw >= 3) {
+		m_simInput->emit(EV_REL, REL_X, 3);
+		move = true;
+	}
+	else if (pixelsYaw <= -3) {
+		m_simInput->emit(EV_REL, REL_X, -3);
 		move = true;
 	}
 	if (move) {
