@@ -17,6 +17,7 @@ private:
     LocalPlayer *m_localPlayer;
     std::vector<Player *> *m_players;
     X11Utils *m_x11Utils;
+    SimInput *m_simInput;
 
     Player *m_lockedOnPlayer = nullptr;
     bool triggerCache = false;
@@ -28,13 +29,15 @@ public:
            Level *level,
            LocalPlayer *localPlayer,
            std::vector<Player *> *players,
-           X11Utils *x11Utils)
+           X11Utils *x11Utils,
+	   SimInput *simInput)
     {
         m_configLoader = configLoader;
         m_level = level;
         m_localPlayer = localPlayer;
         m_players = players;
         m_x11Utils = x11Utils;
+	m_simInput = simInput;
     }
     void update(int counter)
     {
