@@ -89,9 +89,6 @@ public:
 	    }
 	    if (m_lockedOnPlayer == nullptr)
 		return;
-	    if (counter % 20 == 0) {
-		printf("test \n");
-	    }
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 							       m_localPlayer->getLocationY(),
 							       m_localPlayer->getLocationZ(),
@@ -270,21 +267,33 @@ public:
 	    if (!player->isValid())
             	continue;
             if (player->isKnocked() || !player->isVisible(false))
-	    {
                 continue;
-	    }
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                 //continue;
-
+	    double dist = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
+				       m_localPlayer->getLocationY(),
+				       m_localPlayer->getLocationZ(),
+				       player->getLocationX(),
+				       player->getLocationY(),
+				       player->getLocationZ());
+	    if (dist > 40) {
+		    continue;
+	    }
+	    float fovcheck = 10;
             double desiredViewAngleYaw = calculateDesiredYaw(m_localPlayer->getLocationX(),
                                                              m_localPlayer->getLocationY(),
                                                              player->getLocationX(),
                                                              player->getLocationY());
-            double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double desiredViewAnglePitch = calculateDesiredPitch(m_localPlayer, player);
+	    double yawangleDelta = calculateAngleDelta(m_localPlayer->getYaw(), desiredViewAngleYaw);
 	    double pitchangleDelta = calculatePitchAngleDelta(m_localPlayer->getPitch(), desiredViewAnglePitch);
+
+	    if ( abs(yawangleDelta) > fovcheck || abs(pitchangleDelta) > (fovcheck / 3)) {
+	    	continue;
+	    }
+		
             if (closestPlayerSoFar == nullptr)
             {
                 closestPlayerSoFar = player;
