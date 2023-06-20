@@ -145,7 +145,7 @@ public:
 	//printf("SMOOTH: [%d] \n", smooth);
 	//printf("FOV: [%d] \n", fov);
 	int pixelsPitch = pitchAngleDelta / (0.03);
-	int pixelsYaw = yawAngleDelta / (0.03);
+	int pixelsYaw = yawAngleDelta / (-0.03);
 	//pitchpixels += pixPitch;
 	bool move = false;
 	 
