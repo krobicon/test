@@ -269,7 +269,6 @@ public:
 	    }*/
 	    if (!player->isValid())
             	continue;
-	    printf("test3333 \n");
             if (player->isKnocked() || !player->isVisible(false))
 	    {
                 continue;
