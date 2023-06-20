@@ -273,7 +273,6 @@ public:
 	    {
                 continue;
 	    }
-	    printf("test444 \n");
             //if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
                 //continue;
             //if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
