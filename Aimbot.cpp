@@ -144,20 +144,20 @@ public:
 	//printf("TRIGGER: [%d] \n", trigger);
 	//printf("SMOOTH: [%d] \n", smooth);
 	//printf("FOV: [%d] \n", fov);
-	int pixelsPitch = pitchAngleDelta / (-0.03);
+	int pixelsPitch = pitchAngleDelta / (0.03);
 	//pitchpixels += pixPitch;
 	bool move = false;
 	 
-	if (pixelsPitch > -4 && pixelsPitch < 4){
+	if (pixelsPitch > -3 && pixelsPitch < 3){
 		m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
 		move = true;
 	}
-	else if (pixelsPitch >= 4) {
-		m_simInput->emit(EV_REL, REL_Y, 4);
+	else if (pixelsPitch >= 3) {
+		m_simInput->emit(EV_REL, REL_Y, 3);
 		move = true;
 	}
-	else if (pixelsPitch <= -4) {
-		m_simInput->emit(EV_REL, REL_Y, -4);
+	else if (pixelsPitch <= -3) {
+		m_simInput->emit(EV_REL, REL_Y, -3);
 		move = true;
 	}
 	if (move) {
