@@ -149,18 +149,15 @@ public:
 	bool move = false;
 	 
 	if (pixelsPitch > -4 && pixelsPitch < 4){
-		m_simInput->emit(EV_REL, REL_Y, pitchpixels);
-		pitchpixels = 0;
+		m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
 		move = true;
 	}
 	else if (pixelsPitch >= 4) {
 		m_simInput->emit(EV_REL, REL_Y, 4);
-		pitchpixels -= 4;
 		move = true;
 	}
 	else if (pixelsPitch <= -4) {
 		m_simInput->emit(EV_REL, REL_Y, -4);
-		pitchpixels += 4;
 		move = true;
 	}
 	if (move) {
