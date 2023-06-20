@@ -88,11 +88,11 @@ int main(int argc, char *argv[])
 					printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
 				//printf("wall clear?: %f\n", localPlayer->getWallrunClear());
 			}*/
+			if (configLoader->isAimbotOn()){
+			    aimbot->update(counter);
+			}
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
-			}
-			else if (configLoader->isAimbotOn()){
-			    //aimbot->update(counter);
 			}
 			else if (rand() % 3 == 0 && localPlayer->isInAttack()) {
 			    noRecoil->update();
