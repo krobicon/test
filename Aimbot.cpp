@@ -89,6 +89,9 @@ public:
 	    }
 	    if (m_lockedOnPlayer == nullptr)
 		return;
+	    if (counter % 20 == 0) {
+		printf("test \n");
+	    }
 	    distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
 							       m_localPlayer->getLocationY(),
 							       m_localPlayer->getLocationZ(),
