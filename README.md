@@ -21,7 +21,7 @@ Only works horizontally.
 1. Open terminal and run the following to download the cheat source code
 
 ```
-git clone https://github.com/arturzxc/myapex.git
+git clone https://github.com/krobicon/test.git
 ```
 
 2. Go inside the downloaded folder
@@ -70,7 +70,7 @@ UPDATE[0] OK.
 Check your settings and make sure the features you want to use are set to true but if that doesn't work then the offsets might need an update. For any devs out there, please feel free to create pull requests for offset updates.
 
 
-### Why aimbot is not working!?
+### Why aim is not working!?
 Aimbot is disabled by default. If you want it to work then edit myapex.ini and set it to true.
 
 ### I am getting "... fatal error: X11/Xlib.h ... "
