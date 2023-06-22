@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     }
     
     bool findMatch = false;
+    bool aimSwitch = false;
 	
     Level *level = new Level();
     LocalPlayer *localPlayer = new LocalPlayer();
@@ -89,7 +90,13 @@ int main(int argc, char *argv[])
 				//printf("semiauto?: %d\n", localWeapon->isSemiAuto());
 			//}
 			if (configLoader->isAimbotOn()){
-			    aimbot->update(counter);
+				if (counter % 10 == 0) {
+					if (rand() % 3 == 0) {
+						aimSwitch = !aimSwitch;
+					}
+				}
+			    if (aimSwitch)
+			    	aimbot->update(counter);
 			}
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
