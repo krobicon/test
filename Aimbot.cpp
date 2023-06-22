@@ -20,7 +20,6 @@ private:
     SimInput *m_simInput;
 
     Player *m_lockedOnPlayer = nullptr;
-    bool triggerCache = false;
     int pitchpixels = 0;
     int yawpixels = 0;
 
