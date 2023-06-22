@@ -149,8 +149,8 @@ public:
 		usleep(2000);
 	}
 	  
-        double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
-	double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
+        //double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
+	//double newYaw = normalizeYaw(yaw + (yawAngleDelta / smooth));
         //m_localPlayer->setPitch(newPitch);
         //m_localPlayer->setYaw(newYaw);
     }
