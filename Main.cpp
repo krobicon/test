@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 						aimSwitch = !aimSwitch;
 					}
 				}
-			    if (aimSwitch)
+			    if (aimSwitch && rand() % 5 == 0)
 			    	aimbot->update(counter);
 			}
 			if (triggergun) {
