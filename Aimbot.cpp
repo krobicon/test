@@ -92,8 +92,8 @@ public:
 		fov = fov * 12 / distanceToTarget;
 	}
 
-	if (counter % 10 == 0) {
-		printf("target fov: %f \n", fov);
+	if (counter) {
+		printf("tf: %f \n", fov);
 	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
