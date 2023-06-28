@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 				//printf("semiauto?: %d\n", localWeapon->isSemiAuto());
 			//}
 			if (configLoader->isAimbotOn()){
-				if (counter % 20 == 0) {
+				if (counter % 30 == 0) {
 					if (rand() % 4 == 0) {
 						aimSwitch = !aimSwitch;
 					}
