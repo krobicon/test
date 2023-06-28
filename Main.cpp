@@ -91,11 +91,11 @@ int main(int argc, char *argv[])
 			//}
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
-					if (rand() % 4 == 0) {
+					if (rand() % 5 == 0) {
 						aimSwitch = !aimSwitch;
 					}
 				}
-			    if (aimSwitch && rand() % 8 == 0)
+			    if (aimSwitch && rand() % 7 == 0)
 			    	aimbot->update(counter);
 			}
 			if (triggergun) {
