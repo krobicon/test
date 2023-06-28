@@ -70,6 +70,7 @@ public:
 	}
 	else if (jumpstart == true && m_localPlayer->isGrounded()) {
 		jumpstart = false;
+		strafeTick = 0;
 		if (m_localPlayer->getForwardDown() == 0) {
 			m_localPlayer->setForwardState(0);
 		}
