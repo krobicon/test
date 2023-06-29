@@ -240,7 +240,7 @@ public:
     {
 	//double localPlayerLocationZ = m_localPlayer->getLocationZ() + 56;
 	double localPlayerLocationZ = m_localPlayer->getCameraZ();
-        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3);
+        double enemyPlayerLocationZ = m_targetPlayer->getLocationZ() + m_targetPlayer->getBoneZ(3) + (rand() % 2 -1);
         /*if (m_localPlayer->isDucking())
         {
             localPlayerLocationZ -= 16;
