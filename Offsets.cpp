@@ -7,13 +7,13 @@ namespace offsets
 {
     // buttons
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long IN_ATTACK = 0x0743d3b0;  // [Buttons] -> in_attack
-    const long IN_FORWARD = 0x0743d460; // [Buttons] -> in_forward
-    const long IN_BACKWARD = 0x0743d488;
-    const long IN_JUMP = 0x0743d420;    // [Buttons] -> in_jump
-    const long IN_WALK = 0x0be95740;    // [Buttons] -> in_walk
-    const long IN_RELOAD = 0x0743d3d0;  // [Buttons] -> in_reload
-    const long IN_DUCK = 0x0be95648;    // [Buttons] -> in_duck
+    const long IN_ATTACK = 0x0743d330;  // [Buttons] -> in_attack
+    const long IN_FORWARD = 0x0743d3e0; // [Buttons] -> in_forward
+    const long IN_BACKWARD = 0x0743d408;
+    const long IN_JUMP = 0x0743d3a0;    // [Buttons] -> in_jump
+    const long IN_WALK = 0x0be956c0;    // [Buttons] -> in_walk
+    const long IN_RELOAD = 0x0743d350;  // [Buttons] -> in_reload
+    const long IN_DUCK = 0x0be955c8;    // [Buttons] -> in_duck
     // core
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
