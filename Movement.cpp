@@ -90,7 +90,7 @@ public:
 			bunnyhop=true;
 			bhopTick = m_localPlayer->getTime();
 		}
-		else if (m_localPlayer->getTime() > (bhopTick + 1) && bunnyhop == true) {
+		else if (m_localPlayer->getTime() > (bhopTick + 0.1) && bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
 			printf("m_localPlayer->getTime() %f \n", m_localPlayer->getTime());
