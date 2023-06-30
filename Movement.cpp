@@ -78,7 +78,7 @@ public:
 			}
 			}
 		}
-		strafeTick++;
+		//strafeTick++;
 	}
 	else if (jumpstart == true && m_localPlayer->isGrounded()) {
 		jumpstart = false;
