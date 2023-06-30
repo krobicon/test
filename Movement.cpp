@@ -88,7 +88,7 @@ public:
 		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false) {
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
-			bhopTick = m_localPlayer->getTime();
+			bhopTick = counter;
 		}
 		else if (counter > (bhopTick + 25) && bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
