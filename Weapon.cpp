@@ -37,6 +37,13 @@ public:
         int result = mem::ReadInt(ptrLong);
         return result;
     }
+    int getAmmoStockpile()
+    {
+        long basePointer = getBasePointer();
+        long ptrLong = basePointer + offsets::AMMO_STOCKPILE;
+        int result = mem::ReadInt(ptrLong);
+        return result;
+    }
     bool isSemiAuto()
     {
         long basePointer = getBasePointer();
