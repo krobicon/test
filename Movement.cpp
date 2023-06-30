@@ -88,7 +88,7 @@ public:
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
 		}
-		else if (bunnyhop == true && counter%10 == 0) {
+		else if (bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
 			printf("hopped %d \n", counter);
