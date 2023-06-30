@@ -87,8 +87,8 @@ int main(int argc, char *argv[])
 				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				//if (localPlayer->isClimbing())
 					//printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
-				printf("jump down?: %d\n", localPlayer->getJumpDown());
-				printf("jump state?: %d\n", localPlayer->getJumpState());
+				//printf("jump down?: %d\n", localPlayer->getJumpDown());
+				//printf("jump state?: %d\n", localPlayer->getJumpState());
 			}
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
