@@ -16,6 +16,7 @@ class SimInput
           ioctl(fd, UI_SET_EVBIT, EV_KEY);
           ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
           ioctl(fd, UI_SET_KEYBIT, KEY_SPACE);
+          ioctl(fd, UI_SET_KEYBIT, KEY_LEFTALT);
          
           ioctl(fd, UI_SET_EVBIT, EV_REL);
           ioctl(fd, UI_SET_RELBIT, REL_X);
@@ -56,6 +57,14 @@ class SimInput
       	emit(EV_KEY, KEY_SPACE, 1);
 			emit(EV_SYN, SYN_REPORT, 0);
 			emit(EV_KEY, KEY_SPACE, 0);
+			emit(EV_SYN, SYN_REPORT, 0);
+         usleep(10000);
+      }
+
+      void alt() {
+      	emit(EV_KEY, KEY_LEFTALT, 1);
+			emit(EV_SYN, SYN_REPORT, 0);
+			emit(EV_KEY, KEY_LEFTALT, 0);
 			emit(EV_SYN, SYN_REPORT, 0);
          usleep(10000);
       }
