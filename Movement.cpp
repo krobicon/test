@@ -88,12 +88,12 @@ public:
 		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false) {
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
-			bhopTick = counter;
+			bhopTick = m_localPlayer->getTime();
 		}
 		else if (counter > (bhopTick + 25) && bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
-			printf("hopped %d \n", counter);
+			printf("m_localPlayer->getTime() %f \n", m_localPlayer->getTime());
 		}
 			//m_localPlayer->setJumpState(4);
 		//m_simInput->alt();
