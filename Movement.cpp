@@ -85,15 +85,14 @@ public:
 	}
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
-		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false) {
+		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false && m_localPlayer->getTime() > (bhopTick + 0.2)) {
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
-			bhopTick = m_localPlayer->getTime();
 		}
-		else if (m_localPlayer->getTime() > (bhopTick + 0.1) && bunnyhop == true) {
+		else if (bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
-			printf("m_localPlayer->getTime() %f \n", m_localPlayer->getTime());
+			bhopTick = m_localPlayer->getTime();
 		}
 			//m_localPlayer->setJumpState(4);
 		//m_simInput->alt();
