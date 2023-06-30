@@ -8,7 +8,7 @@ class Movement
 private:
     Level *m_level;
     LocalPlayer *m_localPlayer;
-    X11Utils *m_x11Utils;
+    SimInput *m_simInput;
 
     bool jumpstart = false;
     int strafeTick;
@@ -27,11 +27,11 @@ private:
 public:
     Movement(Level *level,
              LocalPlayer *localPlayer,
-             X11Utils *x11Utils)
+	     SimInput *simInput)
     {
         m_level = level;
         m_localPlayer = localPlayer;
-        m_x11Utils = x11Utils;
+        m_simInput = simInput;
     }
     void update(int counter)
     {
@@ -80,10 +80,11 @@ public:
 	}
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
-		if (counter % 2 == 0)
+		
+		/*if (counter % 2 == 0)
 			m_localPlayer->setJumpState(5);
 		else
-			m_localPlayer->setJumpState(4);
+			m_localPlayer->setJumpState(4);*/
 	}
 	
 	// auto superglide
