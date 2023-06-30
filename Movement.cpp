@@ -88,7 +88,7 @@ public:
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
 		}
-		else if (bunnyhop == true) {
+		else if (bunnyhop == true && counter%10 == 0) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
 		}
