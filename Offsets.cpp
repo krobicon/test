@@ -58,6 +58,7 @@ namespace offsets
     const long WEAPON = 0x1a14;                     // [RecvTable.DT_BaseCombatCharacter]     -> m_latestPrimaryWeapons
     const long READY_TIME = 0x1638;                 // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_nextReadyTime
     const long AMMO = 0x1660;                       // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInClip
+    const long AMMO_STOCKPILE = 0x1664;             // [RecvTable.DT_WeaponX_LocalWeaponData] -> m_ammoInStockpile
     const long SEMI_AUTO = 0x1bfc;                  // [Miscellaneous]                        -> CWeaponX!m_isSemiAuto STILL NEED UPDATE
     const long BURST = 0x17c8;                      // [DataMap.CWeaponX]                     -> m_burstFireCount
     const long ZOOM_FOV = (0x16b0 + 0x00bc);        // [DataMap.WeaponPlayerData]             -> m_playerData + m_targetZoomFOV
