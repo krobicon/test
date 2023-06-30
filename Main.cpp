@@ -84,10 +84,7 @@ int main(int argc, char *argv[])
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			if (counter % 100 == 0) {
-				   simInput->emit(EV_KEY, KEY_SPACE, 1);
-				   simInput->emit(EV_SYN, SYN_REPORT, 0);
-				   simInput->emit(EV_KEY, KEY_SPACE, 0);
-				   simInput->emit(EV_SYN, SYN_REPORT, 0);
+				   simInput->space();
 
 				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				//if (localPlayer->isClimbing())
