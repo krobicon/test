@@ -86,8 +86,8 @@ public:
 		if (m_localPlayer->getJumpState() == 4) {
 			m_localPlayer->setJumpState(5);
 		}
-		else
-			m_localPlayer->setJumpState(4);
+		//else
+			//m_localPlayer->setJumpState(4);
 		//m_simInput->alt();
 		/*if (counter % 2 == 0)
 			m_localPlayer->setJumpState(5);
