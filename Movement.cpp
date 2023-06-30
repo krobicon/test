@@ -82,8 +82,13 @@ public:
 		}
 	}
 	/////////////// bunny hop
-	else if ((m_localPlayer->getJumpDown() == 65 || m_x11Utils->keyDown(0x0020)) && m_localPlayer->isGrounded()) {
-		m_simInput->alt();
+	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
+		if (m_localPlayer->getJumpState() == 0) {
+			m_localPlayer->setJumpState(5);
+		}
+		else
+			m_localPlayer->setJumpState(4);
+		//m_simInput->alt();
 		/*if (counter % 2 == 0)
 			m_localPlayer->setJumpState(5);
 		else
