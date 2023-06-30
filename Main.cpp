@@ -93,7 +93,6 @@ int main(int argc, char *argv[])
 				if (counter % 30 == 0) {
 					if (rand() % 5 == 0) {
 						aimSwitch = !aimSwitch;
-						printf("switch \n");
 					}
 				}
 			    if (aimSwitch && rand() % 4 == 0)
