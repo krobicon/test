@@ -61,7 +61,7 @@ public:
 		if (jumpstart == false) {
 			jumpstart = true;
 			//strafeTick = 0;
-			strafeTick = m_localPlayer->getTime()
+			strafeTick = m_localPlayer->getTime();
 				//m_localPlayer->getTime() > (strafeTick + 0.1) && m_localPlayer->getTime() < (strafeTick + 0.5)
 		}
 		//else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 135 && m_localPlayer->getForwardDown() == 33)) { //previously 33
