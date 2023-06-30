@@ -83,12 +83,13 @@ int main(int argc, char *argv[])
 			movement->update(counter);
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
-			//if (counter % 10 == 0) {
+			if (counter % 10 == 0) {
+				printf("ammo stockpile: %d\n", localWeapon->getAmmoStockpile());
 				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				//if (localPlayer->isClimbing())
 					//printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
 				//printf("semiauto?: %d\n", localWeapon->isSemiAuto());
-			//}
+			}
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
 					if (rand() % 5 == 0) {
