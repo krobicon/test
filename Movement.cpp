@@ -8,6 +8,7 @@ class Movement
 private:
     Level *m_level;
     LocalPlayer *m_localPlayer;
+    X11Utils *m_x11Utils;
     SimInput *m_simInput;
 
     bool jumpstart = false;
@@ -31,6 +32,7 @@ public:
     {
         m_level = level;
         m_localPlayer = localPlayer;
+	m_x11Utils = x11Utils;
         m_simInput = simInput;
     }
     void update(int counter)
