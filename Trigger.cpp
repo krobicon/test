@@ -291,7 +291,7 @@ public:
 					       player->getLocationY(),
 					       player->getLocationZ());
 		
-	    if (dist > 12) {
+	    if (dist > 13) {
 		    continue;
 	    }
 	    float fovcheck = 32 - dist * 1.2;
