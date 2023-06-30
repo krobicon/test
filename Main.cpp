@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 						aimSwitch = !aimSwitch;
 					}
 					if (!aimSwitch) {
-						if (rand() % 3 == 0) {
+						if (rand() % 2 == 0) {
 							aimSwitch = true;
 						}
 					}
