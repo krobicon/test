@@ -25,6 +25,7 @@ private:
     bool startSg = false;
     float superglideCooldown;
     bool bunnyhop = false;
+    int bhopTick;
 	
 public:
     Movement(Level *level,
@@ -87,8 +88,9 @@ public:
 		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false) {
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
+			bhopTick = counter;
 		}
-		else if (bunnyhop == true) {
+		else if (counter > (bhopTick + 25) && bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
 			printf("hopped %d \n", counter);
