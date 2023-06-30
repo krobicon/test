@@ -83,7 +83,7 @@ public:
 	}
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
-		if (m_localPlayer->getJumpState() == 0) {
+		if (m_localPlayer->getJumpState() == 4) {
 			m_localPlayer->setJumpState(5);
 		}
 		else
