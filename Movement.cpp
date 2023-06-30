@@ -28,6 +28,7 @@ private:
 public:
     Movement(Level *level,
              LocalPlayer *localPlayer,
+	     X11Utils *x11Utils,
 	     SimInput *simInput)
     {
         m_level = level;
