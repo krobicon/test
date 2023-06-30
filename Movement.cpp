@@ -81,8 +81,8 @@ public:
 		}
 	}
 	/////////////// bunny hop
-	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
-		//m_simInput->space();
+	else if ((m_localPlayer->getJumpDown() == 65 || m_x11Utils->keyDown(0x0020)) && m_localPlayer->isGrounded()) {
+		m_simInput->space();
 		/*if (counter % 2 == 0)
 			m_localPlayer->setJumpState(5);
 		else
