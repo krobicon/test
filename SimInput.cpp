@@ -25,7 +25,7 @@ class SimInput
           usetup.id.bustype = BUS_USB;
           usetup.id.vendor = 0x1234; /* sample vendor */
           usetup.id.product = 0x5678; /* sample product */
-          strcpy(usetup.name, "Example device");
+          strcpy(usetup.name, "Device");
 
           ioctl(fd, UI_DEV_SETUP, &usetup);
           ioctl(fd, UI_DEV_CREATE);
