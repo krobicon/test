@@ -91,6 +91,7 @@ public:
 		else if (bunnyhop == true && counter%10 == 0) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
+			printf("hopped \n");
 		}
 			//m_localPlayer->setJumpState(4);
 		//m_simInput->alt();
