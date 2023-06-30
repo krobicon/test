@@ -51,6 +51,14 @@ class SimInput
          emit(EV_SYN, SYN_REPORT, 0);
          usleep(10000);
       }
+
+      void space() {
+      	emit(EV_KEY, KEY_SPACE, 1);
+			emit(EV_SYN, SYN_REPORT, 0);
+			emit(EV_KEY, KEY_SPACE, 0);
+			emit(EV_SYN, SYN_REPORT, 0);
+         usleep(10000);
+      }
 };
 
 // input to angle values for 1.9 sens at 110 fov
