@@ -12,7 +12,7 @@ private:
     SimInput *m_simInput;
 
     bool jumpstart = false;
-    float strafeTick;
+    int strafeTick;
     float startjumpTime = 0;
     bool gliding = false;
     bool longclimb = false;
@@ -58,24 +58,11 @@ public:
 	// auto tap trafe
 	if (!m_localPlayer->isGrounded() && !m_localPlayer->isSkydiving() && !longclimb && !m_localPlayer->getBackwardDown())
 	{
-		bool tap = false;
 		if (jumpstart == false) {
 			jumpstart = true;
-			//strafeTick = 0;
-			strafeTick = m_localPlayer->getTime();
-				//m_localPlayer->getTime() > (strafeTick + 0.1) && m_localPlayer->getTime() < (strafeTick + 0.5)
+			strafeTick = 0;
 		}
-		//else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 135 && m_localPlayer->getForwardDown() == 33)) { //previously 33
-		else if (m_localPlayer->isDucking()) {
-			tap = true;
-		}
-		else if (m_localPlayer->getForwardDown() == 33) {
-			auto currentTime = m_localPlayer->getTime();
-			if (currentTime > (strafeTick + 0.05) && currentTime < (strafeTick + 0.5)){
-			tap = true;
-		}
-
-		if (tap) {
+		else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 135 && m_localPlayer->getForwardDown() == 33)) { //previously 33
 			if (m_localPlayer->getForwardState() == 0) {
 				m_localPlayer->setForwardState(5);
 				//printf("Forward State set:[%d] \n", m_localPlayer->getForwardState());
@@ -83,9 +70,8 @@ public:
 			else {
 				m_localPlayer->setForwardState(4);
 			}
-			}
 		}
-		//strafeTick++;
+		strafeTick++;
 	}
 	else if (jumpstart == true && m_localPlayer->isGrounded()) {
 		jumpstart = false;
