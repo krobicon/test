@@ -67,7 +67,7 @@ public:
 		//else if (m_localPlayer->isDucking() || (strafeTick > 20 && strafeTick < 135 && m_localPlayer->getForwardDown() == 33)) { //previously 33
 		else if (m_localPlayer->getForwardDown() == 33) {
 			auto currentTime = m_localPlayer->getTime();
-			if (currentTime > (strafeTick + 0.2) && currentTime < (strafeTick + 0.5)){
+			if (currentTime > (strafeTick + 0.05) && currentTime < (strafeTick + 0.5)){
 				
 			if (m_localPlayer->getForwardState() == 0) {
 				m_localPlayer->setForwardState(5);
