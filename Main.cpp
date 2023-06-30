@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
 				//if (localPlayer->isClimbing())
 					//printf("climb time? %f\n", localPlayer->getTime() - localPlayer->getWallrunStart());
 				printf("jump?: %d\n", localPlayer->getJumpDown());
+				printf("space press?: %d\n", x11Utils->KeyDown(0xff80));
 			}
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
