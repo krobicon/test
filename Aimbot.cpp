@@ -87,14 +87,10 @@ public:
 
 
 	
-	if (distanceToTarget > 14)
-	{
+	if (distanceToTarget > 14) {
 		fov = fov * 12 / distanceToTarget;
 	}
 
-	if (counter) {
-		printf("tf: %f \n", fov);
-	}
 	    
         if (yawAngleDeltaAbs > fov || pitchAngleDeltaAbs > fov / 2)
 	{
@@ -147,6 +143,7 @@ public:
 	if (move) {
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
+		printf("tf: %f \n", fov);
 	}
 	  
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
