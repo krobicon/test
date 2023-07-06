@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
 					k++;
 				}
 			}*/
-			if (localWeapon->getAmmo() == 1 && !triggergun) {
+			if (localWeapon->getAmmo() == 1 && !triggergun || localWeapon->getAmmo() == 0 && triggergun) {
 				localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
 			}
