@@ -38,7 +38,7 @@ public:
         m_x11Utils = x11Utils;
 	m_simInput = simInput;
     }
-    void update(int counter)
+    void update(int counter, bool trigger)
     {
 	int smooth = m_configLoader->getAimbotSmoothing() + rand() % 40;
 	float fov = m_configLoader->getAimbotActivationFOV();
@@ -47,7 +47,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (!m_localPlayer->isInAttack()) {
+	if (!m_localPlayer->isInAttack() || trigger && !m_localPlayer->isZooming()) {
 	    m_lockedOnPlayer = nullptr;
 	    return;
     	}
