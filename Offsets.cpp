@@ -7,20 +7,20 @@ namespace offsets
 {
     // buttons
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long IN_ATTACK = 0x0743d330;  // [Buttons] -> in_attack
-    const long IN_FORWARD = 0x0743d3e0; // [Buttons] -> in_forward
-    const long IN_BACKWARD = 0x0743d408;
-    const long IN_JUMP = 0x0743d3a0;    // [Buttons] -> in_jump
-    const long IN_WALK = 0x0be956c0;    // [Buttons] -> in_walk
-    const long IN_RELOAD = 0x0743d350;  // [Buttons] -> in_reload
-    const long IN_DUCK = 0x0be955c8;    // [Buttons] -> in_duck
+    const long IN_ATTACK = 0x0743e510;  // [Buttons] -> in_attack
+    const long IN_FORWARD = 0x0743e5e0; // [Buttons] -> in_forward
+    const long IN_BACKWARD = 0x0743e608;
+    const long IN_JUMP = 0x0743e5a0;    // [Buttons] -> in_jump
+    const long IN_WALK = 0x0be968c0;    // [Buttons] -> in_walk
+    const long IN_RELOAD = 0x0743e550;  // [Buttons] -> in_reload
+    const long IN_DUCK = 0x0be967c8;    // [Buttons] -> in_duck
     // core
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
-    const long LEVEL = 0x16fa230;                 // [Miscellaneous] -> LevelName
-    const long LOCAL_PLAYER = (0x022036c0 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8 STILL NEED UPDATE
-    const long ENTITY_LIST = 0x1e53c68;           // [Miscellaneous] -> cl_entitylist
-    const long GAMEMODE = 0x0223c7e0;             // [ConVars]       -> mp_gamemode+0x58 (not sur eif you ened to add 0x58)
+    const long LEVEL = 0x16fb240;                 // [Miscellaneous] -> LevelName
+    const long LOCAL_PLAYER = (0x022048c0 + 0x8); // [Miscellaneous] -> AVC_GameMovement+0x8 STILL NEED UPDATE
+    const long ENTITY_LIST = 0x1e54dc8;           // [Miscellaneous] -> cl_entitylist
+    const long GAMEMODE = 0x0223d990;             // [ConVars]       -> mp_gamemode+0x58 (not sur eif you ened to add 0x58)
     // local player
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long LOCAL_ORIGIN = 0x0158;               // [DataMap.CBaseViewModel]     -> m_localOrigin
