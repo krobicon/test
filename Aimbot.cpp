@@ -143,7 +143,7 @@ public:
 	if (move) {
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
-		printf("move: %f \n", pixelsYaw);
+		printf("move: %d \n", pixelsYaw);
 	}
 	  
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
