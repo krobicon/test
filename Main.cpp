@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 			if (triggergun) {
 			   trigger->update(counter, localWeapon);
 			}
-			else if (rand() % 3 == 0 && localPlayer->isInAttack()) {
+			if (rand() % 3 == 0 && localPlayer->isInAttack()) {
 			    noRecoil->update();
 			}
 			else if (!localPlayer->isInAttack()) {
