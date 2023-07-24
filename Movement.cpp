@@ -25,7 +25,7 @@ private:
     bool startSg = false;
     float superglideCooldown;
     bool bunnyhop = false;
-    float bhopTick;
+    float bhopTick = 0;
 	
 public:
     Movement(Level *level,
@@ -44,15 +44,16 @@ public:
 		printf("Forward down:[%d] \n", m_localPlayer->getForwardDown());
 	}*/
 	//don't tap strafe if making a long climb to mantle
+	auto time = m_localPlayer->getTime();
 	if (m_localPlayer->isClimbing()) {
-		auto climbTime = m_localPlayer->getTime() - m_localPlayer->getWallrunStart();
+		auto climbTime = time - m_localPlayer->getWallrunStart();
 		if (climbTime > 0.8) {
 			longclimb = true;
 			return;	
 		}
 	}
 	if (longclimb) {
-		if (m_localPlayer->getTime() > m_localPlayer->getWallrunClear() + 0.1)
+		if (time > m_localPlayer->getWallrunClear() + 0.1)
 			longclimb = false;
 	}
 	// auto tap trafe
@@ -85,14 +86,14 @@ public:
 	}
 	/////////////// bunny hop
 	else if (m_localPlayer->getJumpDown() == 65 && m_localPlayer->isGrounded()) {
-		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false && m_localPlayer->getTime() > (bhopTick + 0.1)) {
+		if (m_localPlayer->getJumpState() == 5 && bunnyhop == false && time > (bhopTick + 0.1)) {
 			m_localPlayer->setJumpState(4);
 			bunnyhop=true;
 		}
 		else if (bunnyhop == true) {
 			m_localPlayer->setJumpState(5);
 			bunnyhop=false;
-			bhopTick = m_localPlayer->getTime();
+			bhopTick = time;
 		}
 			//m_localPlayer->setJumpState(4);
 		//m_simInput->alt();
