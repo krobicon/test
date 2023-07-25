@@ -36,7 +36,7 @@ public:
             Player *player = m_players->at(i);
             if (!player->isValid() || player->isDead())
                 continue;
-            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial())
+            if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial() && !m_configLoader->isGunrunOn())
                 continue;
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                continue;
