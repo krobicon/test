@@ -115,29 +115,29 @@ public:
 	//pitchpixels += pixPitch;
 	bool move = false;
 	 
-	if (pixelsPitch > -3 && pixelsPitch < 3){
+	if (pixelsPitch > -4 && pixelsPitch < 4){
 		m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
 		move = true;
 	}
-	else if (pixelsPitch >= 3) {
-		m_simInput->emit(EV_REL, REL_Y, 3);
+	else if (pixelsPitch >= 4) {
+		m_simInput->emit(EV_REL, REL_Y, 4);
 		move = true;
 	}
-	else if (pixelsPitch <= -3) {
-		m_simInput->emit(EV_REL, REL_Y, -3);
+	else if (pixelsPitch <= -4) {
+		m_simInput->emit(EV_REL, REL_Y, -4);
 		move = true;
 	}
-	if (abs(pixelsYaw) < 3) {
+	if (abs(pixelsYaw) < 4) {
 		m_simInput->emit(EV_REL, REL_X, pixelsYaw);
 		yawpixels = 0;
 		move = true;
 	}
-	else if (pixelsYaw >= 3) {
-		m_simInput->emit(EV_REL, REL_X, 3);
+	else if (pixelsYaw >= 4) {
+		m_simInput->emit(EV_REL, REL_X, 4);
 		move = true;
 	}
-	else if (pixelsYaw <= -3) {
-		m_simInput->emit(EV_REL, REL_X, -3);
+	else if (pixelsYaw <= -4) {
+		m_simInput->emit(EV_REL, REL_X, -4);
 		move = true;
 	}
 	if (move) {
