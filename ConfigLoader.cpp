@@ -18,6 +18,7 @@ private:
     bool m_featureNoRecoilOn = false;
     bool m_featureSenseOn = false;
     bool m_featureFarmingOn = false;
+    bool m_featureGunrunOn = false;
 
     // aimbot
     int m_aimbotTrigger = 0x0000;
