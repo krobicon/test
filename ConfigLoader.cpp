@@ -83,7 +83,7 @@ private:
             m_featureNoRecoilOn = (lineKey.compare("FEATURE_NORECOIL_ON") != 0) ? m_featureNoRecoilOn : utils::toBool(lineValue);
             m_featureSenseOn = (lineKey.compare("FEATURE_SENSE_ON") != 0) ? m_featureSenseOn : utils::toBool(lineValue);
             m_featureFarmingOn = (lineKey.compare("FEATURE_FARMING_ON") != 0) ? m_featureFarmingOn : utils::toBool(lineValue);
-            m_featureFarmingOn = (lineKey.compare("FEATURE_GUNRUN_ON") != 0) ? m_featureGunrunOn : utils::toBool(lineValue);
+            m_featureGunrunOn = (lineKey.compare("FEATURE_GUNRUN_ON") != 0) ? m_featureGunrunOn : utils::toBool(lineValue);
             // aimbot
             m_aimbotTrigger = (lineKey.compare("AIMBOT_TRIGGER") != 0) ? m_aimbotTrigger : stoi(lineValue, 0, 16);
             m_aimbotSmoothing = (lineKey.compare("AIMBOT_SMOOTHING") != 0) ? m_aimbotSmoothing : stoi(lineValue);
