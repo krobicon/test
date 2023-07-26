@@ -154,7 +154,7 @@ public:
     }
     bool isGunrunOn()
     {
-        return m_featureFarmingOn;
+        return m_featureGunrunOn;
     }
 
     // aimbot
