@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 			//}
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
-					if (rand() % 5 == 0) {
+					if (rand() % 4 == 0) {
 						aimSwitch = !aimSwitch;
 					}
 					if (!aimSwitch) {
