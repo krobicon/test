@@ -116,29 +116,29 @@ public:
 	bool move = false;
 
 	if (trigger) {
-		if (pixelsPitch > -7 && pixelsPitch < 7){
+		if (pixelsPitch > -8 && pixelsPitch < 8){
 			m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
 			move = true;
 		}
-		else if (pixelsPitch >= 7) {
-			m_simInput->emit(EV_REL, REL_Y, 7);
+		else if (pixelsPitch >= 8) {
+			m_simInput->emit(EV_REL, REL_Y, 8);
 			move = true;
 		}
-		else if (pixelsPitch <= -7) {
-			m_simInput->emit(EV_REL, REL_Y, -7);
+		else if (pixelsPitch <= -8) {
+			m_simInput->emit(EV_REL, REL_Y, -8);
 			move = true;
 		}
-		if (abs(pixelsYaw) < 7) {
+		if (abs(pixelsYaw) < 8) {
 			m_simInput->emit(EV_REL, REL_X, pixelsYaw);
 			yawpixels = 0;
 			move = true;
 		}
-		else if (pixelsYaw >= 7) {
-			m_simInput->emit(EV_REL, REL_X, 7);
+		else if (pixelsYaw >= 8) {
+			m_simInput->emit(EV_REL, REL_X, 8);
 			move = true;
 		}
-		else if (pixelsYaw <= -7) {
-			m_simInput->emit(EV_REL, REL_X, -7);
+		else if (pixelsYaw <= -8) {
+			m_simInput->emit(EV_REL, REL_X, -8);
 			move = true;
 		}
 		if (move) {
