@@ -47,7 +47,7 @@ public:
             m_lockedOnPlayer = nullptr;
             return;
         }
-	if (!m_localPlayer->isInAttack() || trigger && !m_localPlayer->isZooming()) {
+	if (!m_localPlayer->isInAttack() && (trigger && !m_localPlayer->isZooming())) {
 	    m_lockedOnPlayer = nullptr;
 	    return;
     	}
