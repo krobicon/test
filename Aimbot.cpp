@@ -114,6 +114,40 @@ public:
 	int pixelsYaw = yawAngleDelta / (-0.03);
 	//pitchpixels += pixPitch;
 	bool move = false;
+
+	if (trigger) {
+		if (pixelsPitch > -7 && pixelsPitch < 7){
+			m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
+			move = true;
+		}
+		else if (pixelsPitch >= 7) {
+			m_simInput->emit(EV_REL, REL_Y, 7);
+			move = true;
+		}
+		else if (pixelsPitch <= -7) {
+			m_simInput->emit(EV_REL, REL_Y, -7);
+			move = true;
+		}
+		if (abs(pixelsYaw) < 7) {
+			m_simInput->emit(EV_REL, REL_X, pixelsYaw);
+			yawpixels = 0;
+			move = true;
+		}
+		else if (pixelsYaw >= 7) {
+			m_simInput->emit(EV_REL, REL_X, 7);
+			move = true;
+		}
+		else if (pixelsYaw <= -7) {
+			m_simInput->emit(EV_REL, REL_X, -7);
+			move = true;
+		}
+		if (move) {
+			m_simInput->emit(EV_SYN, SYN_REPORT, 0);
+			usleep(2000);
+			printf("distance: %f, move: %d \n", distanceToTarget, pixelsYaw);
+		}
+		return;
+	}
 	 
 	if (pixelsPitch > -4 && pixelsPitch < 4){
 		m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
