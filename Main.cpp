@@ -71,18 +71,20 @@ int main(int argc, char *argv[])
                 player->markForPointerResolution();
             }
 
-		printf("SUCCESS 1");
+		printf("SUCCESS 1\n");
 	    
 	    if (configLoader->isFarmingOn()) {
 		    farming->update(counter);
 	    }
 
-		printf("SUCCESS 2");
+		printf("SUCCESS 2\n");
 		
 	    if (level->isPlayable()) {
             	// run features
-		    printf("SUCCESS 3");
+		    printf("SUCCESS 3\n");
 		sense->update(counter);
+
+		    printf("SUCCESS 4\n");
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
 			movement->update(counter);
