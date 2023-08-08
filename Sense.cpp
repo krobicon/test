@@ -33,19 +33,13 @@ public:
     {
         for (int i = 0; i < m_players->size(); i++)
         {
-            printf("success???? sense 1\n");
-            
             Player *player = m_players->at(i);
-            printf("success???? sense 2\n");
             if (!player->isValid() || player->isDead())
                 continue;
-            printf("success???? sense 3\n");
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial() && !m_configLoader->isGunrunOn())
                 continue;
-            printf("success???? sense 4\n");
             if (player->getTeamNumber() == m_localPlayer->getTeamNumber())
                continue;
-            printf("success???? sense 5\n");
             
             double distanceToTarget = math::calculateDistanceInMeters(m_localPlayer->getLocationX(),
                                                           m_localPlayer->getLocationY(),
