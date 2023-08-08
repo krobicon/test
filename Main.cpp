@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 	    if (level->isPlayable()) {
             	// run features
 		    printf("SUCCESS 3\n");
-		sense->update(counter);
+		//sense->update(counter);
 
 		    printf("SUCCESS 4\n");
 		    
