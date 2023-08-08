@@ -87,8 +87,9 @@ int main(int argc, char *argv[])
 		    printf("SUCCESS 4\n");
 		    
 		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
-			movement->update(counter);
 			printf("SUCCESS 5\n");
+			movement->update(counter);
+			printf("SUCCESS 6\n");
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
 			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			//if (counter % 100 == 0) {
