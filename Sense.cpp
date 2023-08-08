@@ -33,10 +33,10 @@ public:
     {
         for (int i = 0; i < m_players->size(); i++)
         {
-            print("success???? sense 1\n");
+            printf("success???? sense 1\n");
             
             Player *player = m_players->at(i);
-            print("success???? sense 2\n");
+            printf("success???? sense 2\n");
             if (!player->isValid() || player->isDead())
                 continue;
             if (m_level->isSpecialMode() && player->getTeamSpecial() == m_localPlayer->getTeamSpecial() && !m_configLoader->isGunrunOn())
