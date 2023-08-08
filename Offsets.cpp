@@ -18,7 +18,7 @@ namespace offsets
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const long REGION = 0x140000000;              // [Mine]          -> Region
     const long LEVEL = 0x16eed90;                 // [Miscellaneous] -> LevelName
-    const long LOCAL_PLAYER = (0x02224440 + 0xA8); // [Miscellaneous] -> AVC_GameMovement+0x8 STILL NEED UPDATE
+    const long LOCAL_PLAYER = (0x22244E8); // [Miscellaneous] -> AVC_GameMovement+0x8 STILL NEED UPDATE
     const long ENTITY_LIST = 0x1e743a8;           // [Miscellaneous] -> cl_entitylist
     const long GAMEMODE = 0x0225d3a0;             // [ConVars]       -> mp_gamemode+0x58 (not sur eif you ened to add 0x58)
     // local player
