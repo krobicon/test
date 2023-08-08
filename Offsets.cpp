@@ -16,7 +16,7 @@ namespace offsets
     const long IN_DUCK = 0x07473098;    // [Buttons] -> in_duck
     // core
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const long REGION = 0x140000000;              // [Mine]          -> Region
+    const long REGION = 0x7d400000;              // [Mine]          -> Region
     const long LEVEL = 0x16eed90;                 // [Miscellaneous] -> LevelName
     const long LOCAL_PLAYER = (0x02224440 + 0xA8); // [Miscellaneous] -> AVC_GameMovement+0x8 STILL NEED UPDATE
     const long ENTITY_LIST = 0x1e743a8;           // [Miscellaneous] -> cl_entitylist
