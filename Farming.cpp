@@ -59,7 +59,7 @@ public:
 		if (counter % 2500 == 0 && m_localPlayer->isGrounded() && rand() % 10 == 0)
 			m_simInput->click();
 	}
-	if (m_level->isPlayable() && counter % 500 == 0) {
+	if (m_level->isPlayable() && m_localPlayer->isDead() && counter % 500 == 0) {
 				int k = 0;
 			    	int j = 0;
 			    	int p = 0;
