@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
 			movement->update(counter);
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
-			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst() && localWeapon->getAmmo() >= 1;
+			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
 			//if (counter % 100 == 0) {
 				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				//if (localPlayer->isClimbing())
@@ -90,8 +90,6 @@ int main(int argc, char *argv[])
 				//printf("jump down?: %d\n", localPlayer->getJumpDown());
 				//printf("jump state?: %d\n", localPlayer->getJumpState());
 			//}
-			if (counter % 100 == 0)
-				printf("zf: %f\n", localWeapon->getZoomFOV());
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
 					if (rand() % 4 == 0) {
@@ -127,13 +125,13 @@ int main(int argc, char *argv[])
 					k++;
 				}
 			}*/
-			/*if (localWeapon->getAmmo() == 1 && !triggergun || localWeapon->getAmmo() == 0) {
+			if (localWeapon->getAmmo() == 1 && !triggergun || localWeapon->getAmmo() == 0 && localWeapon->getZoomFOV() != 70) {
 				//localPlayer->setAttackState(4);
 				localPlayer->setReloadState(5);
 			}
 			else if (localPlayer->getReloadState() == 5) {
 				localPlayer->setReloadState(4);
-			}*/
+			}
 		}
 	    }
 
