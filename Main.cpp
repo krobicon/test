@@ -90,6 +90,8 @@ int main(int argc, char *argv[])
 				//printf("jump down?: %d\n", localPlayer->getJumpDown());
 				//printf("jump state?: %d\n", localPlayer->getJumpState());
 			//}
+			if (counter % 100 == 0)
+				printf("zf: %f\n", localWeapon->getZoomFOV());
 			if (configLoader->isAimbotOn()){
 				if (counter % 30 == 0) {
 					if (rand() % 4 == 0) {
