@@ -177,7 +177,7 @@ public:
 	if (move) {
 		m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 		usleep(2000);
-		printf("distance: %f, move: %d \n", distanceToTarget, pixelsYaw);
+		//printf("distance: %f, move: %d \n", distanceToTarget, pixelsYaw);
 	}
 	  
         //double newPitch = normalizePitch(pitch + (pitchAngleDelta / smooth));
