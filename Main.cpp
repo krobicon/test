@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 		if (!localPlayer->isDead() && !localPlayer->isKnocked()) {
 			movement->update(counter);
 			Weapon *localWeapon = new Weapon(localPlayer->getWeaponHandle());
-			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst();
+			bool triggergun = localWeapon->isSemiAuto() && !localWeapon->isBurst() && localWeapon->getAmmo() >= 1;
 			//if (counter % 100 == 0) {
 				//printf("is climbing?: %d\n", localPlayer->isClimbing());
 				//if (localPlayer->isClimbing())
