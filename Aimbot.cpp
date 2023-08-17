@@ -116,35 +116,35 @@ public:
 	bool move = false;
 
 	if (trigger) {
-		if (pixelsPitch > -8 && pixelsPitch < 8){
+		if (pixelsPitch > -9 && pixelsPitch < 9){
 			m_simInput->emit(EV_REL, REL_Y, pixelsPitch);
 			move = true;
 		}
-		else if (pixelsPitch >= 8) {
-			m_simInput->emit(EV_REL, REL_Y, 8);
+		else if (pixelsPitch >= 9) {
+			m_simInput->emit(EV_REL, REL_Y, 9);
 			move = true;
 		}
-		else if (pixelsPitch <= -8) {
-			m_simInput->emit(EV_REL, REL_Y, -8);
+		else if (pixelsPitch <= -9) {
+			m_simInput->emit(EV_REL, REL_Y, -9);
 			move = true;
 		}
-		if (abs(pixelsYaw) < 8) {
+		if (abs(pixelsYaw) < 9) {
 			m_simInput->emit(EV_REL, REL_X, pixelsYaw);
 			yawpixels = 0;
 			move = true;
 		}
-		else if (pixelsYaw >= 8) {
-			m_simInput->emit(EV_REL, REL_X, 8);
+		else if (pixelsYaw >= 9) {
+			m_simInput->emit(EV_REL, REL_X, 9);
 			move = true;
 		}
-		else if (pixelsYaw <= -8) {
-			m_simInput->emit(EV_REL, REL_X, -8);
+		else if (pixelsYaw <= -9) {
+			m_simInput->emit(EV_REL, REL_X, -9);
 			move = true;
 		}
 		if (move) {
 			m_simInput->emit(EV_SYN, SYN_REPORT, 0);
 			usleep(2000);
-			printf("distance: %f, move: %d \n", distanceToTarget, pixelsYaw);
+			//printf("distance: %f, move: %d \n", distanceToTarget, pixelsYaw);
 		}
 		return;
 	}
